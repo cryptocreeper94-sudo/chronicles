@@ -4,7 +4,8 @@ import { Sky, Stars, OrbitControls, Text } from '@react-three/drei'
 import { Suspense, useMemo } from 'react'
 import * as THREE from 'three'
 import { getSceneForEra } from './scenes'
-import type { SceneConfig, BuildingConfig, PropConfig } from './types'
+import { ModelLoader } from './ModelLoader'
+import type { SceneConfig, BuildingConfig, PropConfig, AssetRef } from './types'
 import type { Era, LocationType } from '../../types/game'
 
 interface ChroniclesEngineProps {
@@ -61,6 +62,9 @@ export function ChroniclesEngine({
 
 // ── Scene Renderer ──
 function SceneRenderer({ config }: { config: SceneConfig }) {
+    // Map era name to model path folder
+    const eraFolder = config.era === 'wildwest' ? 'wild-west' : config.era
+
     return (
         <>
             {/* Lighting */}
@@ -90,14 +94,25 @@ function SceneRenderer({ config }: { config: SceneConfig }) {
                 <meshStandardMaterial color={config.ground.color} />
             </mesh>
 
-            {/* Buildings */}
+            {/* Buildings (primitive fallbacks) */}
             {config.buildings.map((b, i) => (
                 <Building key={i} config={b} />
             ))}
 
-            {/* Props */}
+            {/* Props (primitive fallbacks) */}
             {config.props.map((p, i) => (
                 <Prop key={i} config={p} />
+            ))}
+
+            {/* TrustGen GLB Assets — loads generated models, falls back to wireframe */}
+            {config.assets?.map((asset, i) => (
+                <ModelLoader
+                    key={`asset-${i}`}
+                    assetId={asset.assetId}
+                    era={eraFolder}
+                    position={asset.position}
+                    scale={asset.scale}
+                />
             ))}
         </>
     )

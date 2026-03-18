@@ -1,5 +1,5 @@
 /* ====== Chronicles 3D Engine — 19 Location Scene Configs ====== */
-import type { SceneConfig } from './types'
+import type { SceneConfig, AssetRef } from './types'
 
 // ── MODERN ERA (8 locations) ──
 const modernHome: SceneConfig = {
@@ -18,6 +18,14 @@ const modernHome: SceneConfig = {
         { type: 'lamp', position: [4, 0, 4] },
         { type: 'lamp', position: [-4, 0, -4] },
         { type: 'tree', position: [8, 0, 8] },
+    ],
+    assets: [
+        { assetId: 'env-mod-apartment', position: [0, 0, 0] },
+        { assetId: 'env-mod-streetlight', position: [4, 0, 4] },
+        { assetId: 'env-mod-streetlight', position: [-4, 0, -4] },
+        { assetId: 'env-mod-oak', position: [8, 0, 8] },
+        { assetId: 'env-mod-sedan', position: [-6, 0, 3] },
+        { assetId: 'env-mod-mailbox', position: [3, 0, 5] },
     ],
 }
 
@@ -38,6 +46,13 @@ const modernOffice: SceneConfig = {
         { type: 'lamp', position: [6, 0, 6] },
         { type: 'tree', position: [-6, 0, 6] },
     ],
+    assets: [
+        { assetId: 'env-mod-office-tower', position: [0, 0, 0] },
+        { assetId: 'env-mod-streetlight', position: [6, 0, 6] },
+        { assetId: 'env-mod-oak', position: [-6, 0, 6] },
+        { assetId: 'env-mod-bench', position: [5, 0, 3] },
+        { assetId: 'env-mod-busstop', position: [-8, 0, 0] },
+    ],
 }
 
 const modernGym: SceneConfig = {
@@ -51,6 +66,12 @@ const modernGym: SceneConfig = {
         { type: 'box', position: [0, 2.5, 0], args: [12, 5, 8], color: '#374151', label: 'Gym' },
     ],
     props: [{ type: 'lamp', position: [8, 0, 0] }],
+    assets: [
+        { assetId: 'env-mod-gym', position: [0, 0, 0] },
+        { assetId: 'env-mod-gymequip', position: [0, 0, 5] },
+        { assetId: 'env-mod-streetlight', position: [8, 0, 0] },
+        { assetId: 'env-mod-bench', position: [-5, 0, 3] },
+    ],
 }
 
 const modernCafe: SceneConfig = {
@@ -66,6 +87,13 @@ const modernCafe: SceneConfig = {
     props: [
         { type: 'tree', position: [6, 0, 3] },
         { type: 'lamp', position: [-5, 0, 3] },
+    ],
+    assets: [
+        { assetId: 'env-mod-cafe', position: [0, 0, 0] },
+        { assetId: 'env-mod-cafetable', position: [4, 0, 3] },
+        { assetId: 'env-mod-cafetable', position: [4, 0, -3] },
+        { assetId: 'env-mod-cherry', position: [6, 0, 3] },
+        { assetId: 'env-mod-streetlight', position: [-5, 0, 3] },
     ],
 }
 
@@ -83,6 +111,17 @@ const modernPark: SceneConfig = {
         { type: 'tree', position: [10, 0, -3] }, { type: 'tree', position: [-3, 0, 10] },
         { type: 'lamp', position: [0, 0, 0] }, { type: 'rock', position: [7, 0, -5] },
     ],
+    assets: [
+        { assetId: 'env-mod-gazebo', position: [0, 0, 0] },
+        { assetId: 'env-mod-oak', position: [5, 0, 5] },
+        { assetId: 'env-mod-oak', position: [-8, 0, 3] },
+        { assetId: 'env-mod-cherry', position: [3, 0, -7] },
+        { assetId: 'env-mod-cherry', position: [-5, 0, -5] },
+        { assetId: 'env-mod-bench', position: [2, 0, 3] },
+        { assetId: 'env-mod-bench', position: [-3, 0, -2] },
+        { assetId: 'env-mod-planter', position: [7, 0, 0] },
+        { assetId: 'env-mod-streetlight', position: [0, 0, 8] },
+    ],
 }
 
 const modernLibrary: SceneConfig = {
@@ -97,6 +136,13 @@ const modernLibrary: SceneConfig = {
         { type: 'box', position: [0, 6.5, 0], args: [6, 1, 5], color: '#334155' },
     ],
     props: [{ type: 'lamp', position: [7, 0, 5] }, { type: 'tree', position: [-7, 0, 5] }],
+    assets: [
+        { assetId: 'env-mod-library', position: [0, 0, 0] },
+        { assetId: 'env-mod-bookshelf', position: [0, 0, 4] },
+        { assetId: 'env-mod-bench', position: [5, 0, 5] },
+        { assetId: 'env-mod-streetlight', position: [7, 0, 5] },
+        { assetId: 'env-mod-oak', position: [-7, 0, 5] },
+    ],
 }
 
 const modernMall: SceneConfig = {
@@ -111,6 +157,14 @@ const modernMall: SceneConfig = {
         { type: 'box', position: [12, 2, 8], args: [4, 4, 4], color: '#475569' },
     ],
     props: [{ type: 'lamp', position: [10, 0, 0] }],
+    assets: [
+        { assetId: 'env-mod-mall', position: [0, 0, 0] },
+        { assetId: 'env-mod-streetlight', position: [10, 0, 0] },
+        { assetId: 'env-mod-sedan', position: [8, 0, 8] },
+        { assetId: 'env-mod-bus', position: [-10, 0, 5] },
+        { assetId: 'env-mod-trashcan', position: [6, 0, 6] },
+        { assetId: 'env-mod-hydrant', position: [-6, 0, 6] },
+    ],
 }
 
 const modernRestaurant: SceneConfig = {
@@ -124,6 +178,13 @@ const modernRestaurant: SceneConfig = {
         { type: 'box', position: [0, 2, 0], args: [10, 4, 7], color: '#7f1d1d', label: 'Restaurant' },
     ],
     props: [{ type: 'lamp', position: [6, 0, 4] }, { type: 'lamp', position: [-6, 0, 4] }],
+    assets: [
+        { assetId: 'env-mod-restaurant', position: [0, 0, 0] },
+        { assetId: 'env-mod-cafetable', position: [5, 0, 3] },
+        { assetId: 'env-mod-streetlight', position: [6, 0, 4] },
+        { assetId: 'env-mod-streetlight', position: [-6, 0, 4] },
+        { assetId: 'env-mod-planter', position: [3, 0, 4] },
+    ],
 }
 
 // ── MEDIEVAL ERA (6 locations) ──
@@ -143,6 +204,15 @@ const medievalTownSquare: SceneConfig = {
     props: [
         { type: 'torch', position: [4, 0, 4] }, { type: 'torch', position: [-4, 0, 4] },
         { type: 'barrel', position: [6, 0, -3] },
+    ],
+    assets: [
+        { assetId: 'env-med-well', position: [0, 0, 0] },
+        { assetId: 'env-med-tavern', position: [8, 0, 8], scale: [0.8, 0.8, 0.8] },
+        { assetId: 'env-med-barrel', position: [6, 0, -3] },
+        { assetId: 'env-med-torch', position: [4, 0, 4] },
+        { assetId: 'env-med-torch', position: [-4, 0, 4] },
+        { assetId: 'env-med-oak', position: [-12, 0, -10] },
+        { assetId: 'env-med-haycart', position: [5, 0, -8] },
     ],
 }
 
@@ -164,6 +234,16 @@ const medievalCastle: SceneConfig = {
     props: [
         { type: 'torch', position: [3, 0, 12] }, { type: 'torch', position: [-3, 0, 12] },
     ],
+    assets: [
+        { assetId: 'env-med-keep', position: [0, 0, 0] },
+        { assetId: 'env-med-guardtower', position: [8, 0, 8] },
+        { assetId: 'env-med-guardtower', position: [-8, 0, 8] },
+        { assetId: 'env-med-guardtower', position: [8, 0, -8] },
+        { assetId: 'env-med-guardtower', position: [-8, 0, -8] },
+        { assetId: 'env-med-wall', position: [0, 0, 12] },
+        { assetId: 'env-med-banner', position: [3, 3, 12] },
+        { assetId: 'env-med-banner', position: [-3, 3, 12] },
+    ],
 }
 
 const medievalTavern: SceneConfig = {
@@ -181,6 +261,13 @@ const medievalTavern: SceneConfig = {
         { type: 'torch', position: [5, 0, 0] }, { type: 'barrel', position: [-5, 0, 2] },
         { type: 'barrel', position: [-5, 0, -1] },
     ],
+    assets: [
+        { assetId: 'env-med-tavern', position: [0, 0, 0] },
+        { assetId: 'env-med-taverntable', position: [0, 0, 5] },
+        { assetId: 'env-med-barrel', position: [-5, 0, 2] },
+        { assetId: 'env-med-barrel', position: [-5, 0, -1] },
+        { assetId: 'env-med-torch', position: [5, 0, 0] },
+    ],
 }
 
 const medievalMarket: SceneConfig = {
@@ -197,6 +284,15 @@ const medievalMarket: SceneConfig = {
         { type: 'box', position: [-5, 1.5, -5], args: [4, 3, 3], color: '#8B7F6E', label: 'Herbs' },
     ],
     props: [{ type: 'barrel', position: [0, 0, 0] }, { type: 'torch', position: [8, 0, 0] }],
+    assets: [
+        { assetId: 'env-med-market', position: [5, 0, 5] },
+        { assetId: 'env-med-market', position: [-5, 0, 5] },
+        { assetId: 'env-med-market', position: [5, 0, -5] },
+        { assetId: 'env-med-market', position: [-5, 0, -5] },
+        { assetId: 'env-med-barrel', position: [0, 0, 0] },
+        { assetId: 'env-med-crate', position: [3, 0, 0] },
+        { assetId: 'env-med-wagon', position: [-8, 0, 0] },
+    ],
 }
 
 const medievalChapel: SceneConfig = {
@@ -211,6 +307,13 @@ const medievalChapel: SceneConfig = {
         { type: 'cone', position: [0, 8, -3], args: [2, 5, 4], color: '#9CA3AF' },
     ],
     props: [{ type: 'torch', position: [4, 0, 5] }, { type: 'torch', position: [-4, 0, 5] }],
+    assets: [
+        { assetId: 'env-med-chapel', position: [0, 0, 0] },
+        { assetId: 'env-med-stones', position: [-8, 0, -6] },
+        { assetId: 'env-med-torch', position: [4, 0, 5] },
+        { assetId: 'env-med-torch', position: [-4, 0, 5] },
+        { assetId: 'env-med-pine', position: [8, 0, 5] },
+    ],
 }
 
 const medievalBlacksmith: SceneConfig = {
@@ -226,6 +329,13 @@ const medievalBlacksmith: SceneConfig = {
     props: [
         { type: 'barrel', position: [5, 0, 2] },
         { type: 'rock', position: [-4, 0, 3] },
+    ],
+    assets: [
+        { assetId: 'env-med-forge', position: [0, 0, 0] },
+        { assetId: 'env-med-anvil', position: [3, 0, 0] },
+        { assetId: 'env-med-barrel', position: [5, 0, 2] },
+        { assetId: 'env-med-weaponrack', position: [-3, 0, -2] },
+        { assetId: 'env-med-crate', position: [4, 0, -2] },
     ],
 }
 
@@ -245,6 +355,15 @@ const wildwestSaloon: SceneConfig = {
         { type: 'cactus', position: [8, 0, 8] }, { type: 'barrel', position: [-6, 0, 0] },
         { type: 'cactus', position: [-10, 0, -5] },
     ],
+    assets: [
+        { assetId: 'env-ww-saloon', position: [0, 0, 0] },
+        { assetId: 'env-ww-pokertable', position: [0, 0, 6] },
+        { assetId: 'env-ww-whiskey', position: [-6, 0, 0] },
+        { assetId: 'env-ww-hitchpost', position: [6, 0, 5] },
+        { assetId: 'env-ww-saguaro', position: [8, 0, 8] },
+        { assetId: 'env-ww-saguaro', position: [-10, 0, -5] },
+        { assetId: 'env-ww-wanted', position: [-4, 0, 3.5] },
+    ],
 }
 
 const wildwestSheriff: SceneConfig = {
@@ -259,6 +378,13 @@ const wildwestSheriff: SceneConfig = {
         { type: 'box', position: [0, 4.5, 0], args: [6, 1, 4], color: '#5B4B1E' },
     ],
     props: [{ type: 'cactus', position: [6, 0, 5] }, { type: 'barrel', position: [-5, 0, 3] }],
+    assets: [
+        { assetId: 'env-ww-sheriff', position: [0, 0, 0] },
+        { assetId: 'env-ww-hitchpost', position: [5, 0, 4] },
+        { assetId: 'env-ww-wanted', position: [-5, 0, 0] },
+        { assetId: 'env-ww-saguaro', position: [6, 0, 5] },
+        { assetId: 'env-ww-barrel-cactus', position: [-8, 0, -3] },
+    ],
 }
 
 const wildwestGeneralStore: SceneConfig = {
@@ -274,6 +400,13 @@ const wildwestGeneralStore: SceneConfig = {
     props: [
         { type: 'barrel', position: [6, 0, 0] }, { type: 'barrel', position: [6, 0, -2] },
         { type: 'cactus', position: [-7, 0, 5] },
+    ],
+    assets: [
+        { assetId: 'env-ww-generalstore', position: [0, 0, 0] },
+        { assetId: 'env-ww-whiskey', position: [6, 0, 0] },
+        { assetId: 'env-ww-whiskey', position: [6, 0, -2] },
+        { assetId: 'env-ww-saguaro', position: [-7, 0, 5] },
+        { assetId: 'env-ww-wagon', position: [-5, 0, -5] },
     ],
 }
 
@@ -291,6 +424,17 @@ const wildwestRanch: SceneConfig = {
     props: [
         { type: 'cactus', position: [-12, 0, 10] }, { type: 'rock', position: [15, 0, -8] },
     ],
+    assets: [
+        { assetId: 'env-ww-barn', position: [0, 0, 0] },
+        { assetId: 'env-ww-cabin', position: [10, 0, 8] },
+        { assetId: 'env-ww-fence', position: [5, 0, 12] },
+        { assetId: 'env-ww-fence', position: [-5, 0, 12] },
+        { assetId: 'env-ww-trough', position: [6, 0, 3] },
+        { assetId: 'env-ww-windmill', position: [-10, 0, -8] },
+        { assetId: 'env-ww-horse', position: [8, 0, 5] },
+        { assetId: 'env-ww-saguaro', position: [-12, 0, 10] },
+        { assetId: 'env-ww-rocks', position: [15, 0, -8] },
+    ],
 }
 
 const wildwestGoldMine: SceneConfig = {
@@ -307,6 +451,14 @@ const wildwestGoldMine: SceneConfig = {
     props: [
         { type: 'rock', position: [-5, 0, 3] }, { type: 'rock', position: [-3, 0, -5] },
         { type: 'barrel', position: [5, 0, -3] },
+    ],
+    assets: [
+        { assetId: 'env-ww-mining', position: [0, 0, 0] },
+        { assetId: 'env-ww-minecart', position: [4, 0, 0] },
+        { assetId: 'env-ww-dynamite', position: [5, 0, -3] },
+        { assetId: 'env-ww-campfire', position: [-6, 0, 5] },
+        { assetId: 'env-ww-rocks', position: [-5, 0, 3] },
+        { assetId: 'env-ww-rocks', position: [-3, 0, -5] },
     ],
 }
 

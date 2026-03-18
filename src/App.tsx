@@ -2,6 +2,7 @@
 /* 43+ routes across core gameplay, world, life sim, social, progression, and marketing */
 import { Routes, Route } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
+import { DWSCFooterBadge } from './components/DWSCFooterBadge'
 
 // ── Loading fallback ──
 function PageLoader() {
@@ -136,6 +137,7 @@ export function App() {
                 <Route path="/" element={<ChroniclesPage />} />
                 <Route path="*" element={<LockedPage />} />
             </Routes>
+            <DWSCFooterBadge />
         </Suspense>
     )
 }
