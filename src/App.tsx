@@ -71,9 +71,14 @@ const ChronoGameplayPage = lazy(() => import('./pages/chrono-gameplay'))
 const ChronoEconomyPage = lazy(() => import('./pages/chrono-economy'))
 const ChronoChatPage = lazy(() => import('./pages/chronochat'))
 const ChronoChatInvitePage = lazy(() => import('./pages/chronochat-invite'))
+import { PresaleBanner } from './components/PresaleBanner'
+import { EcosystemAccountHub } from './components/EcosystemAccountHub'
 
 export function App() {
     return (
+        <>
+        <PresaleBanner />
+        <EcosystemAccountHub />
         <Suspense fallback={<PageLoader />}>
             <Routes>
                 {/* Core Gameplay */}
@@ -139,5 +144,6 @@ export function App() {
             </Routes>
             <DWSCFooterBadge />
         </Suspense>
+        </>
     )
 }
