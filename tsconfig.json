@@ -21,7 +21,12 @@
         "noFallthroughCasesInSwitch": true,
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "types": ["node", "vite/client"],
+        "paths": {
+            "@/*": ["./src/*"],
+            "@assets/*": ["./assets/*"]
+        }
     },
     "include": [
         "src"

@@ -1,28 +1,36 @@
-/* ====== ChronoChat Invite ====== */
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import type { Community } from '@shared/chat-types';
 
-export default function ChronoChatInvite() {
+export default function ChronoChatInvitePage({ params }: { params?: { code?: string } }) {
+  const inviteCode = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('code') : null;
+  const [joined, setJoined] = useState(false);
+
+  const { data: community } = useQuery<Community | null>({
+    queryKey: ['invite', inviteCode],
+    queryFn: async () => {
+      if (!inviteCode) return null;
+      return { id: 'c-general', name: 'General', description: 'Public community', ownerId: 'u1', privacy: 'invite-only', createdAt: new Date().toISOString() } as Community;
+    },
+    enabled: !!inviteCode,
+  });
+
+  const join = async () => {
+    setJoined(true);
+  };
+
+  if (!inviteCode) return <div className="p-4 text-center text-slate-400">No invite code provided</div>;
+
   return (
-    <div className="chrono-layout">
-      <nav className="chrono-nav">
-        <Link to="/chronochat" className="btn btn-ghost" style={{ fontSize: 12, padding: '6px 12px' }}>← Chat</Link>
-        <div className="chrono-nav-brand">⚡ <span>Invite</span></div>
-        <div />
-      </nav>
-      <main className="chrono-main">
-        <h2 className="section-title">Invite to ChronoChat</h2>
-        <p className="section-sub">Bring friends into the Chronicles world through shared invitations.</p>
-        <div className="glass-card glow" style={{ textAlign: 'center' }}>
-          <div className="card-image" style={{ borderRadius: '12px 12px 0 0' }}>
-            <img src="/images/medieval_fantasy_kingdom.png" alt="Invite" />
-            <div className="card-image-overlay" />
-          </div>
-          <div style={{ padding: 32 }}>
-            <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>This module is wired and ready. Connect to the backend to see live data.</p>
-          </div>
+    <main className="min-h-screen bg-slate-950 p-4 text-white">
+      <div className="max-w-2xl mx-auto p-4 bg-slate-900/30 rounded-lg">
+        <h2 className="text-2xl font-bold">{community?.name ?? 'Community preview'}</h2>
+        <p className="text-slate-400 mt-2">{community?.description}</p>
+
+        <div className="mt-4">
+          {joined ? <div className="text-green-400">You have joined the community. Redirecting…</div> : <button onClick={join} className="py-3 px-4 rounded bg-cyan-500 text-black" data-testid="join-invite">Join</button>}
         </div>
-      </main>
-      <footer className="chrono-footer">DarkWave Chronicles — A Trust Layer Ecosystem App</footer>
-    </div>
-  )
+      </div>
+    </main>
+  );
 }

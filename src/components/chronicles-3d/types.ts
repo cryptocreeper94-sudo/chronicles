@@ -1,42 +1,102 @@
-/* ====== Chronicles 3D Engine — Types ====== */
-import type { Era, LocationType } from '../../types/game'
+import type * as THREE from "three";
+
+export type EraType = "modern" | "medieval" | "wildwest";
+
+export type LocationType =
+  | "home" | "office" | "gym" | "cafe"
+  | "park" | "library" | "mall" | "restaurant"
+  | "town_square" | "castle" | "tavern" | "market"
+  | "chapel" | "blacksmith" | "saloon" | "sheriff"
+  | "general_store" | "ranch" | "mine";
 
 export interface SceneConfig {
-    id: LocationType
-    name: string
-    era: Era
-    ground: { color: string; size: [number, number] }
-    sky: { color: string; turbidity?: number; rayleigh?: number }
-    fog: { color: string; near: number; far: number }
-    ambient: { color: string; intensity: number }
-    directional: { color: string; intensity: number; position: [number, number, number] }
-    buildings: BuildingConfig[]
-    props: PropConfig[]
-    /** TrustGen-generated GLB assets to load in this scene */
-    assets?: AssetRef[]
-}
-
-export interface BuildingConfig {
-    type: 'box' | 'cylinder' | 'cone'
-    position: [number, number, number]
-    args: number[]
-    color: string
-    label?: string
+  id: string;
+  name: string;
+  era: EraType;
+  location: LocationType;
+  camera: {
+    position: [number, number, number];
+    lookAt: [number, number, number];
+    fov: number;
+  };
+  lighting: {
+    ambientIntensity: number;
+    ambientColor: string;
+    sunPosition: [number, number, number];
+    sunIntensity: number;
+    sunColor: string;
+    pointLights?: Array<{
+      position: [number, number, number];
+      intensity: number;
+      color: string;
+      distance?: number;
+    }>;
+  };
+  environment: {
+    skyColor: string;
+    groundColor: string;
+    groundMaterial?: "concrete" | "grass" | "dirt" | "stone" | "sand" | "wood";
+    fogColor: string;
+    fogNear: number;
+    fogFar: number;
+    particleColor: string;
+    particleCount: number;
+  };
+  props: PropConfig[];
 }
 
 export interface PropConfig {
-    type: 'tree' | 'cactus' | 'rock' | 'lamp' | 'barrel' | 'torch'
-    position: [number, number, number]
+  id: string;
+  type: "building" | "tree" | "furniture" | "decoration" | "ground_feature" | "vehicle" | "sign" | "light";
+  subtype?: string;
+  position: [number, number, number];
+  rotation?: [number, number, number];
+  scale?: [number, number, number];
+  modelUrl?: string;
+  procedural?: ProceduralMeshConfig;
 }
 
-/** Reference to a TrustGen-generated GLB asset */
-export interface AssetRef {
-    /** TrustGen asset ID (e.g. 'env-med-tavern') */
-    assetId: string
-    /** World position [x, y, z] */
-    position: [number, number, number]
-    /** Scale [x, y, z], defaults to [1, 1, 1] */
-    scale?: [number, number, number]
-    /** Rotation in radians [x, y, z] */
-    rotation?: [number, number, number]
+export interface ProceduralMeshConfig {
+  shape: "box" | "cylinder" | "cone" | "sphere" | "plane";
+  args: number[];
+  color: string;
+  roughness?: number;
+  metalness?: number;
+  emissive?: string;
+  emissiveIntensity?: number;
+  children?: ProceduralMeshConfig[];
+  offset?: [number, number, number];
+}
+
+export interface AssetManifest {
+  [key: string]: {
+    url: string;
+    scale?: number;
+    rotation?: [number, number, number];
+  };
+}
+
+export interface EngineState {
+  currentScene: string | null;
+  currentEra: EraType;
+  currentLocation: LocationType;
+  isTransitioning: boolean;
+  loadingProgress: number;
+  isLoaded: boolean;
+}
+
+export interface EraEnvironmentConfig {
+  groundColor: string;
+  groundMaterial: "concrete" | "grass" | "dirt" | "stone" | "sand" | "wood";
+  skyColor: string;
+  fogColor: string;
+  fogNear: number;
+  fogFar: number;
+  ambientIntensity: number;
+  ambientColor: string;
+  sunPosition: [number, number, number];
+  sunIntensity: number;
+  sunColor: string;
+  particleColor: string;
+  particleCount: number;
 }
