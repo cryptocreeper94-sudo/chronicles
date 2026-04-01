@@ -13,7 +13,7 @@ import { usePageAnalytics } from "@/hooks/use-analytics";
 import deepSpace from "@assets/generated_images/deep_space_station.jpg";
 import quantumRealm from "@assets/generated_images/quantum_dimension_realm.jpg";
 import cyberpunkCity from "@assets/generated_images/cyberpunk_neon_city.jpg";
-import medievalKingdom from "@assets/generated_images/medieval_fantasy_kingdom.jpg";
+import historicalKingdom from "@assets/generated_images/feudal_japan_samurai_castle.jpg";
 
 const ECONOMY_PILLARS = [
   {
@@ -28,7 +28,7 @@ const ECONOMY_PILLARS = [
     title: "Property Ownership",
     description: "Own land, buildings, businesses. Blockchain deeds prove ownership. Property can be bought, sold, or lost.",
     color: "from-purple-500 to-violet-600",
-    image: medievalKingdom
+    image: historicalKingdom
   },
   {
     icon: ShoppingBag,

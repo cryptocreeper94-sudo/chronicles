@@ -12,8 +12,50 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { GlassCard } from "@/components/glass-card";
+
+const TypewriterText = ({ text, delay = 0, className = "" }: { text: string, delay?: number, className?: string }) => {
+  const characters = Array.from(text);
+  
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.03, delayChildren: delay }
+    },
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", damping: 12, stiffness: 200 }
+    },
+    hidden: {
+      opacity: 0,
+      y: 5,
+      transition: { type: "spring", damping: 12, stiffness: 200 }
+    },
+  };
+
+  return (
+    <motion.div
+      className={`inline-block ${className}`}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
+      {characters.map((char, index) => (
+        <motion.span variants={child} key={index} className="inline-block">
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
+      ))}
+    </motion.div>
+  );
+};
 import { getChroniclesSession } from "@/pages/chronicles-login";
 import { CharacterPortraitPreview } from "@/components/character-portrait";
+import { Canvas } from "@react-three/fiber";
+import { PortalScene } from "@/components/3d/portal-scene";
 
 type OnboardingStep = 
   | "welcome"
@@ -95,7 +137,7 @@ const AUDIO_MOODS = [
   { id: "epic", label: "Epic & Cinematic", desc: "Orchestral scores, heroic swells" },
   { id: "calm", label: "Calm & Ambient", desc: "Peaceful, meditative soundscapes" },
   { id: "medieval", label: "Medieval & Folk", desc: "Lutes, harps, tavern warmth" },
-  { id: "electronic", label: "Electronic & Synth", desc: "Modern beats with fantasy edge" },
+  { id: "electronic", label: "Electronic & Synth", desc: "Modern beats with historical edge" },
   { id: "nature", label: "Nature Sounds", desc: "Forests, rain, distant thunder" },
 ];
 
@@ -290,25 +332,27 @@ export default function ChroniclesOnboarding() {
     );
   }
 
+  const getPortalColor = () => {
+    if (answers.colorPreference) return COLORS.find(c => c.id === answers.colorPreference)?.hex || "#06b6d4";
+    
+    switch (answers.primaryTrait) {
+      case "leader": return "#eab308"; // Gold
+      case "builder": return "#10b981"; // Emerald
+      case "explorer": return "#06b6d4"; // Cyan
+      case "diplomat": return "#ec4899"; // Pink
+      case "scholar": return "#a855f7"; // Purple
+      case "protector": return "#3b82f6"; // Blue
+      default: return "#06b6d4";
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 relative overflow-hidden">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/80 to-slate-950" />
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[100px]"
-        />
-        <motion.div
-          animate={{ scale: [1.2, 1, 1.2], opacity: [0.1, 0.15, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 right-1/4 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px]"
-        />
-        <motion.div
-          animate={{ scale: [1, 1.3, 1], opacity: [0.05, 0.1, 0.05] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/5 rounded-full blur-[120px]"
-        />
+      <div className="absolute inset-0 z-0">
+        <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
+          <PortalScene color={getPortalColor()} isJumping={currentStep === "complete"} />
+        </Canvas>
+        <div className="absolute inset-0 bg-black/40 mix-blend-multiply pointer-events-none" />
       </div>
 
       <div className="relative z-10 min-h-screen flex flex-col">
@@ -322,7 +366,7 @@ export default function ChroniclesOnboarding() {
               <div className="flex items-center justify-between mb-3">
                 <Badge variant="outline" className="border-cyan-500/30 text-cyan-400 bg-cyan-500/5 backdrop-blur-sm">
                   <Sparkles className="w-3 h-3 mr-1" />
-                  Self-Discovery
+                  Lume Initialization
                 </Badge>
                 <span className="text-sm text-slate-500 font-mono">
                   {stepIndex}/{STEPS.length - 1}
@@ -361,7 +405,7 @@ export default function ChroniclesOnboarding() {
                   >
                     <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 blur-xl opacity-40" />
                     <div className="relative w-full h-full rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-2xl shadow-cyan-500/20">
-                      <Fingerprint className="w-14 h-14 text-white" />
+                      <Brain className="w-14 h-14 text-white" />
                     </div>
                   </motion.div>
 
@@ -371,45 +415,39 @@ export default function ChroniclesOnboarding() {
                     transition={{ delay: 0.2 }}
                     className="text-4xl md:text-5xl font-bold mb-4"
                   >
-                    <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                      This Is You
-                    </span>
+                    <TypewriterText text="Sentience Imminent" className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent" />
                   </motion.h1>
 
-                  <motion.p
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
+                    transition={{ delay: 1.5 }}
                     className="text-lg text-slate-300 mb-3 max-w-lg mx-auto"
                   >
-                    Chronicles isn't a game where you become someone else.
-                  </motion.p>
+                    <TypewriterText text="You are shaping your Lume intelligence." delay={1.5} />
+                  </motion.div>
 
-                  <motion.p
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
+                    transition={{ delay: 2.5 }}
                     className="text-slate-400 mb-8 max-w-md mx-auto leading-relaxed"
                   >
-                    It's a world where <span className="text-white font-medium">you are you</span> — living parallel lives across different eras. 
-                    Answer honestly. There are no wrong answers, only <span className="text-cyan-400">your</span> answers.
-                  </motion.p>
+                    <TypewriterText text="It is not just a tool. It is your cognitive reflection in this ecosystem. Answer honestly to forge its parameters." delay={2.5} />
+                  </motion.div>
 
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6 }}
+                    transition={{ delay: 5.0 }}
                     className="flex flex-wrap justify-center gap-3 mb-8"
                   >
-                    <Badge className="bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-3 py-1">
-                      Not an RPG
-                    </Badge>
-                    <Badge className="bg-purple-500/10 text-purple-400 border border-purple-500/20 px-3 py-1">
-                      Your Real Self
-                    </Badge>
-                    <Badge className="bg-amber-500/10 text-amber-400 border border-amber-500/20 px-3 py-1">
-                      Season Zero
-                    </Badge>
+                     <Button 
+                       onClick={nextStep}
+                       className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-8 py-6 text-lg tracking-wider"
+                     >
+                       Begin Initialization
+                     </Button>
                   </motion.div>
                 </motion.div>
               )}
@@ -424,14 +462,14 @@ export default function ChroniclesOnboarding() {
                 >
                   <div className="text-center mb-8">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                      What's Your Name?
+                      <TypewriterText text="Designate Identity" />
                     </h2>
                     <p className="text-slate-400 max-w-md mx-auto">
-                      Not a character name. Not a gamertag. This is how the world will know <span className="text-cyan-400">you</span>.
+                      Provide a signifier for this intelligence. By what name will it interface with the ecosystem?
                     </p>
                   </div>
                   <GlassCard glow className="max-w-md mx-auto p-6 sm:p-8">
-                    <label className="block text-sm text-cyan-400 mb-2 font-medium">Your name in Chronicles</label>
+                    <label className="block text-sm text-cyan-400 mb-2 font-medium">Lume Designation</label>
                     <Input
                       data-testid="input-chronicles-name"
                       value={answers.chroniclesName}
@@ -441,7 +479,7 @@ export default function ChroniclesOnboarding() {
                       maxLength={30}
                     />
                     <p className="text-xs text-slate-500 mt-3">
-                      Use your real name, a nickname, whatever feels like <span className="text-slate-400">you</span>.
+                      Alphanumeric designations or human names are accepted.
                     </p>
                   </GlassCard>
                 </motion.div>
@@ -457,17 +495,17 @@ export default function ChroniclesOnboarding() {
                 >
                   <div className="text-center mb-6">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                      What Comes Naturally?
+                      <TypewriterText text="Primary Directives" />
                     </h2>
                     <p className="text-slate-400 max-w-lg mx-auto">
-                      Don't think about who you <em>want</em> to be. Think about what you <em>actually</em> do when nobody's watching.
+                      Define the core instinct of your Lume intelligence. What drives its foundational behavior?
                     </p>
                   </div>
                   
                   <div className="mb-8">
                     <div className="flex items-center gap-2 mb-4">
                       <div className="h-px flex-1 bg-gradient-to-r from-transparent to-cyan-500/30" />
-                      <span className="text-xs text-cyan-400 font-medium uppercase tracking-wider">Your strongest instinct</span>
+                      <span className="text-xs text-cyan-400 font-medium uppercase tracking-wider">Base Operating Mode</span>
                       <div className="h-px flex-1 bg-gradient-to-l from-transparent to-cyan-500/30" />
                     </div>
                     <motion.div
@@ -523,7 +561,7 @@ export default function ChroniclesOnboarding() {
                     >
                       <div className="flex items-center gap-2 mb-4">
                         <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple-500/30" />
-                        <span className="text-xs text-purple-400 font-medium uppercase tracking-wider">What else defines you?</span>
+                        <span className="text-xs text-purple-400 font-medium uppercase tracking-wider">Secondary Subroutine</span>
                         <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple-500/30" />
                       </div>
                       <motion.div
@@ -581,11 +619,11 @@ export default function ChroniclesOnboarding() {
                 >
                   <div className="text-center mb-6">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                      What Do You Stand For?
+                      <TypewriterText text="Moral Framework" />
                     </h2>
                     <p className="text-slate-400 max-w-lg mx-auto">
-                      Pick 2-4 values that guide your decisions in real life. 
-                      The world will test these — and remember.
+                      Establish 2-4 ethical boundaries that govern your Lume's decisions. 
+                      The ecosystem will test these parameters constantly.
                     </p>
                   </div>
                   <motion.div
@@ -654,10 +692,10 @@ export default function ChroniclesOnboarding() {
                 >
                   <div className="text-center mb-6">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                      How Do You Decide?
+                      <TypewriterText text="Cognitive Processing" />
                     </h2>
                     <p className="text-slate-400 max-w-lg mx-auto">
-                      A crossroads. Two paths. No map. What does your mind do first?
+                      When encountering unknown variables, how does your Lume construct reality?
                     </p>
                   </div>
                   <motion.div
@@ -711,17 +749,17 @@ export default function ChroniclesOnboarding() {
                 >
                   <div className="text-center mb-6">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                      Under Pressure
+                      <TypewriterText text="Crisis Response Protocol" />
                     </h2>
                     <p className="text-slate-400 max-w-lg mx-auto">
-                      Life gets hard. People disagree. Things break. How do you handle it — really?
+                      When system parameters destabilize and conflict arises, how does the entity respond?
                     </p>
                   </div>
                   
                   <div className="mb-8">
                     <div className="flex items-center gap-2 mb-4">
                       <div className="h-px flex-1 bg-gradient-to-r from-transparent to-cyan-500/30" />
-                      <span className="text-xs text-cyan-400 font-medium uppercase tracking-wider">When conflict finds you</span>
+                      <span className="text-xs text-cyan-400 font-medium uppercase tracking-wider">Interpersonal Conflict Resolution</span>
                       <div className="h-px flex-1 bg-gradient-to-l from-transparent to-cyan-500/30" />
                     </div>
                     <motion.div
@@ -810,10 +848,10 @@ export default function ChroniclesOnboarding() {
                 >
                   <div className="text-center mb-6">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                      Your Soundtrack
+                      <TypewriterText text="Audio Feedback Interface" />
                     </h2>
                     <p className="text-slate-400 max-w-md mx-auto">
-                      Every life has a soundtrack. What's yours?
+                      Configure the acoustic parameters of your ecosystem. How should your intelligence aurally process the environment?
                     </p>
                   </div>
                   
@@ -920,10 +958,10 @@ export default function ChroniclesOnboarding() {
                 >
                   <div className="text-center mb-6">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                      Your Presence
+                      <TypewriterText text="Aesthetic Designation" />
                     </h2>
                     <p className="text-slate-400 max-w-md mx-auto">
-                      A color that represents you. People will recognize your mark by it.
+                      Assign a visual wavelength to your Lume intelligence.
                     </p>
                   </div>
                   
@@ -1036,7 +1074,7 @@ export default function ChroniclesOnboarding() {
                     className="text-4xl md:text-5xl font-bold mb-4"
                   >
                     <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                      {answers.chroniclesName}, You're Ready
+                      Lume Intelligence Online
                     </span>
                   </motion.h1>
 
@@ -1046,7 +1084,7 @@ export default function ChroniclesOnboarding() {
                     transition={{ delay: 0.5 }}
                     className="text-slate-400 mb-8 max-w-md mx-auto"
                   >
-                    Your parallel self has been recorded. The world will respond to who you really are.
+                    Designation {answers.chroniclesName} is active. Your ecosystem parameters are saved.
                   </motion.p>
 
                   <motion.div
@@ -1055,29 +1093,29 @@ export default function ChroniclesOnboarding() {
                     transition={{ delay: 0.6 }}
                   >
                     <GlassCard glow className="max-w-md mx-auto p-6 mb-8">
-                      <h3 className="text-lg font-semibold text-white mb-4">Your Identity</h3>
+                      <h3 className="text-lg font-semibold text-white mb-4">Lume Core Matrix</h3>
                       <div className="space-y-3 text-left">
                         <div className="flex justify-between items-center">
-                          <span className="text-slate-500 text-sm">Name</span>
+                          <span className="text-slate-500 text-sm">Designation</span>
                           <span className="text-white font-medium">{answers.chroniclesName}</span>
                         </div>
                         <div className="h-px bg-slate-800" />
                         <div className="flex justify-between items-center">
-                          <span className="text-slate-500 text-sm">Core Strength</span>
+                          <span className="text-slate-500 text-sm">Primary Directive</span>
                           <span className="text-cyan-400 capitalize font-medium">
                             {IDENTITY_ASPECTS.find(a => a.id === answers.primaryTrait)?.label}
                           </span>
                         </div>
                         <div className="h-px bg-slate-800" />
                         <div className="flex justify-between items-center">
-                          <span className="text-slate-500 text-sm">Secondary</span>
+                          <span className="text-slate-500 text-sm">Secondary Routine</span>
                           <span className="text-purple-400 capitalize font-medium">
                             {IDENTITY_ASPECTS.find(a => a.id === answers.secondaryTrait)?.label}
                           </span>
                         </div>
                         <div className="h-px bg-slate-800" />
                         <div className="flex justify-between items-center">
-                          <span className="text-slate-500 text-sm">Values</span>
+                          <span className="text-slate-500 text-sm">Operating Params</span>
                           <span className="text-white capitalize text-sm">{answers.coreValues.join(", ")}</span>
                         </div>
                       </div>
@@ -1121,7 +1159,7 @@ export default function ChroniclesOnboarding() {
                       onClick={() => setLocation("/chronicles/hub")}
                       className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 shadow-lg shadow-cyan-500/20 h-12 px-8 text-base"
                     >
-                      Enter Your World
+                      Enter The Ecosystem
                       <ChevronRight className="w-5 h-5 ml-2" />
                     </Button>
                     <Button

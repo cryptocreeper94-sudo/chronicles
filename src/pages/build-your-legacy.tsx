@@ -16,7 +16,7 @@ import { usePageAnalytics } from "@/hooks/use-analytics";
 import { useAuth } from "@/hooks/use-auth";
 import { apiRequest } from "@/lib/queryClient";
 
-import fantasyHeroes from "@assets/generated_images/fantasy_character_heroes.jpg";
+import historicalHeroes from "@assets/generated_images/tribal_warrior_man_portrait.jpg";
 
 type RecordingState = "idle" | "recording" | "recorded" | "playing";
 
@@ -255,10 +255,10 @@ export default function BuildYourLegacy() {
               Pre-Launch Access
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Build Your Legacy
+              Lume Intelligence Launchpad
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-              Shape the essence of your parallel self. Record your voice, define your worldview, and prepare for the adventure of lifetimes.
+              Your parallel self is awake. Review your emergent identity, manage your creative credits, and enter the Studio to begin building.
             </p>
           </motion.header>
 
@@ -270,12 +270,12 @@ export default function BuildYourLegacy() {
             >
               <Card className="bg-slate-900/50 border-slate-700/50 backdrop-blur-sm p-6 space-y-6">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30">
-                    <Volume2 className="w-6 h-6 text-cyan-400" />
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30">
+                    <Brain className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold text-white">Voice Sample</h2>
-                    <p className="text-sm text-slate-400">Your parallel self speaks with your voice</p>
+                    <h2 className="text-xl font-bold text-white">Your Parallel Self</h2>
+                    <p className="text-sm text-slate-400">These traits shape what Lume builds for you</p>
                   </div>
                 </div>
 
@@ -487,10 +487,10 @@ export default function BuildYourLegacy() {
                       </div>
                     )}
 
-                    <Link href="/chronicles/ai">
+                    <Link href="/studio">
                       <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-600" data-testid="link-ai-demo">
                         <Sparkles className="w-4 h-4 mr-2" />
-                        Experience AI Demo
+                        Enter Lume Studio
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>
                     </Link>
@@ -500,10 +500,10 @@ export default function BuildYourLegacy() {
                     <p className="text-slate-400">
                       Your parallel self hasn't emerged yet. Begin your journey to discover who you become across history.
                     </p>
-                    <Link href="/chronicles/ai">
+                    <Link href="/studio">
                       <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-600" data-testid="link-start-journey">
                         <Sparkles className="w-4 h-4 mr-2" />
-                        Start Your Journey
+                        Initialize Your Lume
                         <ChevronRight className="w-4 h-4 ml-2" />
                       </Button>
                     </Link>
@@ -581,6 +581,161 @@ export default function BuildYourLegacy() {
             </Card>
           </motion.div>
 
+          {/* Moved Voice Cloning to an Advanced Section at the bottom */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+          >
+            <details className="group border border-slate-700/50 bg-slate-900/30 rounded-2xl cursor-pointer">
+              <summary className="p-6 flex items-center justify-between font-bold text-white outline-none focus:outline-none">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
+                    <Mic className="w-5 h-5 text-cyan-400" />
+                  </div>
+                  Advanced: AI Voice Cloning (Optional)
+                </div>
+                <ChevronRight className="w-5 h-5 text-slate-500 group-open:rotate-90 transition-transform" />
+              </summary>
+              <div className="p-6 pt-0 border-t border-slate-700/50">
+                <p className="text-sm text-slate-400 mb-6">
+                  Bind your actual physical voice to your Lume Entity. This requires reading a prompt and uses 500 API credits.
+                </p>
+                {voiceData?.hasVoiceSample ? (
+                  <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-3">
+                    <div className="flex items-center gap-2 text-emerald-400">
+                      <Check className="w-5 h-5" />
+                      <span className="font-medium">Voice Sample Recorded</span>
+                    </div>
+                    <p className="text-sm text-slate-300">
+                      Your voice is ready. Your Lume and parallel self will speak as you.
+                    </p>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={resetRecording}
+                      className="border-slate-600"
+                    >
+                      <RotateCcw className="w-4 h-4 mr-2" />
+                      Record New Sample
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-xl bg-slate-800/50 border border-slate-700">
+                      <p className="text-sm text-slate-300 italic leading-relaxed">
+                        "{currentPrompt}"
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-center gap-4">
+                      <AnimatePresence mode="wait">
+                        {recordingState === "idle" && (
+                          <motion.div
+                            key="idle"
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                          >
+                            <Button
+                              size="lg"
+                              onClick={startRecording}
+                              className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500"
+                            >
+                              <Mic className="w-8 h-8" />
+                            </Button>
+                          </motion.div>
+                        )}
+
+                        {recordingState === "recording" && (
+                          <motion.div
+                            key="recording"
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            className="flex flex-col items-center gap-3"
+                          >
+                            <div className="relative">
+                              <motion.div
+                                className="absolute inset-0 rounded-full bg-red-500/30"
+                                animate={{ scale: [1, 1.3, 1] }}
+                                transition={{ repeat: Infinity, duration: 1.5 }}
+                              />
+                              <Button
+                                size="lg"
+                                onClick={stopRecording}
+                                className="w-20 h-20 rounded-full bg-red-500 hover:bg-red-600 relative z-10"
+                              >
+                                <MicOff className="w-8 h-8" />
+                              </Button>
+                            </div>
+                            <span className="text-lg font-mono text-red-400">
+                              {formatDuration(recordingDuration)}
+                            </span>
+                          </motion.div>
+                        )}
+
+                        {(recordingState === "recorded" || recordingState === "playing") && (
+                          <motion.div
+                            key="recorded"
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            className="flex flex-col items-center gap-4"
+                          >
+                            <div className="flex items-center gap-3">
+                              <Button
+                                size="lg"
+                                onClick={recordingState === "playing" ? pauseRecording : playRecording}
+                                className="w-14 h-14 rounded-full bg-slate-700 hover:bg-slate-600"
+                              >
+                                {recordingState === "playing" ? (
+                                  <Pause className="w-6 h-6" />
+                                ) : (
+                                  <Play className="w-6 h-6" />
+                                )}
+                              </Button>
+                              <span className="text-lg font-mono text-slate-300">
+                                {formatDuration(recordingDuration)}
+                              </span>
+                            </div>
+                            <div className="flex gap-3">
+                              <Button
+                                variant="outline"
+                                onClick={resetRecording}
+                                className="border-slate-600"
+                              >
+                                <X className="w-4 h-4 mr-2" />
+                                Discard
+                              </Button>
+                              <Button
+                                onClick={submitRecording}
+                                disabled={saveSampleMutation.isPending}
+                                className="bg-gradient-to-r from-emerald-500 to-teal-600"
+                              >
+                                <Check className="w-4 h-4 mr-2" />
+                                {saveSampleMutation.isPending ? "Saving..." : "Save Sample"}
+                              </Button>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+
+                    {audioUrl && (
+                      <audio
+                        ref={audioRef}
+                        src={audioUrl}
+                        onEnded={() => setRecordingState("recorded")}
+                        className="hidden"
+                      />
+                    )}
+                  </div>
+                )}
+              </div>
+            </details>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -589,17 +744,17 @@ export default function BuildYourLegacy() {
           >
             <div className="flex flex-col sm:flex-row items-center gap-4 p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-800/50 to-slate-900/50 border border-slate-700 max-w-lg mx-auto sm:max-w-none sm:inline-flex">
               <img 
-                src={fantasyHeroes} 
-                alt="Fantasy heroes" 
+                src={historicalHeroes} 
+                alt="Creation Studio" 
                 className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover flex-shrink-0"
               />
-              <div className="text-center sm:text-left">
-                <h3 className="text-lg sm:text-xl font-bold text-white">Ready for Adventure?</h3>
-                <p className="text-slate-400 mb-3 text-sm sm:text-base">Try the AI demo now - experience your parallel self in action.</p>
-                <Link href="/chronicles/ai">
-                  <Button className="bg-gradient-to-r from-cyan-500 to-purple-600 w-full sm:w-auto" data-testid="link-experience-demo">
-                    <Sparkles className="w-4 h-4 mr-2" />
-                    Experience the Demo
+              <div className="text-center sm:text-left flex-1">
+                <h3 className="text-lg sm:text-xl font-bold text-white">Generate Your World</h3>
+                <p className="text-slate-400 mb-3 text-sm sm:text-base">Your Lume is fully initialized and awaiting creative parameters.</p>
+                <Link href="/studio">
+                  <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 w-full hover:from-cyan-400 hover:to-blue-500 shadow-[0_0_20px_rgba(0,255,255,0.3)] text-base h-12">
+                    <Sparkles className="w-5 h-5 mr-2" />
+                    ENTER LUME STUDIO
                   </Button>
                 </Link>
               </div>

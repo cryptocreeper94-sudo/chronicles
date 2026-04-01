@@ -12,8 +12,13 @@ import {
   MapPin, Users, Compass, ChevronRight, ArrowLeft, Star,
   Zap, Clock, Eye, Sparkles, Target, Crosshair, Trophy,
   Play, RotateCcw, Volume2, Loader2, Footprints,
-  Swords, TreePine, Building, Home, Shield, Crown,
+  Swords, TreePine, Building, Home, Shield, Crown, MessageCircle, Heart, Handshake
 } from "lucide-react";
+import { characterEngine } from "@/lib/characters/engine";
+import { getCharactersByEra, getProfessionForEra, CharacterDefinition } from "@/lib/characters/roster";
+import { voiceEngine } from "@/lib/audio/voice-engine";
+import { ChroniclesBarterModal } from "@/components/chronicles-barter-modal";
+import { EraBackground } from "@/components/era-background";
 
 const ERA_CONFIG: Record<string, any> = {
   modern: { name: "Modern City", textColor: "text-cyan-400", borderColor: "border-cyan-500/30", bgGradient: "from-cyan-500/20 to-blue-600/20", badgeClass: "bg-cyan-500/20 text-cyan-400", accentColor: "#06b6d4" },
@@ -249,6 +254,9 @@ export default function ChroniclesWorld() {
   const [activeMinigame, setActiveMinigame] = useState<{ gameType: string; config: any; zoneId: string } | null>(null);
   const [activityResult, setActivityResult] = useState<any>(null);
   const [arrivalNarrative, setArrivalNarrative] = useState<string | null>(null);
+  const [activeCharacterMenu, setActiveCharacterMenu] = useState<CharacterDefinition | null>(null);
+  const [isBartering, setIsBartering] = useState(false);
+  const [characterForceRender, setCharacterForceRender] = useState(0);
 
   const era = (session as any)?.era || "modern";
   const config = ERA_CONFIG[era] || ERA_CONFIG.modern;
@@ -358,22 +366,36 @@ export default function ChroniclesWorld() {
     enterZoneMutation.mutate(zoneId);
   };
 
+  const interactWithCharacter = (charId: string, trustDelta: number, affinityDelta: number, narrative: string) => {
+    characterEngine.updateRelationship(charId, trustDelta, affinityDelta);
+    setCharacterForceRender(prev => prev + 1);
+    toast({
+      title: "Interaction complete",
+      description: narrative,
+    });
+    voiceEngine.speak(narrative, charId);
+    setActiveCharacterMenu(null);
+  };
+
   if (!session?.token) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-        <GlassCard className="p-6 text-center">
-          <p className="text-gray-400">Please log in to Chronicles first</p>
-          <Link href="/chronicles/play">
-            <Button className="mt-4">Go to Chronicles</Button>
-          </Link>
-        </GlassCard>
-      </div>
+      <EraBackground era={era}>
+        <div className="flex items-center justify-center min-h-[50vh]">
+          <GlassCard className="p-6 text-center z-10">
+            <p className="text-gray-400">Please log in to Chronicles first</p>
+            <Link href="/chronicles/play">
+              <Button className="mt-4">Go to Chronicles</Button>
+            </Link>
+          </GlassCard>
+        </div>
+      </EraBackground>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-950">
-      <AnimatePresence>
+    <EraBackground era={era}>
+      <div className="pb-24">
+        <AnimatePresence>
         {activeMinigame && (
           <MiniGame
             gameType={activeMinigame.gameType}
@@ -386,7 +408,7 @@ export default function ChroniclesWorld() {
         )}
       </AnimatePresence>
 
-      <div className={`sticky top-0 z-40 bg-slate-950/90 backdrop-blur-xl border-b ${config.borderColor}`}>
+      <div className={`sticky top-0 z-40 bg-slate-950/70 backdrop-blur-xl border-b ${config.borderColor} shadow-lg shadow-black/20`}>
         <div className="container mx-auto px-4 py-3 max-w-2xl">
           <div className="flex items-center gap-3">
             {selectedZone ? (
@@ -484,6 +506,49 @@ export default function ChroniclesWorld() {
                   </motion.div>
                 ))
               )}
+
+              {/* Slate Characters Section */}
+              <div className="pt-4 mt-8 border-t border-white/10">
+                <h3 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
+                  <Star className="w-4 h-4 text-cyan-400" /> Key Figures
+                </h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {getCharactersByEra(era as any).map((char, index) => {
+                    const prof = getProfessionForEra(char, era as any);
+                    const rel = characterEngine.getRelationship(char.id);
+                    return (
+                      <motion.div
+                        key={char.id}
+                        animate={{ y: [0, -6, 0] }}
+                        transition={{ duration: 4 + (index % 3), repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        <GlassCard className="p-4" glow>
+                          <div className="flex items-center gap-4">
+                            <div className="text-4xl">{char.emoji}</div>
+                            <div className="flex-1">
+                              <h4 className="text-white font-bold">{char.name}</h4>
+                              <p className="text-xs text-gray-400">{prof?.title} • {prof?.location}</p>
+                              <div className="flex items-center gap-2 mt-2">
+                                {char.baseTraits.slice(0, 2).map(t => (
+                                  <Badge key={t} className="bg-slate-800 text-xs text-slate-300 capitalize">{t}</Badge>
+                                ))}
+                              </div>
+                            </div>
+                            <div className="text-right flex flex-col items-end gap-2">
+                              <Badge className={`text-xs ${rel.trustLevel >= 50 ? 'bg-green-500/20 text-green-400' : rel.trustLevel <= -50 ? 'bg-red-500/20 text-red-400' : 'bg-blue-500/20 text-blue-400'}`}>
+                                {characterEngine.getStatusText(rel.trustLevel)}
+                              </Badge>
+                              <Button size="sm" variant="outline" className="border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20" onClick={() => setActiveCharacterMenu(char)}>
+                                <MessageCircle className="w-4 h-4 mr-2" /> Approach
+                              </Button>
+                            </div>
+                          </div>
+                        </GlassCard>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
             </motion.div>
           ) : (
             <motion.div key="zone-detail" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0 }} className="space-y-4">
@@ -656,6 +721,89 @@ export default function ChroniclesWorld() {
           )}
         </AnimatePresence>
       </div>
-    </div>
+
+      {/* Character Interaction Modal */}
+      <AnimatePresence>
+        {activeCharacterMenu && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-center p-4"
+          >
+            <GlassCard glow className="w-full max-w-md p-6 relative">
+              <Button variant="ghost" size="sm" className="absolute top-4 right-4 text-white" onClick={() => setActiveCharacterMenu(null)}>
+                X
+              </Button>
+              <div className="text-center mb-6">
+                <div className="text-6xl mb-4">{activeCharacterMenu.emoji}</div>
+                <h2 className="text-2xl font-bold text-white">{activeCharacterMenu.name}</h2>
+                <p className="text-gray-400 text-sm">{getProfessionForEra(activeCharacterMenu, era as any)?.title}</p>
+              </div>
+
+              <div className="bg-slate-900/50 p-4 rounded-lg mb-6 border border-white/5">
+                <p className="text-sm text-gray-300 italic mb-4">"{activeCharacterMenu.loreSnippet}"</p>
+                <div className="flex items-center justify-between text-xs text-gray-500">
+                  <div className="flex items-center gap-1">
+                    <Handshake className="w-4 h-4 text-blue-400" />
+                    <span>Trust: {characterEngine.getRelationship(activeCharacterMenu.id).trustLevel}%</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Heart className="w-4 h-4 text-pink-400" />
+                    <span>Affinity: {characterEngine.getRelationship(activeCharacterMenu.id).affinity}%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                {characterEngine.getRelationship(activeCharacterMenu.id).isSpouse ? (
+                  <Button className="w-full bg-pink-600 hover:bg-pink-500 text-white shadow-lg border border-pink-500/50" onClick={() => interactWithCharacter(activeCharacterMenu.id, 2, 5, `You spent quality time with your spouse, ${activeCharacterMenu.name}.`)}>
+                    <Heart className="w-4 h-4 mr-2" /> Spend Time Together
+                  </Button>
+                ) : (
+                  <>
+                    {characterEngine.getRelationship(activeCharacterMenu.id).affinity >= 80 && !characterEngine.getSpouse() && (
+                      <Button className="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 text-white shadow-lg animate-pulse border border-pink-400/50" onClick={() => {
+                          characterEngine.proposeMarriage(activeCharacterMenu.id);
+                          interactWithCharacter(activeCharacterMenu.id, 50, 50, `${activeCharacterMenu.name} joyfully accepts your proposal! You are now married.`);
+                        }}>
+                        <Crown className="w-4 h-4 mr-2" /> Propose Marriage
+                      </Button>
+                    )}
+                    <Button className="w-full bg-cyan-600 hover:bg-cyan-500 text-white" onClick={() => interactWithCharacter(activeCharacterMenu.id, 5, 2, `You had a productive conversation with ${activeCharacterMenu.name}.`)}>
+                      <MessageCircle className="w-4 h-4 mr-2" /> Chat Positively (+Trust)
+                    </Button>
+                    {activeCharacterMenu.baseTraits.includes('greedy') && (
+                      <Button className="w-full bg-yellow-600 hover:bg-yellow-500 text-white border border-yellow-500/50" onClick={() => setIsBartering(true)}>
+                        <Handshake className="w-4 h-4 mr-2" /> Open Trading Menu
+                      </Button>
+                    )}
+                    <Button className="w-full bg-slate-800 hover:bg-slate-700 text-white border border-slate-600" onClick={() => interactWithCharacter(activeCharacterMenu.id, -2, 5, `You tried to flirt with ${activeCharacterMenu.name}. Results were mixed.`)}>
+                      <Heart className="w-4 h-4 mr-2" /> Flirt (+Affinity, -Trust)
+                    </Button>
+                    <Button className="w-full bg-red-900/50 hover:bg-red-900 border border-red-500/50 text-white" onClick={() => interactWithCharacter(activeCharacterMenu.id, -10, -10, `You insulted ${activeCharacterMenu.name}. They won't forget this.`)}>
+                      <Swords className="w-4 h-4 mr-2" /> Insult (-Trust, -Affinity)
+                    </Button>
+                  </>
+                )}
+              </div>
+            </GlassCard>
+            
+            <AnimatePresence>
+              {isBartering && (
+                <ChroniclesBarterModal
+                  characterId={activeCharacterMenu.id}
+                  characterName={activeCharacterMenu.name}
+                  characterEmoji={activeCharacterMenu.emoji}
+                  era={era}
+                  onClose={() => setIsBartering(false)}
+                />
+              )}
+            </AnimatePresence>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      </div>
+    </EraBackground>
   );
 }

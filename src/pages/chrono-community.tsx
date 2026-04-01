@@ -12,9 +12,9 @@ import { Input } from "@/components/ui/input";
 import { ChronoLayout, HoloCard, CTABanner, SocialProofTicker, chronoStyles } from "@/components/chrono-ui";
 import { usePageAnalytics } from "@/hooks/use-analytics";
 
-import fantasyHeroes from "@assets/generated_images/fantasy_character_heroes.jpg";
-import fantasyWorld from "@assets/generated_images/fantasy_sci-fi_world_landscape.jpg";
-import medievalKingdom from "@assets/generated_images/medieval_fantasy_kingdom.jpg";
+import historicalHeroes from "@assets/generated_images/tribal_warrior_man_portrait.jpg";
+import historicalWorld from "@assets/generated_images/ancient_greek_athens_parthenon.jpg";
+import historicalKingdom from "@assets/generated_images/feudal_japan_samurai_castle.jpg";
 import quantumRealm from "@assets/generated_images/quantum_dimension_realm.jpg";
 
 const FOUNDING_TIERS = [
@@ -114,7 +114,7 @@ export default function ChronoCommunity() {
     <ChronoLayout currentPage="/community">
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={fantasyHeroes} alt="" className="w-full h-full object-cover opacity-30" />
+          <img src={historicalHeroes} alt="" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
         </div>
         
@@ -344,7 +344,7 @@ export default function ChronoCommunity() {
         title="Ready to Make History?"
         subtitle="Join the founding community today and help build Chronicles."
         primaryAction={{ label: "Support Development", href: "/crowdfund" }}
-        backgroundImage={medievalKingdom}
+        backgroundImage={historicalKingdom}
       />
 
       

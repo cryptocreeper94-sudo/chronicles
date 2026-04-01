@@ -14,10 +14,10 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { GlassCard } from "@/components/glass-card";
 import { getChroniclesSession } from "@/pages/chronicles-login";
+import introVideo from "@assets/generated_videos/medieval_kingdom_establishing_shot.mp4";
 
 type Phase = "loading" | "portal_void" | "choose_city" | "entering" | "arrival" | "tutorial" | "ready" | "welcome_back";
 
-const getAuthHeaders = (): Record<string, string> => {
   const session = getChroniclesSession();
   if (session?.token) return { Authorization: `Bearer ${session.token}`, "Content-Type": "application/json" };
   return { "Content-Type": "application/json" };
@@ -512,63 +512,75 @@ function TutorialWalkthrough({ entryData, onComplete, initialStep = 0 }: { entry
 }
 
 function PortalVoid({ onReady }: { onReady: () => void }) {
+  const [showSkip, setShowSkip] = useState(false);
+
   useEffect(() => {
-    const timer = setTimeout(onReady, 4000);
-    return () => clearTimeout(timer);
-  }, [onReady]);
+    // Show the "Skip / Continue" button after 2 seconds
+    const skipTimer = setTimeout(() => setShowSkip(true), 2000);
+    return () => clearTimeout(skipTimer);
+  }, []);
 
   return (
-    <motion.div className="fixed inset-0 bg-black flex items-center justify-center overflow-hidden"
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <div className="absolute inset-0">
-        {Array.from({ length: 60 }).map((_, i) => (
-          <motion.div key={i}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full"
-            style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
-            animate={{
-              opacity: [0, 1, 0],
-              scale: [0, 1.5, 0],
-              x: [0, (Math.random() - 0.5) * 200],
-              y: [0, (Math.random() - 0.5) * 200],
-            }}
-            transition={{ duration: 2 + Math.random() * 3, repeat: Infinity, delay: Math.random() * 2 }}
-          />
-        ))}
-      </div>
+    <motion.div className="fixed inset-0 bg-black z-50 overflow-hidden"
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: 1 } }}>
+      
+      <video
+        autoPlay
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
+        onEnded={onReady}
+      >
+        <source src={introVideo} type="video/mp4" />
+      </video>
 
-      <motion.div className="absolute inset-0 flex items-center justify-center"
-        animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }}>
-        <div className="w-64 h-64 sm:w-96 sm:h-96 rounded-full border border-cyan-500/20 absolute" />
-        <div className="w-48 h-48 sm:w-72 sm:h-72 rounded-full border border-purple-500/20 absolute" style={{ animation: "spin 15s linear infinite reverse" }} />
-        <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-full border border-pink-500/20 absolute" />
-      </motion.div>
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none" />
 
-      <div className="relative z-10 text-center px-6">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
         <motion.div initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.5, duration: 1, type: "spring" }}
           className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500/30 to-purple-500/30 border border-cyan-500/40 flex items-center justify-center backdrop-blur-sm">
           <Sparkles className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400 animate-pulse" />
         </motion.div>
 
-        <motion.h1 initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">
+        <motion.h1 
+          initial={{ y: 30, opacity: 0 }} 
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 1, duration: 1.5 }}
+          className="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight sm:leading-none bg-gradient-to-br from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent mb-6 drop-shadow-2xl tracking-widest uppercase"
+        >
           The Portal Opens
         </motion.h1>
 
-        <motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-          className="text-sm sm:text-base text-slate-400 max-w-md mx-auto leading-relaxed">
+        <motion.p 
+          initial={{ y: 20, opacity: 0 }} 
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 2.5, duration: 1.5 }}
+          className="text-lg sm:text-xl text-cyan-100/90 max-w-2xl mx-auto leading-relaxed drop-shadow-lg font-light"
+        >
           A doorway between worlds shimmers before you. On the other side, a parallel life waits — 
           your life, in a world where every choice echoes across time.
         </motion.p>
-
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: [0, 1, 0.5, 1] }}
-          transition={{ delay: 3, duration: 1.5 }}
-          className="text-xs text-cyan-400/60 mt-8">
-          Step through...
-        </motion.p>
       </div>
+
+      <AnimatePresence>
+        {showSkip && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            className="absolute bottom-12 left-0 right-0 flex justify-center z-20"
+          >
+            <Button
+              variant="outline"
+              onClick={onReady}
+              className="bg-black/40 backdrop-blur-md border border-cyan-500/50 text-cyan-100 hover:bg-cyan-500/20 hover:text-white hover:border-cyan-400 rounded-full px-6 py-4 sm:px-8 sm:py-6 text-base sm:text-lg tracking-widest uppercase shadow-lg shadow-cyan-500/20 transition-all"
+            >
+              Step Through
+              <ChevronRight className="w-5 h-5 ml-2" />
+            </Button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

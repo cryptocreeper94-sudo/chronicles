@@ -12,8 +12,12 @@ import {
   Heart, Zap, Brain, Shield, Eye, Sparkles, TrendingUp,
   Compass, Users, Home, MapPin, Crown, Star,
   ArrowLeft, Globe, Activity, Timer,
-  Swords, Scale, HandshakeIcon, Building, ChevronRight,
+  Swords, Scale, HandshakeIcon, Building, ChevronRight, CheckCircle2,
 } from "lucide-react";
+import { identityEngine } from "@/lib/careers/engine";
+import { characterEngine } from "@/lib/characters/engine";
+import { CHARACTER_ROSTER, getProfessionForEra } from "@/lib/characters/roster";
+import { EraBackground } from "@/components/era-background";
 
 const ERA_CONFIG = {
   modern: { name: "Modern Era", emoji: "🏙️", color: "text-cyan-400", bg: "bg-cyan-500/10", border: "border-cyan-500/20" },
@@ -125,7 +129,15 @@ export default function ChroniclesDashboard() {
     compassion: character?.compassion || 10,
     cunning: character?.cunning || 10,
     influence: character?.influence || 10,
+    level: character?.level || 1,
   };
+
+  const currentEra = (getChroniclesSession() as any)?.era || "modern";
+  const identity = identityEngine.getIdentity(stats, currentEra as any);
+
+  const spouseRel = characterEngine.getSpouse();
+  const spouseDef = spouseRel ? CHARACTER_ROSTER.find(c => c.id === spouseRel.characterId) : null;
+  const spouseProf = spouseDef ? getProfessionForEra(spouseDef, currentEra as any) : null;
 
   const level = character?.level || 1;
   const xp = character?.experience || 0;
@@ -172,8 +184,9 @@ export default function ChroniclesDashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 pb-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+    <EraBackground era={currentEra as any}>
+      <div className="pb-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <div className="flex items-center gap-2 mb-6">
           <Link href="/chronicles/hub">
             <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white min-h-[44px] min-w-[44px]" data-testid="back-to-hub">
@@ -186,7 +199,13 @@ export default function ChroniclesDashboard() {
           </div>
         </div>
 
-        <GlassCard glow className="p-5 mb-4 border border-cyan-500/20" data-testid="identity-card">
+        <div style={{ perspective: 1200 }}>
+          <motion.div
+            whileHover={{ rotateX: 2, rotateY: -2, scale: 1.01 }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          >
+            <GlassCard glow className="p-5 mb-4 border border-cyan-500/40 shadow-[0_0_40px_rgba(6,182,212,0.15)] relative overflow-hidden" data-testid="identity-card">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 pointer-events-none" />
           <div className="flex items-center gap-4 mb-4">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500/30 to-purple-500/30 flex items-center justify-center border border-cyan-500/30">
               <User className="w-8 h-8 text-cyan-400" />
@@ -212,14 +231,42 @@ export default function ChroniclesDashboard() {
             </div>
           </div>
 
+          <div className="bg-slate-900/50 rounded-xl p-4 border border-white/5 mb-4">
+            <div className="flex items-start gap-3">
+              <div className="text-3xl bg-black/40 p-2 rounded-lg border border-white/5">{identity.emoji}</div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-lg font-bold text-white">{identity.title}</h3>
+                  {identity.faction && (
+                    <Badge className="bg-purple-500/20 text-purple-400 border border-purple-500/30">
+                      Rank {identity.rank} • {identity.faction.name}
+                    </Badge>
+                  )}
+                </div>
+                <p className="text-xs text-gray-400 mt-1 italic">"{identity.worldView}"</p>
+                {identity.nextRankXP && (
+                  <div className="mt-3 max-w-xs">
+                    <div className="flex justify-between text-[10px] text-gray-500 mb-1">
+                      <span className="capitalize">{identity.dominantStat} Mastery</span>
+                      <span>{identity.currentStatValue} / {identity.nextRankXP}</span>
+                    </div>
+                    <Progress value={(identity.currentStatValue! / identity.nextRankXP) * 100} className="h-1 bg-slate-800" />
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
           <div className="flex items-center gap-1.5 sm:gap-2 text-xs overflow-x-auto pb-1">
             {Object.entries(ERA_CONFIG).map(([key, era]) => (
               <span key={key} className={`flex-shrink-0 px-2 py-1 rounded-full ${era.bg} ${era.color} ${era.border} border`}>
                 {era.emoji} {era.name}
               </span>
             ))}
-          </div>
-        </GlassCard>
+            </div>
+          </GlassCard>
+        </motion.div>
+      </div>
 
         <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-6" data-testid="character-stats">
           <StatRing value={stats.wisdom} max={100} label="Wisdom" icon={Brain} color="text-blue-400" />
@@ -242,6 +289,38 @@ export default function ChroniclesDashboard() {
             </Link>
           ))}
         </div>
+
+        {spouseDef && spouseRel && (
+          <div style={{ perspective: 1200 }}>
+            <motion.div
+              whileHover={{ rotateX: 2, rotateY: 2, scale: 1.01 }}
+              transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            >
+              <GlassCard glow className="p-4 mb-4 border border-pink-500/40 shadow-[0_0_30px_rgba(236,72,153,0.15)] relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-purple-500/5 pointer-events-none" />
+            <h3 className="text-white font-semibold mb-3 flex items-center gap-2">
+              <Heart className="w-4 h-4 text-pink-400" /> Shared Estate
+            </h3>
+            <div className="flex items-center gap-4">
+              <div className="text-4xl p-2 bg-black/40 rounded-xl border border-white/5">{spouseDef.emoji}</div>
+              <div className="flex-1">
+                <h4 className="text-lg font-bold text-white">{spouseDef.name}</h4>
+                <p className="text-xs text-pink-400 font-medium">Your Spouse • {spouseProf?.title}</p>
+                <p className="text-xs text-gray-400 mt-1 italic">
+                  "{spouseDef.loreSnippet}"
+                </p>
+              </div>
+              <div className="text-right flex flex-col items-end gap-1">
+                <Badge className="bg-pink-500/20 text-pink-400 border border-pink-500/30">
+                  Affinity {spouseRel.affinity}%
+                </Badge>
+                <p className="text-[10px] text-gray-400 mt-1">Passive Buff Active</p>
+              </div>
+              </div>
+            </GlassCard>
+          </motion.div>
+        </div>
+      )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <GlassCard className="p-4" data-testid="community-standing">
@@ -310,6 +389,6 @@ export default function ChroniclesDashboard() {
           </p>
         </GlassCard>
       </div>
-    </div>
+    </EraBackground>
   );
 }

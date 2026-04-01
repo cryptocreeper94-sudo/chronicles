@@ -415,7 +415,7 @@ export default function ChroniclesAIDemo() {
                   variant="outline"
                   className="border-amber-500/30 text-amber-400"
                   onClick={() => generateScenarioMutation.mutate({ 
-                    era: "Medieval Fantasy",
+                    era: "Medieval History",
                     location: "Ancient Crossroads",
                     situation: "A moment that will define your legacy"
                   })}

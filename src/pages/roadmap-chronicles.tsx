@@ -4,8 +4,8 @@ import { Check, Circle, Clock, Sparkles, Brain, Users, Globe, Zap, Crown, Chevro
 
 import { Link } from "wouter";
 
-import fantasyWorld from "@assets/generated_images/fantasy_sci-fi_world_landscape.jpg";
-import medievalKingdom from "@assets/generated_images/medieval_fantasy_kingdom.jpg";
+import historicalWorld from "@assets/generated_images/ancient_greek_athens_parthenon.jpg";
+import historicalKingdom from "@assets/generated_images/feudal_japan_samurai_castle.jpg";
 import quantumRealm from "@assets/generated_images/quantum_dimension_realm.jpg";
 import deepSpace from "@assets/generated_images/deep_space_station.jpg";
 import cyberpunkCity from "@assets/generated_images/cyberpunk_neon_city.jpg";
@@ -42,7 +42,7 @@ const CHRONICLES_PHASES: Phase[] = [
     status: "in_progress",
     targetDate: "NOW - Until Launch",
     icon: <Crown className="w-6 h-6" />,
-    image: medievalKingdom,
+    image: historicalKingdom,
     milestones: [
       { id: "sz1", title: "Medieval Era (Age of Crowns)", description: "First of 10 verifiable historical eras - medieval kingdom with 5 factions", status: "completed", isRequired: true },
       { id: "sz2", title: "AI NPC Conversations", description: "Guardian-verified GPT-4o powered NPCs with persistent memory", status: "completed", isRequired: true },
@@ -59,7 +59,7 @@ const CHRONICLES_PHASES: Phase[] = [
     status: "completed",
     targetDate: "Completed",
     icon: <Brain className="w-6 h-6" />,
-    image: fantasyWorld,
+    image: historicalWorld,
     milestones: [
       { id: "m1", title: "5-Axis Emotion System", description: "Arousal, Valence, Social Cohesion, Fear, and Ambition driving every decision", status: "completed", isRequired: true },
       { id: "m2", title: "Belief System Framework", description: "Buddhism, Christianity, Islam, Hinduism, atheism, and more shaping moral compass", status: "in_progress", isRequired: true },
@@ -76,7 +76,7 @@ const CHRONICLES_PHASES: Phase[] = [
     status: "upcoming",
     targetDate: "TBD",
     icon: <Crown className="w-6 h-6" />,
-    image: medievalKingdom,
+    image: historicalKingdom,
     milestones: [
       { id: "m7", title: "Faction System", description: "Join or create groups with shared beliefs and goals", status: "pending", isRequired: true },
       { id: "m8", title: "Political Councils", description: "AI-driven governance with debates, votes, and power struggles", status: "pending", isRequired: true },
@@ -93,7 +93,7 @@ const CHRONICLES_PHASES: Phase[] = [
     status: "upcoming",
     targetDate: "TBD",
     icon: <Globe className="w-6 h-6" />,
-    image: medievalKingdom,
+    image: historicalKingdom,
     milestones: [
       { id: "m13", title: "Multi-Era Gameplay", description: "Play across different verified historical periods", status: "pending", isRequired: true },
       { id: "m14", title: "Generational Legacy", description: "Your choices echo through family lines and historical records", status: "pending", isRequired: true },
@@ -288,7 +288,7 @@ export default function RoadmapChronicles() {
       {/* Hero with background */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={fantasyWorld} alt="Fantasy World" className="w-full h-full object-cover opacity-30" />
+          <img src={historicalWorld} alt="Historical World" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#080c18]/50 via-[#080c18]/80 to-[#080c18]" />
         </div>
         
@@ -324,7 +324,7 @@ export default function RoadmapChronicles() {
             style={{ boxShadow: "0 0 60px rgba(168, 85, 247, 0.15)" }}
           >
             <div className="absolute inset-0">
-              <img src={medievalKingdom} alt="Kingdom" className="w-full h-full object-cover" />
+              <img src={historicalKingdom} alt="Kingdom" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/70" />
             </div>
             <div className="absolute inset-0 opacity-20 pointer-events-none" style={{

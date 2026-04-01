@@ -12,12 +12,12 @@ import { Badge } from "@/components/ui/badge";
 import { ChronoLayout, VideoHero, HoloCard, SocialProofTicker, CTABanner, chronoStyles } from "@/components/chrono-ui";
 import { usePageAnalytics } from "@/hooks/use-analytics";
 
-import fantasyWorld from "@assets/generated_images/fantasy_sci-fi_world_landscape.jpg";
-import medievalKingdom from "@assets/generated_images/medieval_fantasy_kingdom.jpg";
+import historicalWorld from "@assets/generated_images/ancient_greek_athens_parthenon.jpg";
+import historicalKingdom from "@assets/generated_images/feudal_japan_samurai_castle.jpg";
 import ancientLibrary from "@assets/generated_images/ancient_wisdom_library_interior.jpg";
 import timeVortex from "@assets/generated_images/historical_time_vortex_portal.jpg";
 import cyberpunkCity from "@assets/generated_images/cyberpunk_neon_city.jpg";
-import fantasyHeroes from "@assets/generated_images/fantasy_character_heroes.jpg";
+import historicalHeroes from "@assets/generated_images/tribal_warrior_man_portrait.jpg";
 import egyptianKingdom from "@assets/generated_images/ancient_egyptian_kingdom_sunset.jpg";
 import wildWest from "@assets/generated_images/wild_west_frontier_town.jpg";
 import victorianLondon from "@assets/generated_images/victorian_london_street_scene.jpg";
@@ -31,7 +31,7 @@ const FEATURED_ERAS = [
   { id: "egyptian", name: "Egyptian Dynasty", period: "2500 BCE", image: egyptianKingdom, color: "from-yellow-500 to-amber-600" },
   { id: "roman", name: "Roman Empire", period: "100 CE", image: romanColosseum, color: "from-red-500 to-rose-600" },
   { id: "viking", name: "Viking Age", period: "900 CE", image: vikingFjord, color: "from-slate-400 to-gray-600" },
-  { id: "medieval", name: "Age of Crowns", period: "1200 CE", image: medievalKingdom, color: "from-purple-500 to-violet-600" },
+  { id: "medieval", name: "Age of Crowns", period: "1200 CE", image: historicalKingdom, color: "from-purple-500 to-violet-600" },
   { id: "wildwest", name: "Wild West", period: "1870 CE", image: wildWest, color: "from-orange-500 to-amber-700" },
   { id: "victorian", name: "Victorian Era", period: "1888 CE", image: victorianLondon, color: "from-gray-500 to-slate-700" },
 ];
@@ -47,16 +47,16 @@ const CORE_PILLARS = [
   {
     icon: Eye,
     title: "YOU Are The Character",
-    desc: "Not role-playing. BEING. Your actual personality in a fantasy realm.",
+    desc: "Not role-playing. BEING. Your actual personality in a historical realm.",
     color: "from-purple-500 to-pink-600",
-    image: fantasyHeroes
+    image: historicalHeroes
   },
   {
     icon: Shield,
     title: "No Good. No Evil.",
     desc: "Only perspective. Actions have consequences, not moral judgments.",
     color: "from-amber-500 to-red-600",
-    image: medievalKingdom
+    image: historicalKingdom
   },
   {
     icon: Compass,
@@ -118,7 +118,7 @@ export default function ChronoHome() {
   
   return (
     <ChronoLayout currentPage="/">
-      <VideoHero posterSrc={fantasyWorld}>
+      <VideoHero posterSrc={historicalWorld}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -380,7 +380,7 @@ export default function ChronoHome() {
               </div>
             </HoloCard>
             
-            <HoloCard image={fantasyHeroes} glow="pink" className="min-h-[400px]">
+            <HoloCard image={historicalHeroes} glow="pink" className="min-h-[400px]">
               <div className="p-8 h-full flex flex-col justify-end">
                 <Badge className="w-fit mb-4 bg-pink-500/20 text-pink-400 border-pink-500/30">
                   <Users className="w-3 h-3 mr-1" /> Community-Built
@@ -558,7 +558,7 @@ export default function ChronoHome() {
         subtitle="Join the founding members building Chronicles. Early supporters get exclusive access, bonus SIG tokens, and their name in history."
         primaryAction={{ label: "Support Development", href: "/crowdfund" }}
         secondaryAction={{ label: "Learn More", href: "/chronicles" }}
-        backgroundImage={fantasyWorld}
+        backgroundImage={historicalWorld}
       />
 
       

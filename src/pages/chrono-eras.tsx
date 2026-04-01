@@ -13,8 +13,8 @@ import { ChronoLayout, HoloCard, CTABanner, chronoStyles } from "@/components/ch
 import { HomeButton } from "@/components/page-nav";
 import { usePageAnalytics } from "@/hooks/use-analytics";
 
-import fantasyWorld from "@assets/generated_images/fantasy_sci-fi_world_landscape.jpg";
-import medievalKingdom from "@assets/generated_images/medieval_fantasy_kingdom.jpg";
+import historicalWorld from "@assets/generated_images/ancient_greek_athens_parthenon.jpg";
+import historicalKingdom from "@assets/generated_images/feudal_japan_samurai_castle.jpg";
 import quantumRealm from "@assets/generated_images/quantum_dimension_realm.jpg";
 import deepSpace from "@assets/generated_images/deep_space_station.jpg";
 import cyberpunkCity from "@assets/generated_images/cyberpunk_neon_city.jpg";
@@ -124,7 +124,7 @@ const ALL_ERAS: Era[] = [
     period: "Medieval",
     year: "1200 CE",
     epoch: "Medieval",
-    image: medievalKingdom,
+    image: historicalKingdom,
     color: "from-violet-600 to-purple-700",
     description: "Kingdoms rise and fall. Navigate court intrigue while dark forces gather. Choose your allegiance wisely.",
     features: ["Kingdom building", "Siege warfare", "Jousting tournaments", "Castle intrigue"],
@@ -306,7 +306,7 @@ export default function ChronoEras() {
     <ChronoLayout currentPage="/eras">
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={fantasyWorld} alt="" className="w-full h-full object-cover opacity-30" />
+          <img src={historicalWorld} alt="" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
         </div>
         

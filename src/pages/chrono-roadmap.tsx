@@ -9,8 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { ChronoLayout, HoloCard, CTABanner, chronoStyles } from "@/components/chrono-ui";
 import { usePageAnalytics } from "@/hooks/use-analytics";
 
-import fantasyWorld from "@assets/generated_images/fantasy_sci-fi_world_landscape.jpg";
-import medievalKingdom from "@assets/generated_images/medieval_fantasy_kingdom.jpg";
+import historicalWorld from "@assets/generated_images/ancient_greek_athens_parthenon.jpg";
+import historicalKingdom from "@assets/generated_images/feudal_japan_samurai_castle.jpg";
 import quantumRealm from "@assets/generated_images/quantum_dimension_realm.jpg";
 import deepSpace from "@assets/generated_images/deep_space_station.jpg";
 import cyberpunkCity from "@assets/generated_images/cyberpunk_neon_city.jpg";
@@ -41,7 +41,7 @@ const PHASES: Phase[] = [
       { item: "Voice cloning technology", done: true },
       { item: "Business storefront program", done: false },
     ],
-    image: medievalKingdom,
+    image: historicalKingdom,
     color: "from-amber-500 to-orange-600"
   },
   {
@@ -57,7 +57,7 @@ const PHASES: Phase[] = [
       { item: "AI NPC conversation system", done: true },
       { item: "5-Axis emotion system", done: true },
     ],
-    image: fantasyWorld,
+    image: historicalWorld,
     color: "from-cyan-500 to-blue-600"
   },
   {
@@ -73,7 +73,7 @@ const PHASES: Phase[] = [
       { item: "Basic economy loop", done: false },
       { item: "Founder alpha access", done: false },
     ],
-    image: medievalKingdom,
+    image: historicalKingdom,
     color: "from-purple-500 to-violet-600"
   },
   {
@@ -235,7 +235,7 @@ export default function ChronoRoadmap() {
     <ChronoLayout currentPage="/roadmap">
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={fantasyWorld} alt="" className="w-full h-full object-cover opacity-30" />
+          <img src={historicalWorld} alt="" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
         </div>
         

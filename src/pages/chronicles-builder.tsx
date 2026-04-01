@@ -490,11 +490,12 @@ export default function ChroniclesBuilder() {
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-bold">My Contributions</h3>
               <Button 
-                className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400"
+                onClick={() => setLocation("/studio")}
+                className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 shadow-[0_0_20px_rgba(0,255,255,0.3)]"
                 data-testid="button-new-contribution"
               >
-                <Plus className="w-4 h-4 mr-2" />
-                New Contribution
+                <Sparkles className="w-4 h-4 mr-2" />
+                Initialize Lume Studio
               </Button>
             </div>
 
@@ -503,10 +504,11 @@ export default function ChroniclesBuilder() {
                 <Package className="w-16 h-16 mx-auto mb-4 text-gray-500" />
                 <h4 className="text-xl font-bold mb-2">No contributions yet</h4>
                 <p className="text-gray-400 mb-6">
-                  Start creating content to earn Shells and XP!
+                  Initialize your Lume Entity to generate content and earn Shells/XP!
                 </p>
-                <Button className="bg-gradient-to-r from-cyan-500 to-purple-500">
-                  Create Your First Contribution
+                <Button onClick={() => setLocation("/studio")} className="bg-gradient-to-r from-cyan-500 to-purple-500 shadow-[0_0_20px_rgba(0,255,255,0.3)]">
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  Initialize Lume Studio
                 </Button>
               </GlassCard>
             ) : (

@@ -12,6 +12,8 @@ import { Link, useLocation } from "wouter";
 import { getChroniclesSession } from "./chronicles-login";
 import { ChroniclesChatPanel } from "@/components/chronicles-chat-panel";
 import { AmbientAudioController } from "@/components/audio-player";
+import { characterEngine } from "@/lib/characters/engine";
+import { identityEngine } from "@/lib/careers/engine";
 import {
   Compass, Users, Shield, Crown, Sparkles, MapPin, Swords,
   ChevronRight, Sun, Moon, CloudSun, Sunrise, Sunset,
@@ -618,11 +620,83 @@ export default function ChroniclesPlay() {
   });
 
   const handleStartPlaying = () => {
+    const stats = {
+      wisdom: state?.wisdom || 10,
+      courage: state?.courage || 10,
+      compassion: state?.compassion || 10,
+      cunning: state?.cunning || 10,
+      influence: state?.influence || 10,
+      level: state?.level || 1,
+    };
+
+    // 10% chance to encounter a built-in Romance event if married
+    if (Math.random() < 0.10) {
+      const romanceEvent = characterEngine.generateRomanceSituation(selectedEra as any);
+      if (romanceEvent) {
+        setCurrentScenario(romanceEvent);
+        setGamePhase("playing");
+        return;
+      }
+    }
+
+    // 15% chance to encounter a Faction Event (only triggers if rank >= 2)
+    if (Math.random() < 0.15) {
+      const factionEvent = identityEngine.generateFactionSituation(stats, selectedEra as any);
+      if (factionEvent) {
+        setCurrentScenario(factionEvent);
+        setGamePhase("playing");
+        return;
+      }
+    }
+
+    // 25% chance to encounter a built-in Slate Character event
+    if (Math.random() < 0.25) {
+      const charEvent = characterEngine.generateCharacterSituation(selectedEra as any);
+      if (charEvent) {
+        setCurrentScenario(charEvent);
+        setGamePhase("playing");
+        return;
+      }
+    }
+    
     generateScenario.mutate(selectedEra);
   };
 
   const handleChoose = (choiceId: string, choiceText: string) => {
     if (!currentScenario) return;
+
+    if (currentScenario.isFactionEvent) {
+      const stats = {
+        wisdom: state?.wisdom || 10,
+        courage: state?.courage || 10,
+        compassion: state?.compassion || 10,
+        cunning: state?.cunning || 10,
+        influence: state?.influence || 10,
+        level: state?.level || 1,
+      };
+      const result = identityEngine.resolveFactionDecision(choiceId, currentScenario.factionId, stats);
+      setDecisionResult(result);
+      setGamePhase("consequences");
+      queryClient.invalidateQueries({ queryKey: ["/api/chronicles/play/state"] });
+      return;
+    }
+
+    if (currentScenario.isRomanceEvent) {
+      const result = characterEngine.resolveRomanceDecision(choiceId, currentScenario.characterId);
+      setDecisionResult(result);
+      setGamePhase("consequences");
+      queryClient.invalidateQueries({ queryKey: ["/api/chronicles/play/state"] });
+      return;
+    }
+
+    if (currentScenario.isCharacterEvent) {
+      const result = characterEngine.resolveCharacterDecision(choiceId, currentScenario.characterId);
+      setDecisionResult(result);
+      setGamePhase("consequences");
+      queryClient.invalidateQueries({ queryKey: ["/api/chronicles/play/state"] });
+      return;
+    }
+
     makeDecision.mutate({
       scenarioId: currentScenario.id,
       choiceId,
@@ -641,7 +715,7 @@ export default function ChroniclesPlay() {
   const recentLog = gameState?.recentLog || [];
   const achievements = Array.isArray(achievementsData) ? achievementsData : achievementsData?.achievements || [];
   const config = ERA_CONFIG[selectedEra];
-  const eraUnlocks = gameState?.eraUnlocks || { modern: { unlocked: true, requiredLevel: 1 }, medieval: { unlocked: false, requiredLevel: 3 }, wildwest: { unlocked: false, requiredLevel: 5 } };
+  const eraUnlocks = gameState?.eraUnlocks || { modern: { unlocked: true, requiredLevel: 1 }, medieval: { unlocked: true, requiredLevel: 1 }, wildwest: { unlocked: true, requiredLevel: 1 } };
   const seasonProgress = gameState?.seasonProgress || 0;
   const seasonComplete = gameState?.seasonComplete || false;
   const eraProgress = gameState?.eraProgress || {};
@@ -679,6 +753,43 @@ export default function ChroniclesPlay() {
 
         <WorldClockBanner era={selectedEra} />
         <NeedsIndicator />
+
+        {/* Narrative Arc Tracker */}
+        {eraProgress[selectedEra]?.nextArc && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className={`mb-4 overflow-hidden rounded-xl border border-white/10 bg-black/40 backdrop-blur-md relative`}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-500/5 to-transparent pointer-events-none" />
+            <div className="p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 relative z-10">
+              <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-500 shrink-0">
+                <BookOpen className="w-5 h-5" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-sm font-semibold text-amber-400">
+                  Chapter {eraProgress[selectedEra].nextArc.chapter}: {eraProgress[selectedEra].nextArc.title}
+                </h3>
+                <p className="text-xs text-gray-400 mt-1 max-w-xl">
+                  {eraProgress[selectedEra].nextArc.description}
+                </p>
+                <div className="mt-3 flex items-center gap-3 w-full max-w-xs">
+                  <div className="flex-1 h-1.5 bg-black/50 rounded-full overflow-hidden border border-white/5">
+                    <motion.div
+                      className="h-full bg-amber-500"
+                      initial={{ width: 0 }}
+                      animate={{ width: \`\${Math.min(100, (eraProgress[selectedEra].nextArc.currentProgress / eraProgress[selectedEra].nextArc.required) * 100)}%\` }}
+                      transition={{ duration: 1, ease: "easeOut" }}
+                    />
+                  </div>
+                  <span className="text-[10px] text-gray-500 whitespace-nowrap">
+                    {eraProgress[selectedEra].nextArc.currentProgress} / {eraProgress[selectedEra].nextArc.required} encounters
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
 
         <div className="relative mb-4">
           <ChroniclesEngine

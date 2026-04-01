@@ -12,7 +12,7 @@ import { usePageAnalytics } from "@/hooks/use-analytics";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
 
-import medievalKingdom from "@assets/generated_images/medieval_fantasy_kingdom.jpg";
+import historicalKingdom from "@assets/generated_images/feudal_japan_samurai_castle.jpg";
 import quantumRealm from "@assets/generated_images/quantum_dimension_realm.jpg";
 
 const DEFAULT_STATS = {
@@ -90,7 +90,7 @@ export default function ChronoDashboard() {
     <ChronoLayout currentPage="/dashboard">
       <section className="relative py-12 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={medievalKingdom} alt="" className="w-full h-full object-cover opacity-20" />
+          <img src={historicalKingdom} alt="" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
         </div>
         

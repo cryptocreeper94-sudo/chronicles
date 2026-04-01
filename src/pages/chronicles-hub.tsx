@@ -21,6 +21,7 @@ import { AudioPlayer } from "@/components/audio-player";
 import { toast } from "sonner";
 import { getPendingInvite, clearPendingInvite } from "./syndicate-invite";
 import { getChroniclesSession } from "./chronicles-login";
+import { EraBackground } from "@/components/era-background";
 
 interface JourneyChapter {
   id: string;
@@ -97,10 +98,11 @@ const JOURNEY_CHAPTERS: JourneyChapter[] = [
     id: "exploration",
     title: "Chapter 7: New Eras",
     subtitle: "Unlock More Timelines",
-    status: "locked",
+    status: "current",
     season: "Season One",
     description: "Your participation unlocks Medieval and Wild West eras — each with its own world, people, and communities.",
-    icon: Map
+    icon: Map,
+    href: "/chronicles/estate"
   },
   {
     id: "legacy",
@@ -437,6 +439,8 @@ export default function ChroniclesHub() {
     );
   }
 
+  const currentEra = (getChroniclesSession() as any)?.era || "modern";
+
   const playerPersonality = personality?.personality;
   const shells = typeof shellsData === 'number' ? shellsData : (shellsData?.balance || shellsData?.shells || 0);
   const completedChapters = JOURNEY_CHAPTERS.filter(c => c.status === "completed").length;
@@ -461,7 +465,8 @@ export default function ChroniclesHub() {
   const hasSyndicates = mySyndicates.length > 0;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden">
+    <EraBackground era={currentEra}>
+      <div className="text-white relative overflow-hidden min-h-screen">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-black/80 backdrop-blur-xl border-b border-white/5">
         <div className="container mx-auto px-4 h-14 flex items-center justify-between">
@@ -1710,6 +1715,7 @@ export default function ChroniclesHub() {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </EraBackground>
   );
 }

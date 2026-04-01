@@ -1,4 +1,4 @@
-import { useState, useRef, Suspense, useMemo, useCallback } from "react";
+import { useState, useRef, Suspense, useMemo, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { getChroniclesSession } from "./chronicles-login";
@@ -16,8 +16,10 @@ import {
   Home, Building, TreePine, Store, MapPin, Crown, Shield, Star,
   ArrowLeft, Globe, Users, Sparkles, Lock, ChevronRight, Hammer,
   ShoppingBag, Coins, Eye, Zap, Heart, Map, Layers, Grid3X3,
-  Building2, Plus, X, Check, ChevronDown, Search,
+  Building2, Plus, X, Check, ChevronDown, Search, ArrowUpRight, ArrowDownRight, TrendingUp
 } from "lucide-react";
+import { economyEngine, EstateProperty, EconomyState } from "@/lib/economy/engine";
+import { solarEngine, SolarState } from "@/lib/world/solar-engine";
 
 const ERA_CONFIG = {
   modern: {
@@ -141,6 +143,7 @@ function Building3D({ building, position, era, isPremium }: {
   const color = colors[era]?.[building.type] || "#64748b";
   const height = building.tier === "elite" ? 2.5 : building.tier === "premium" ? 1.8 : 1.2;
   const width = building.tier === "elite" ? 1.5 : building.tier === "premium" ? 1.2 : 0.9;
+  const isNight = solarEngine.getSolarState().elevation < -5;
 
   return (
     <group position={position}>
@@ -158,7 +161,8 @@ function Building3D({ building, position, era, isPremium }: {
           <meshStandardMaterial color="#5C3A1E" roughness={0.9} />
         </mesh>
       )}
-      {isPremium && <pointLight ref={glowRef} position={[0, height / 2 + 0.5, 0]} color={color} intensity={0.3} distance={3} />}
+      {isPremium && <pointLight ref={glowRef} position={[0, height / 2 + 0.5, 0]} color={color} intensity={isNight ? 1.2 : 0.3} distance={3} />}
+      {!isPremium && isNight && <pointLight position={[0, height / 2, 0]} color={color} intensity={0.5} distance={2} />}
       <Html position={[0, height / 2 + (era === "medieval" ? 1.2 : 0.4), 0]} center distanceFactor={8}>
         <div className="text-center pointer-events-none select-none">
           <span className="text-lg">{building.emoji}</span>
@@ -226,8 +230,36 @@ function CityScene3D({ era, plots, onPlotClick }: {
 
   const roadColor = era === "modern" ? "#1e293b" : era === "medieval" ? "#4a3828" : "#8B7355";
 
+  const [solarState, setSolarState] = useState<SolarState>(() => solarEngine.getSolarState(new Date(), era));
+
+  useEffect(() => {
+    // Update solar state when era changes or naturally over time
+    setSolarState(solarEngine.getSolarState(new Date(), era));
+    
+    const interval = setInterval(() => {
+      setSolarState(solarEngine.getSolarState(new Date(), era));
+    }, 60000); // Update every minute
+
+    const handleLocationUpdate = () => {
+      setSolarState(solarEngine.getSolarState(new Date(), era));
+    };
+
+    window.addEventListener("chronicles_solar_update", handleLocationUpdate);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("chronicles_solar_update", handleLocationUpdate);
+    };
+  }, [era]);
+
+  // Map elevation/azimuth to 3D Cartesian coordinates for the directional light (Sun/Moon)
+  const rad = Math.PI / 180;
+  const sunX = 20 * Math.cos(solarState.elevation * rad) * Math.sin(solarState.azimuth * rad);
+  const sunY = 20 * Math.sin(solarState.elevation * rad);
+  const sunZ = 20 * Math.cos(solarState.elevation * rad) * Math.cos(solarState.azimuth * rad);
+
   return (
     <Canvas shadows camera={{ position: [8, 10, 15], fov: 50 }} gl={{ antialias: true }}>
+      <color attach="background" args={[solarState.skyColor]} />
       <Suspense fallback={null}>
         <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
           <planeGeometry args={[30, 30]} />
@@ -277,11 +309,31 @@ function CityScene3D({ era, plots, onPlotClick }: {
           );
         })}
 
-        <Stars radius={50} depth={50} count={800} factor={2} saturation={0} fade speed={0.5} />
-        <fog attach="fog" args={[config.fogColor, 15, 35]} />
-        <ambientLight intensity={0.35} />
-        <directionalLight position={[8, 12, 8]} intensity={0.8} castShadow />
-        <pointLight position={[0, 3, 0]} intensity={0.5} color={config.particleColor} />
+        {!solarState.isDaytime && (
+          <Stars radius={50} depth={50} count={1200} factor={4} saturation={0} fade speed={0.5} />
+        )}
+        
+        <fog attach="fog" args={[solarState.skyColor, 15, 45]} />
+        <ambientLight intensity={solarState.ambientIntensity} />
+        
+        {solarState.isDaytime ? (
+          <directionalLight 
+            position={[sunX, Math.max(sunY, 2), sunZ]} 
+            intensity={Math.max(0.1, Math.sin(solarState.elevation * rad) * 1.5)} 
+            color={solarState.isGoldenHour ? "#ffd59e" : "#ffffff"}
+            castShadow 
+            shadow-mapSize={[2048, 2048]}
+          />
+        ) : (
+          <directionalLight 
+            position={[-sunX, Math.max(-sunY, 5), -sunZ]} // Moon opposes sun
+            intensity={0.2} 
+            color="#8faadc"
+            castShadow 
+          />
+        )}
+        
+        <pointLight position={[0, 3, 0]} intensity={solarState.isDaytime ? 0.2 : 0.6} color={config.particleColor} />
       </Suspense>
       <OrbitControls
         enableZoom
@@ -457,8 +509,15 @@ export default function ChroniclesCity() {
   const { toast } = useToast();
   const [selectedEra, setSelectedEra] = useState<"modern" | "medieval" | "wildwest">("modern");
   const [selectedPlot, setSelectedPlot] = useState<CityPlot | null>(null);
-  const [activeTab, setActiveTab] = useState<"map" | "storefront" | "leaderboard">("map");
+  const [activeTab, setActiveTab] = useState<"map" | "market" | "storefront" | "leaderboard">("map");
   const [selectedBusiness, setSelectedBusiness] = useState<string | null>(null);
+  const [economyState, setEconomyState] = useState<EconomyState>(economyEngine.getState());
+
+  useEffect(() => {
+    const handleUpdate = () => setEconomyState(economyEngine.getState());
+    window.addEventListener("chronicles_economy_update", handleUpdate);
+    return () => window.removeEventListener("chronicles_economy_update", handleUpdate);
+  }, []);
 
   const getAuthHeaders = (): Record<string, string> => {
     const session = getChroniclesSession();
@@ -550,8 +609,13 @@ export default function ChroniclesCity() {
             </Button>
           </Link>
           <div className="flex-1">
-            <h1 className="text-2xl font-bold text-white">Build the City</h1>
-            <p className="text-xs text-gray-500">Build together — storefronts, homes, monuments</p>
+            <h1 className="text-2xl font-bold text-white">City & Estates</h1>
+            <p className="text-xs text-gray-500">Build together, or invest in volatile real estate</p>
+          </div>
+          <div className="text-right">
+            <Badge className="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
+              {economyState.shells} 🐚 Local Shells
+            </Badge>
           </div>
         </div>
 
@@ -602,6 +666,7 @@ export default function ChroniclesCity() {
         <div className="flex gap-1 mb-4 bg-white/5 rounded-lg p-1" data-testid="city-tabs">
           {[
             { id: "map" as const, label: "3D City Map", icon: Map },
+            { id: "market" as const, label: "Estate Market", icon: TrendingUp },
             { id: "storefront" as const, label: "Storefronts", icon: Store },
             { id: "leaderboard" as const, label: "Top Builders", icon: Crown },
           ].map(tab => (
@@ -671,6 +736,71 @@ export default function ChroniclesCity() {
                       </p>
                     </div>
                   ))}
+                </div>
+              </GlassCard>
+            </motion.div>
+          )}
+
+          {activeTab === "market" && (
+            <motion.div key="market" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-4">
+              <GlassCard className="p-4 bg-gradient-to-br from-slate-900 to-slate-950">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-white font-bold flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5 text-green-400" /> Estate Exchange
+                  </h3>
+                  <div className="text-right">
+                    <p className="text-xs text-gray-400">Market Volatility</p>
+                    <p className={`text-sm font-bold ${economyState.marketVolatility > 0 ? "text-green-400" : "text-red-400"} flex items-center justify-end gap-1`}>
+                      {economyState.marketVolatility > 0 ? <ArrowUpRight className="w-3 h-3" /> : <ArrowDownRight className="w-3 h-3" />}
+                      {Math.abs(Math.round(economyState.marketVolatility * 100))}%
+                    </p>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-500 mb-4">
+                  Purchase high-yield properties across all eras. Property values fluctuate dynamically every minute. Securing real estate generates passive Shell income even when you are offline.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {economyEngine.getMarketProperties().map((estate) => {
+                    const isOwned = economyState.ownedEstates.includes(estate.id);
+                    const isProfitable = estate.currentValue > estate.basePrice;
+                    
+                    return (
+                      <GlassCard key={estate.id} className={`p-4 border ${isOwned ? "border-cyan-500/50" : "border-white/10"}`}>
+                        <div className="flex items-start gap-3">
+                          <div className="text-3xl bg-white/5 p-2 rounded-lg">{estate.icon}</div>
+                          <div className="flex-1">
+                            <h4 className="text-white font-bold">{estate.name}</h4>
+                            <p className="text-[10px] text-gray-400 mb-2">{estate.description}</p>
+                            
+                            <div className="grid grid-cols-2 gap-2 mb-3">
+                              <div className="bg-black/30 rounded p-1.5">
+                                <p className="text-[9px] text-gray-500">Market Value</p>
+                                <p className={`text-xs font-bold flex items-center gap-1 ${isProfitable ? "text-green-400" : "text-red-400"}`}>
+                                  {estate.currentValue} 🐚
+                                  {isProfitable ? <ArrowUpRight className="w-3 h-3" /> : <ArrowDownRight className="w-3 h-3" />}
+                                </p>
+                              </div>
+                              <div className="bg-black/30 rounded p-1.5">
+                                <p className="text-[9px] text-gray-500">Yield</p>
+                                <p className="text-xs font-bold text-yellow-400">+{estate.passiveYield} / tick</p>
+                              </div>
+                            </div>
+
+                            {isOwned ? (
+                              <Button size="sm" variant="outline" className="w-full border-red-500/30 text-red-400 hover:bg-red-500/10" onClick={() => economyEngine.sellEstate(estate.id)}>
+                                Sell Property
+                              </Button>
+                            ) : (
+                              <Button size="sm" className="w-full bg-cyan-600 hover:bg-cyan-500 text-white disabled:opacity-50" disabled={economyState.shells < estate.currentValue} onClick={() => economyEngine.purchaseEstate(estate.id)}>
+                                Purchase
+                              </Button>
+                            )}
+                          </div>
+                        </div>
+                      </GlassCard>
+                    );
+                  })}
                 </div>
               </GlassCard>
             </motion.div>

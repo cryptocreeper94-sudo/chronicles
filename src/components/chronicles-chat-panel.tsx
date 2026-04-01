@@ -7,6 +7,7 @@ import {
   ChevronDown, ChevronUp, X, Users, Loader2, Radio,
   Play, Square, Waves, Coins,
 } from "lucide-react";
+import { voiceEngine } from "@/lib/audio/voice-engine";
 
 interface ChatChannel {
   id: string;
@@ -101,14 +102,33 @@ function MessageBubble({ msg, isOwn }: { msg: ChatMessage; isOwn: boolean }) {
         {isVoiceMsg ? (
           <VoiceMessagePlayer content={msg.content} isOwn={isOwn} />
         ) : (
-          <div
-            className={`px-3 py-1.5 rounded-xl text-sm leading-relaxed ${
-              isOwn
-                ? "bg-cyan-500/20 text-cyan-100 rounded-tr-sm"
-                : "bg-white/5 text-gray-300 rounded-tl-sm"
-            }`}
-          >
-            {msg.content}
+          <div className={`flex flex-col gap-1 ${isOwn ? "items-end" : "items-start"}`}>
+            <div
+              className={`px-3 py-1.5 rounded-xl text-sm leading-relaxed ${
+                isOwn
+                  ? "bg-cyan-500/20 text-cyan-100 rounded-tr-sm"
+                  : "bg-white/5 text-gray-300 rounded-tl-sm"
+              }`}
+            >
+              {msg.content}
+            </div>
+            {isOwn ? (
+              <button 
+                onClick={() => voiceEngine.speak(msg.content, msg.username)}
+                className="text-[10px] text-cyan-500/50 hover:text-cyan-400 flex items-center gap-1 transition-colors mt-0.5"
+                title="Simulate Voice Clone playback"
+              >
+                <Mic className="w-3 h-3" /> Voice Clone
+              </button>
+            ) : (
+              <button 
+                onClick={() => voiceEngine.speak(msg.content, msg.username)}
+                className="text-[10px] text-gray-500/50 hover:text-gray-400 flex items-center gap-1 transition-colors mt-0.5"
+                title="Listen to Procedural Voice"
+              >
+                <Volume2 className="w-3 h-3" /> Listen
+              </button>
+            )}
           </div>
         )}
       </div>

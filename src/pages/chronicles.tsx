@@ -13,13 +13,13 @@ import { Badge } from "@/components/ui/badge";
 import { usePageAnalytics } from "@/hooks/use-analytics";
 import { getChroniclesSession } from "@/pages/chronicles-login";
 
-import fantasyWorld from "@assets/generated_images/fantasy_sci-fi_world_landscape.jpg";
-import medievalKingdom from "@assets/generated_images/medieval_fantasy_kingdom.jpg";
+import historicalWorld from "@assets/generated_images/ancient_greek_athens_parthenon.jpg";
+import historicalKingdom from "@assets/generated_images/feudal_japan_samurai_castle.jpg";
 import ancientLibrary from "@assets/generated_images/ancient_wisdom_library_interior.jpg";
 import timeVortex from "@assets/generated_images/historical_time_vortex_portal.jpg";
 import cyberpunkCity from "@assets/generated_images/cyberpunk_neon_city.jpg";
-import fantasyHeroes from "@assets/generated_images/fantasy_character_heroes.jpg";
-import fantasyLands from "@assets/generated_images/fantasy_lands_and_realms.jpg";
+import historicalHeroes from "@assets/generated_images/tribal_warrior_man_portrait.jpg";
+import historicalLands from "@assets/generated_images/chronicles_historical_adventure.jpg";
 import stoneAgeVillage from "@assets/generated_images/stone_age_village_scene.jpg";
 import industrialCity from "@assets/generated_images/industrial_steampunk_city.jpg";
 
@@ -32,7 +32,7 @@ import renaissanceFlorence from "@assets/generated_images/renaissance_florence_i
 import romanColosseum from "@assets/generated_images/roman_empire_colosseum_gladiators.jpg";
 import feudalJapan from "@assets/generated_images/feudal_japan_samurai_castle.jpg";
 
-import heroVideo from "@assets/generated_videos/fantasy_world_cinematic_flyover.mp4";
+import heroVideo from "@assets/generated_videos/medieval_kingdom_establishing_shot.mp4";
 import wildWestVideo from "@assets/generated_videos/wild_west_frontier_town_flyover.mp4";
 import ancientRomeVideo from "@assets/generated_videos/ancient_rome_colosseum_glory.mp4";
 import medievalCastleVideo from "@assets/generated_videos/medieval_castle_twilight_scene.mp4";
@@ -71,7 +71,7 @@ const CORE_FEATURES = [
     description: "This is YOUR parallel self stepping into history. Your instincts, values, and strategic mind - unleashed across 10 verifiable historical eras. Not puppeteering a character. Being one.",
     longDescription: "What would YOU do in ancient Rome? How would YOUR mind navigate the French Revolution? This isn't role-playing someone else - it's discovering what the real you becomes when placed in extraordinary worlds. Your legend, your way.",
     icon: Eye,
-    image: fantasyHeroes,
+    image: historicalHeroes,
     color: "from-purple-500 to-pink-600",
     size: "large"
   },
@@ -82,7 +82,7 @@ const CORE_FEATURES = [
     description: "No karma meters. No forced morality. Your choices define your path. One player's alliance is another's rivalry.",
     longDescription: "We removed the judgment systems. Make strategic decisions based on YOUR values. Actions have consequences through relationships and faction standings - creating organic story arcs, not scripted morality lessons.",
     icon: Shield,
-    image: medievalKingdom,
+    image: historicalKingdom,
     color: "from-amber-500 to-red-600",
     size: "medium"
   },
@@ -115,7 +115,7 @@ const CORE_FEATURES = [
     description: "From prehistoric times to the 20th century. Viking raids to Renaissance intrigue. Every era is a new campaign with unique missions and rewards.",
     longDescription: "Over 70 verified historical periods as playable campaigns. Egyptian dynasties. Roman gladiators. Wild West outlaws. Renaissance intrigue. Civil War battles. Each era offers unique missions, factions, and rewards based on real history.",
     icon: Compass,
-    image: fantasyLands,
+    image: historicalLands,
     color: "from-emerald-500 to-teal-600",
     size: "medium"
   },
@@ -126,7 +126,7 @@ const CORE_FEATURES = [
     description: "Create missions, locations, and items. Approved content becomes real - and you OWN it. Trade, license, or build an empire.",
     longDescription: "This world is built BY players FOR players. Submit content ideas. If approved, it becomes real - and you OWN it with blockchain verification. License it to others, trade it, or use it as your base of operations.",
     icon: Users,
-    image: fantasyWorld,
+    image: historicalWorld,
     color: "from-blue-500 to-indigo-600",
     size: "medium"
   },
@@ -208,7 +208,7 @@ const EPOCHS = [
     id: "medieval",
     name: "Age of Crowns",
     period: "500 CE - 1500 CE",
-    image: medievalKingdom,
+    image: historicalKingdom,
     eras: ["Dark Ages", "Crusades", "High Medieval", "Black Death", "Feudal Systems"],
     incentive: "Political power, land ownership",
     color: "from-stone-500 to-stone-700",
@@ -1263,7 +1263,7 @@ export default function Chronicles() {
             style={{ boxShadow: '0 0 60px rgba(168,85,247,0.2)' }}
           >
             <img 
-              src={fantasyHeroes} 
+              src={historicalHeroes} 
               alt="Join the Journey"
               className="absolute inset-0 w-full h-full object-cover"
             />

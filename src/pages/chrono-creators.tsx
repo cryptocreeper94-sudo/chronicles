@@ -11,8 +11,8 @@ import { Badge } from "@/components/ui/badge";
 import { ChronoLayout, HoloCard, chronoStyles } from "@/components/chrono-ui";
 import { usePageAnalytics } from "@/hooks/use-analytics";
 
-import fantasyWorld from "@assets/generated_images/fantasy_sci-fi_world_landscape.jpg";
-import medievalKingdom from "@assets/generated_images/medieval_fantasy_kingdom.jpg";
+import historicalWorld from "@assets/generated_images/ancient_greek_athens_parthenon.jpg";
+import historicalKingdom from "@assets/generated_images/feudal_japan_samurai_castle.jpg";
 import quantumRealm from "@assets/generated_images/quantum_dimension_realm.jpg";
 import deepSpace from "@assets/generated_images/deep_space_station.jpg";
 import cyberpunkCity from "@assets/generated_images/cyberpunk_neon_city.jpg";
@@ -24,7 +24,7 @@ const CREATION_TYPES = [
     description: "Craft adventures, mysteries, and narrative arcs that players will experience across Chronicles.",
     icon: Scroll,
     difficulty: "Beginner",
-    image: medievalKingdom,
+    image: historicalKingdom,
   },
   {
     title: "Characters & NPCs",
@@ -38,7 +38,7 @@ const CREATION_TYPES = [
     description: "Build taverns, castles, markets, temples - places where stories unfold and players gather.",
     icon: Building,
     difficulty: "Intermediate",
-    image: fantasyWorld,
+    image: historicalWorld,
   },
   {
     title: "Items & Artifacts",
@@ -132,7 +132,7 @@ export default function ChronoCreators() {
     <ChronoLayout currentPage="/creators">
       <section className="relative py-16 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={fantasyWorld} alt="" className="w-full h-full object-cover opacity-30" />
+          <img src={historicalWorld} alt="" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
         </div>
         

@@ -13,8 +13,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Crown, Sword, Users, MessageCircle, Star, Shield, Scroll, Sparkles, BookOpen, Trophy, Target, ChevronRight, Send, User, MapPin, Play, Volume2, VolumeX, Flame, Zap, Globe, Building, Store, Clock, Compass, Layers } from "lucide-react";
 
 import medievalVideo from "@assets/generated_videos/medieval_castle_twilight_scene.mp4";
-import medievalKingdom from "@assets/generated_images/medieval_fantasy_kingdom.jpg";
-import fantasyHeroes from "@assets/generated_images/fantasy_character_heroes.jpg";
+import historicalKingdom from "@assets/generated_images/feudal_japan_samurai_castle.jpg";
+import historicalHeroes from "@assets/generated_images/tribal_warrior_man_portrait.jpg";
 import romanColosseum from "@assets/generated_images/roman_empire_colosseum_gladiators.jpg";
 import vikingFjord from "@assets/generated_images/viking_longship_fjord_scene.jpg";
 import wildWest from "@assets/generated_images/wild_west_frontier_town.jpg";
@@ -29,8 +29,8 @@ const GlowOrb = ({ color, size, top, left, delay = 0 }: { color: string; size: n
 );
 
 const FACTION_IMAGES: Record<string, string> = {
-  house_of_crowns: medievalKingdom,
-  shadow_council: fantasyHeroes,
+  house_of_crowns: historicalKingdom,
+  shadow_council: historicalHeroes,
   merchant_guild: wildWest,
   innovators_circle: romanColosseum,
   old_faith: vikingFjord,
@@ -308,7 +308,7 @@ export default function ChroniclesDemo() {
                     {/* Background image */}
                     <div className="absolute inset-0">
                       <img 
-                        src={FACTION_IMAGES[faction.id] || medievalKingdom} 
+                        src={FACTION_IMAGES[faction.id] || historicalKingdom} 
                         alt={faction.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />

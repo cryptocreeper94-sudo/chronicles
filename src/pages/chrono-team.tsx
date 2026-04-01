@@ -11,7 +11,7 @@ import { Progress } from "@/components/ui/progress";
 import { ChronoLayout, HoloCard, chronoStyles } from "@/components/chrono-ui";
 import { usePageAnalytics } from "@/hooks/use-analytics";
 
-import fantasyWorld from "@assets/generated_images/fantasy_sci-fi_world_landscape.jpg";
+import historicalWorld from "@assets/generated_images/ancient_greek_athens_parthenon.jpg";
 import deepSpace from "@assets/generated_images/deep_space_station.jpg";
 import quantumRealm from "@assets/generated_images/quantum_dimension_realm.jpg";
 import cyberpunkCity from "@assets/generated_images/cyberpunk_neon_city.jpg";
@@ -132,7 +132,7 @@ export default function ChronoTeam() {
     <ChronoLayout currentPage="/team">
       <section className="relative py-16 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={fantasyWorld} alt="" className="w-full h-full object-cover opacity-20" />
+          <img src={historicalWorld} alt="" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
         </div>
         

@@ -11,12 +11,12 @@ import { Badge } from "@/components/ui/badge";
 import { ChronoLayout, HoloCard, CTABanner, InfoTooltipInline, chronoStyles } from "@/components/chrono-ui";
 import { usePageAnalytics } from "@/hooks/use-analytics";
 
-import fantasyWorld from "@assets/generated_images/fantasy_sci-fi_world_landscape.jpg";
-import medievalKingdom from "@assets/generated_images/medieval_fantasy_kingdom.jpg";
+import historicalWorld from "@assets/generated_images/ancient_greek_athens_parthenon.jpg";
+import historicalKingdom from "@assets/generated_images/feudal_japan_samurai_castle.jpg";
 import quantumRealm from "@assets/generated_images/quantum_dimension_realm.jpg";
 import deepSpace from "@assets/generated_images/deep_space_station.jpg";
 import cyberpunkCity from "@assets/generated_images/cyberpunk_neon_city.jpg";
-import fantasyHeroes from "@assets/generated_images/fantasy_character_heroes.jpg";
+import historicalHeroes from "@assets/generated_images/tribal_warrior_man_portrait.jpg";
 
 const DAILY_LOOP = [
   {
@@ -69,7 +69,7 @@ const CORE_SYSTEMS = [
     title: "Political Simulation",
     description: "Governments form organically. Democracies, dictatorships, theocracies - whatever players create.",
     bullets: ["Player-driven governance", "Faction warfare", "Treaties and betrayals", "Revolution mechanics"],
-    image: medievalKingdom
+    image: historicalKingdom
   },
   {
     icon: Coins,
@@ -83,7 +83,7 @@ const CORE_SYSTEMS = [
     title: "Era Exploration",
     description: "70+ historical periods. Time travel for missions. Find echoes of other eras - artifacts, legends.",
     bullets: ["Parallel timeline system", "Era-specific mechanics", "Temporal echoes", "Historical events"],
-    image: fantasyWorld
+    image: historicalWorld
   },
 ];
 
@@ -113,7 +113,7 @@ export default function ChronoGameplay() {
     <ChronoLayout currentPage="/gameplay">
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={fantasyHeroes} alt="" className="w-full h-full object-cover opacity-30" />
+          <img src={historicalHeroes} alt="" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
         </div>
         

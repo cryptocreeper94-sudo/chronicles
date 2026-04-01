@@ -30,6 +30,8 @@ const ChronoEras = lazy(() => import("@/pages/chrono-eras"));
 const ChronoEconomy = lazy(() => import("@/pages/chrono-economy"));
 const ChronoDashboard = lazy(() => import("@/pages/chrono-dashboard"));
 const RoadmapChronicles = lazy(() => import("@/pages/roadmap-chronicles"));
+const ChroniclesBuilder = lazy(() => import("@/pages/chronicles-builder"));
+const ChroniclesLumeStudio = lazy(() => import("@/pages/chronicles-lume-studio"));
 
 const NotFound = () => (
     <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center text-cyan-400">
@@ -58,6 +60,8 @@ export default function App() {
         <Route path="/economy" component={ChronoEconomy} />
         <Route path="/dashboard" component={ChronoDashboard} />
         <Route path="/roadmap-chronicles" component={RoadmapChronicles} />
+        <Route path="/builder" component={ChroniclesBuilder} />
+        <Route path="/studio" component={ChroniclesLumeStudio} />
         
         {/* Support the old paths for compatibility during transition if needed */}
         <Route path="/chronicles-play" component={ChroniclesPlay} />
