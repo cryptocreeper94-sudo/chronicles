@@ -160,7 +160,7 @@ export default function ChroniclesLumeStudio() {
               >
                 <div className={`max-w-[85%] rounded-2xl p-4 ${
                   msg.role === "user" 
-                    ? \`bg-gradient-to-br \${traitColor} text-white shadow-lg\` 
+                    ? "bg-gradient-to-br " + traitColor + " text-white shadow-lg" 
                     : "bg-white/5 border border-white/10 text-white/90"
                 }`}>
                   <div className="flex items-center gap-2 mb-2 text-[10px] uppercase tracking-wider opacity-60">
