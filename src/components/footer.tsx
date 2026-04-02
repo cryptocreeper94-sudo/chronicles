@@ -102,7 +102,7 @@ export function Footer() {
                 <li><Link href="/note" className="hover:text-cyan-400 transition-colors">Our Story</Link></li>
                 <li><Link href="/vision" className="hover:text-cyan-400 transition-colors">Vision</Link></li>
                 <li><Link href="/team" className="hover:text-cyan-400 transition-colors">Team</Link></li>
-                <li><Link href="/trust-layer" className="hover:text-cyan-400 transition-colors">Trust Layer</Link></li>
+                <li><a href="https://dwtl.io" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors">Trust Layer</a></li>
               </ul>
             </div>
             
@@ -218,9 +218,9 @@ export function Footer() {
               Privacy
             </Link>
             <span className="text-white/30">•</span>
-            <Link href="/explore" className="hover:text-cyan-400 transition-colors" data-testid="link-explore">
-              Explore
-            </Link>
+            <a href="https://dwtl.io" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors" data-testid="link-explore">
+              Trustbook
+            </a>
             <span className="text-white/30">•</span>
             <a href="https://dwsc.io" target="_blank" rel="noopener noreferrer" className="text-cyan-400/70 hover:text-cyan-400 transition-colors">
               DWSC
