@@ -778,7 +778,7 @@ export default function ChroniclesPlay() {
                     <motion.div
                       className="h-full bg-amber-500"
                       initial={{ width: 0 }}
-                      animate={{ width: \`\${Math.min(100, (eraProgress[selectedEra].nextArc.currentProgress / eraProgress[selectedEra].nextArc.required) * 100)}%\` }}
+                      animate={{ width: `${Math.min(100, (eraProgress[selectedEra].nextArc.currentProgress / eraProgress[selectedEra].nextArc.required) * 100)}%` }}
                       transition={{ duration: 1, ease: "easeOut" }}
                     />
                   </div>
