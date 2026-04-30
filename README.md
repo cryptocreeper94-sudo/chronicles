@@ -1,34 +1,44 @@
-# Chronicles
+﻿# Chronicles
 
-An interactive RPG legacy game built with React Three Fiber. Part of the DarkWave ecosystem.
+> $([char]0x1F512) **Patent Pending:** The core deterministic governance capabilities (Lume-V) within this repository are protected under U.S. Provisional Patent Application **No. 64/032,339** (Filed April 7, 2026).
+
+Life simulation and legacy planning — milestone tracking, family trees, memory preservation.
 
 **Live:** [yourlegacy.io](https://yourlegacy.io)
+
+## Lume-OS Integration
+
+This application is registered with **Lume Cortex** — the deterministic meta-operating system governing the Trust Layer ecosystem.
+
+| Property | Value |
+|---|---|
+| **Cortex Bridge** | `cortex-bridge.js` |
+| **Lume-V Wrapper** | `lume-v.wrapper.lume` |
+| **Ecosystem** | trust-layer-42 (42 apps · 42 papers) |
+| **Cortex Endpoint** | lume-cortex.onrender.com |
 
 ## Stack
 
 | Layer | Tech |
 |---|---|
-| Frontend | React + Vite (Three.js via R3F, Framer Motion) |
-| 3D Engine | @react-three/fiber + @react-three/drei |
-| State | React Query |
-| Deployment | Static build |
-
-## Structure
-
-```
-chronicles/
-├── src/          # React + Three.js game client
-├── public/       # Static assets
-└── scripts/      # Build scripts
-```
+| React 19 + Vite 7 | | Express + TypeScript | | PostgreSQL (Drizzle ORM) | | Trust Layer SSO | | Render |
 
 ## Development
 
-```bash
+``bash
 npm install
 npm run dev
-```
+``
 
-## Related
+---
 
-Game routes and server-side logic live in `trust-layer/server/chronicles-play-routes.ts` (served from the Trust Layer backend).
+## Intellectual Property
+
+**Patent Pending:**
+- U.S. Pat. App. No. 64/032,339 — Lume-V
+- U.S. Pat. App. No. 64/047,512 — Lume Core
+- U.S. Pat. App. No. 64/047,467 — Axiom
+- U.S. Pat. App. No. 64/047,496 — Lume-X
+- U.S. Pat. App. No. 64/047,536 — Synthetic Organisms
+
+© 2026 DarkWave Studios LLC. All rights reserved.
