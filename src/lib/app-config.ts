@@ -1,4 +1,4 @@
-export type AppDomain = "dwsc" | "games" | "chrono" | "chronochat" | "strikeagent" | "studios" | "trustshield";
+export type AppDomain = "dwsc" | "games" | "chrono" | "Signal Chat" | "strikeagent" | "studios" | "trustshield";
 
 export function getAppFromHost(): AppDomain {
   const host = window.location.hostname.toLowerCase();
@@ -9,8 +9,8 @@ export function getAppFromHost(): AppDomain {
   if (host.includes("darkwavegames") || host.includes("games.")) {
     return "games";
   }
-  if (host.includes("chronochat") || host === "chronochat.io" || host === "www.chronochat.io" || host.includes("signalchat") || host.includes("signal-chat")) {
-    return "chronochat";
+  if (host.includes("Signal Chat") || host === "Signal Chat.io" || host === "www.Signal Chat.io" || host.includes("signalchat") || host.includes("signal-chat")) {
+    return "Signal Chat";
   }
   if (host.includes("yourlegacy") || host.includes("chrono.") || host === "yourlegacy.io" || host === "www.yourlegacy.io") {
     return "chrono";
@@ -64,7 +64,7 @@ export const APP_CONFIG: Record<AppDomain, {
     logoText: "Chronicles",
     primaryGradient: "from-purple-500 to-pink-500",
   },
-  chronochat: {
+  Signal Chat: {
     name: "Signal Chat",
     shortName: "Signal Chat",
     themeColor: "#06b6d4",

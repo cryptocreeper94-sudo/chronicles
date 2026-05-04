@@ -9,7 +9,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import type { Community, Channel, Member } from '@shared/chat-types';
 import { apiRequest } from '@/lib/queryClient';
 
-export default function ChronoChatPage() {
+export default function Signal ChatPage() {
   const queryClient = useQueryClient();
   const [activeCommunity, setActiveCommunity] = useState<string | null>(null);
   const [activeChannel, setActiveChannel] = useState<string | null>(null);

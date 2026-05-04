@@ -490,7 +490,7 @@ DWSC employs Byzantine Fault Tolerant Proof-of-Authority (BFT-PoA) with stake-we
 |-------------|------|--------|-----------------|
 | DarkWave Portal | Web3 Hub | Live | Wallet, DEX, Staking |
 | DarkWave Chronicles | Gaming | Beta | Shells, NFTs, Economy |
-| ChronoChat | Social | Alpha | Tipping, Subscriptions |
+| Signal Chat | Social | Alpha | Tipping, Subscriptions |
 | Guardian Shield | Security | Live | Service Payments |
 
 ### 11.2 Partner Ecosystem
@@ -621,7 +621,7 @@ All ecosystem applications contribute to DWC demand:
 
 DarkWave Coin represents a new paradigm in blockchain token design—one where utility drives value, not speculation. Through our integrated ecosystem of gaming, DeFi, and enterprise applications, DWC is positioned to capture value from real economic activity rather than relying on market sentiment alone.
 
-The combination of high-performance infrastructure (200K+ TPS, 400ms finality), consumer-grade applications (Chronicles, ChronoChat), and enterprise services (Guardian Shield) creates multiple demand vectors that sustain token value through market cycles.
+The combination of high-performance infrastructure (200K+ TPS, 400ms finality), consumer-grade applications (Chronicles, Signal Chat), and enterprise services (Guardian Shield) creates multiple demand vectors that sustain token value through market cycles.
 
 We invite developers, gamers, enterprises, and investors to join us in building the future of digital ownership and decentralized entertainment.
 

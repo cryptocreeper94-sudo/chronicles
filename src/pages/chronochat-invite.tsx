@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import type { Community } from '@shared/chat-types';
 
-export default function ChronoChatInvitePage({ params }: { params?: { code?: string } }) {
+export default function Signal ChatInvitePage({ params }: { params?: { code?: string } }) {
   const inviteCode = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('code') : null;
   const [joined, setJoined] = useState(false);
 
