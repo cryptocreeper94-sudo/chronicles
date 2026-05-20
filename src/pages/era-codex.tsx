@@ -56,7 +56,7 @@ const ERAS: Era[] = [
     year: "1200 CE",
     img: medievalImg,
     icon: Sword,
-    color: "from-violet-600 to-purple-700",
+    color: "from-cyan-600 to-sky-700",
     description: "Kingdoms rise and fall. Navigate court intrigue, forge alliances, and lead your house to dominance. Every decision shapes the fate of nations.",
     mechanics: ["Political intrigue", "Diplomacy", "War and peace", "Trade networks"],
     resources: ["Gold", "Iron", "Silk", "Grain"],
@@ -130,7 +130,7 @@ export default function EraCodex() {
             <Shield className="w-7 h-7 text-cyan-400" />
             <span className="font-display font-bold text-sm sm:text-base">Era Codex</span>
           </div>
-          <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 text-[10px] sm:text-xs shrink-0">
+          <Badge className="bg-sky-500/20 text-sky-300 border-sky-500/30 text-[10px] sm:text-xs shrink-0">
             <Clock className="w-3 h-3 mr-1" />
             {ERAS.length} Eras
           </Badge>
@@ -251,7 +251,7 @@ export default function EraCodex() {
         </div>
 
         {/* Era Details */}
-        <section className="px-4 py-10 bg-gradient-to-b from-black to-purple-950/20">
+        <section className="px-4 py-10 bg-gradient-to-b from-black to-sky-950/20">
           <div className="max-w-6xl mx-auto">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
               {/* Era Experiences */}
@@ -294,13 +294,13 @@ export default function EraCodex() {
               <GlassCard className={era.isLocked ? "opacity-60" : ""}>
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-4">
-                    <Users className="w-5 h-5 text-purple-400" />
+                    <Users className="w-5 h-5 text-sky-400" />
                     <h3 className="font-bold">Life Paths</h3>
                   </div>
                   <ul className="space-y-2">
                     {era.classes.map((c, i) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-gray-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-sky-400 shrink-0" />
                         {c}
                       </li>
                     ))}
@@ -360,13 +360,13 @@ export default function EraCodex() {
         </section>
 
         {/* Timeline Overview */}
-        <section className="px-4 py-10 bg-gradient-to-b from-purple-950/20 to-black">
+        <section className="px-4 py-10 bg-gradient-to-b from-sky-950/20 to-black">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl font-display font-bold text-center mb-8">The Timeline</h2>
             
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute top-6 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-500 via-purple-500 to-pink-500 hidden md:block" />
+              <div className="absolute top-6 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-500 via-sky-500 to-pink-500 hidden md:block" />
               
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
                 {ERAS.map((e, i) => (
@@ -403,7 +403,7 @@ export default function EraCodex() {
         </section>
 
         {/* Living World Vision */}
-        <section className="px-4 py-16 bg-gradient-to-b from-black via-purple-950/10 to-black">
+        <section className="px-4 py-16 bg-gradient-to-b from-black via-sky-950/10 to-black">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <Badge className="mb-4 bg-pink-500/20 text-pink-300 border-pink-500/30">
@@ -468,11 +468,11 @@ export default function EraCodex() {
         </section>
 
         {/* Chrono Key Teaser */}
-        <section className="px-4 py-16 bg-gradient-to-b from-black to-purple-950/30">
+        <section className="px-4 py-16 bg-gradient-to-b from-black to-sky-950/30">
           <div className="max-w-2xl mx-auto text-center">
-            <GlassCard className="border-2 border-purple-500/30">
+            <GlassCard className="border-2 border-sky-500/30">
               <div className="p-8">
-                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center">
                   <Crown className="w-10 h-10 text-white" />
                 </div>
                 <h2 className="text-2xl font-display font-bold mb-4">Chrono Keys</h2>
@@ -490,12 +490,12 @@ export default function EraCodex() {
                     <p className="text-xs text-gray-500">Era Access</p>
                   </div>
                   <div className="bg-black/30 rounded-lg p-3">
-                    <Star className="w-6 h-6 mx-auto mb-2 text-purple-400" />
+                    <Star className="w-6 h-6 mx-auto mb-2 text-sky-400" />
                     <p className="text-xs text-gray-500">Unique Powers</p>
                   </div>
                 </div>
                 <Link href="/creator-program">
-                  <Button className="bg-gradient-to-r from-purple-600 to-pink-600">
+                  <Button className="bg-gradient-to-r from-sky-600 to-pink-600">
                     <Sparkles className="w-4 h-4 mr-2" />
                     Become a Founding Creator
                   </Button>
@@ -506,7 +506,7 @@ export default function EraCodex() {
         </section>
 
         {/* AI Demo CTA */}
-        <section className="px-4 py-10 bg-gradient-to-b from-purple-950/30 to-black">
+        <section className="px-4 py-10 bg-gradient-to-b from-sky-950/30 to-black">
           <div className="max-w-2xl mx-auto text-center">
             <Badge className="mb-4 bg-pink-500/20 text-pink-300 border-pink-500/30">
               <Sparkles className="w-3 h-3 mr-1" />
@@ -517,7 +517,7 @@ export default function EraCodex() {
               See how the emotion-driven scenario generator creates morally complex situations with no "right" answers.
             </p>
             <Link href="/scenario-generator">
-              <Button className="bg-gradient-to-r from-pink-600 to-purple-600">
+              <Button className="bg-gradient-to-r from-pink-600 to-sky-600">
                 <Zap className="w-4 h-4 mr-2" />
                 Launch Scenario Generator
               </Button>

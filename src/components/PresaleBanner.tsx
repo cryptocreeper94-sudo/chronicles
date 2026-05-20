@@ -10,7 +10,7 @@ const PRESALE_URL = 'https://dwtl.io/presale';
 const styles: Record<string, React.CSSProperties> = {
   banner: {
     position: 'relative', zIndex: 50,
-    background: 'linear-gradient(135deg, rgba(6,182,212,0.06) 0%, rgba(168,85,247,0.04) 50%, rgba(6,182,212,0.06) 100%)',
+    background: 'linear-gradient(135deg, rgba(6,182,212,0.06) 0%, rgba(14,165,233,0.04) 50%, rgba(6,182,212,0.06) 100%)',
     backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
     borderBottom: '1px solid rgba(6,182,212,0.25)', padding: '10px 16px',
   },
@@ -39,14 +39,14 @@ const styles: Record<string, React.CSSProperties> = {
   tge: { fontSize: 12, color: 'rgba(255,255,255,0.5)' },
   multiplier: {
     display: 'inline-flex', padding: '2px 8px', borderRadius: 6,
-    background: 'linear-gradient(135deg, rgba(6,182,212,0.12), rgba(168,85,247,0.08))',
+    background: 'linear-gradient(135deg, rgba(6,182,212,0.12), rgba(14,165,233,0.08))',
     border: '1px solid rgba(6,182,212,0.2)',
     fontSize: 11, fontWeight: 900, color: '#67e8f9',
   },
   cta: {
     display: 'inline-flex', alignItems: 'center', gap: 6,
     padding: '7px 20px', borderRadius: 999,
-    background: 'linear-gradient(135deg, #06b6d4, #8b5cf6)',
+    background: 'linear-gradient(135deg, #06b6d4, #0ea5e9)',
     color: '#fff', fontSize: 12, fontWeight: 700,
     textDecoration: 'none', border: 'none', cursor: 'pointer',
     whiteSpace: 'nowrap' as const,

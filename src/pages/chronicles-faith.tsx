@@ -53,7 +53,7 @@ const CATEGORY_LABELS: Record<string, { label: string; icon: any; color: string 
   torah: { label: "Torah", icon: Scroll, color: "text-yellow-400" },
   history: { label: "History", icon: BookOpen, color: "text-blue-400" },
   poetry: { label: "Poetry", icon: Heart, color: "text-pink-400" },
-  wisdom: { label: "Wisdom", icon: Eye, color: "text-purple-400" },
+  wisdom: { label: "Wisdom", icon: Eye, color: "text-sky-400" },
   prophets: { label: "Prophets", icon: Flame, color: "text-orange-400" },
   gospels: { label: "Gospels", icon: Sun, color: "text-yellow-300" },
   letters: { label: "Letters", icon: Send, color: "text-green-400" },
@@ -356,7 +356,7 @@ export default function ChroniclesFaith() {
                 </div>
                 <div onClick={() => setActiveTab("scripture")} data-testid="goto-scripture" className="cursor-pointer">
                   <GlassCard className="p-3 hover:bg-white/5 transition-all h-full">
-                    <BookMarked className="w-6 h-6 text-purple-400 mb-2" />
+                    <BookMarked className="w-6 h-6 text-sky-400 mb-2" />
                     <p className="text-sm text-white font-medium">Read Scripture</p>
                     <p className="text-[10px] text-gray-500">{faithStatus?.sacredTextsRead?.length || 0} of {faithStatus?.totalTexts || 36} books</p>
                   </GlassCard>
@@ -380,7 +380,7 @@ export default function ChroniclesFaith() {
               {faithStatus?.recentJournal?.length > 0 && (
                 <GlassCard className="p-4">
                   <h3 className="text-white font-semibold text-sm mb-3 flex items-center gap-2">
-                    <BookOpen className="w-4 h-4 text-purple-400" />
+                    <BookOpen className="w-4 h-4 text-sky-400" />
                     Spiritual Journal
                   </h3>
                   <div className="space-y-2">
@@ -495,7 +495,7 @@ export default function ChroniclesFaith() {
                       <Badge className="bg-amber-500/20 text-amber-400 mb-2">{readingPassage.text.book}</Badge>
                       <h2 className="text-white font-bold text-lg">{readingPassage.passage.passageTitle}</h2>
                       {readingPassage.text.category === "cepher_exclusive" && (
-                        <Badge className="bg-purple-500/20 text-purple-400 mt-1 text-[10px]">
+                        <Badge className="bg-sky-500/20 text-sky-400 mt-1 text-[10px]">
                           <Crown className="w-3 h-3 mr-1" /> Cepher Exclusive
                         </Badge>
                       )}
@@ -504,8 +504,8 @@ export default function ChroniclesFaith() {
                       <p className="text-sm text-gray-200 leading-relaxed whitespace-pre-line italic">{readingPassage.passage.passage}</p>
                     </div>
                     {readingPassage.passage.ursulaCommentary && (
-                      <div className="bg-purple-500/10 rounded-xl p-4 mb-4">
-                        <p className="text-xs text-purple-300 font-semibold mb-1 flex items-center gap-1">
+                      <div className="bg-sky-500/10 rounded-xl p-4 mb-4">
+                        <p className="text-xs text-sky-300 font-semibold mb-1 flex items-center gap-1">
                           <Sparkles className="w-3 h-3" /> {faithStatus?.ursulaName}'s Commentary
                         </p>
                         <p className="text-sm text-gray-300">{readingPassage.passage.ursulaCommentary}</p>
@@ -534,7 +534,7 @@ export default function ChroniclesFaith() {
                 <>
                   <GlassCard glow className="p-4">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/30 to-amber-500/30 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/30 to-amber-500/30 flex items-center justify-center">
                         <BookMarked className="w-6 h-6 text-amber-400" />
                       </div>
                       <div>
@@ -607,7 +607,7 @@ export default function ChroniclesFaith() {
                               <div className="flex items-center gap-2 flex-wrap">
                                 <p className="text-sm text-white font-medium">{text.book}</p>
                                 {text.category === "cepher_exclusive" && (
-                                  <Badge className="text-[9px] bg-purple-500/20 text-purple-400">
+                                  <Badge className="text-[9px] bg-sky-500/20 text-sky-400">
                                     <Crown className="w-2.5 h-2.5 mr-0.5" /> Cepher
                                   </Badge>
                                 )}
@@ -634,7 +634,7 @@ export default function ChroniclesFaith() {
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="space-y-4">
                   <GlassCard glow className="p-5">
                     <div className="text-center mb-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500/30 to-purple-500/30 flex items-center justify-center mx-auto mb-3">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500/30 to-sky-500/30 flex items-center justify-center mx-auto mb-3">
                         <HandHeart className="w-8 h-8 text-blue-400" />
                       </div>
                       <h2 className="text-white font-bold text-lg">A Moment of Prayer</h2>
@@ -649,8 +649,8 @@ export default function ChroniclesFaith() {
                     </div>
                     <p className="text-sm text-gray-300 text-center mb-2">{prayerResult.prayer.innerPeace}</p>
                     {prayerResult.prayer.ursulaWhisper && (
-                      <div className="bg-purple-500/10 rounded-lg p-3 mb-4">
-                        <p className="text-xs text-purple-300">
+                      <div className="bg-sky-500/10 rounded-lg p-3 mb-4">
+                        <p className="text-xs text-sky-300">
                           <Sparkles className="w-3 h-3 inline mr-1" />
                           {prayerResult.prayer.ursulaWhisper}
                         </p>
@@ -662,7 +662,7 @@ export default function ChroniclesFaith() {
                       <Badge className="bg-orange-500/20 text-orange-400">
                         <Flame className="w-3 h-3 mr-0.5" /> {prayerResult.prayerStreak} Day Streak
                       </Badge>
-                      {prayerResult.wisdomGained > 0 && <Badge className="bg-purple-500/20 text-purple-400">+{prayerResult.wisdomGained} Wisdom</Badge>}
+                      {prayerResult.wisdomGained > 0 && <Badge className="bg-sky-500/20 text-sky-400">+{prayerResult.wisdomGained} Wisdom</Badge>}
                     </div>
                     <Button onClick={() => setPrayerResult(null)} className="w-full bg-white/10 text-white" data-testid="prayer-done-btn">
                       Amen
@@ -763,13 +763,13 @@ export default function ChroniclesFaith() {
                     <GlassCard key={event.id} className="p-4">
                       <div className="flex items-start gap-3">
                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                          event.type === "study" ? "bg-purple-500/20" :
+                          event.type === "study" ? "bg-sky-500/20" :
                           event.type === "service" ? "bg-green-500/20" :
                           event.type === "prayer" ? "bg-blue-500/20" :
                           event.type === "ceremony" ? "bg-amber-500/20" :
                           "bg-white/10"
                         }`}>
-                          {event.type === "study" ? <BookOpen className="w-5 h-5 text-purple-400" /> :
+                          {event.type === "study" ? <BookOpen className="w-5 h-5 text-sky-400" /> :
                            event.type === "service" ? <Heart className="w-5 h-5 text-green-400" /> :
                            event.type === "prayer" ? <HandHeart className="w-5 h-5 text-blue-400" /> :
                            event.type === "ceremony" ? <Award className="w-5 h-5 text-amber-400" /> :
@@ -784,7 +784,7 @@ export default function ChroniclesFaith() {
                           <div className="flex items-center gap-3 mb-3">
                             <span className="text-[10px] text-amber-400">+{event.faithXp} Faith XP</span>
                             <span className="text-[10px] text-green-400">+{event.echoReward} Echoes</span>
-                            {event.minFaithLevel && <span className="text-[10px] text-purple-400">Requires Faith {event.minFaithLevel}</span>}
+                            {event.minFaithLevel && <span className="text-[10px] text-sky-400">Requires Faith {event.minFaithLevel}</span>}
                           </div>
                           <Button
                             onClick={() => attendEvent.mutate(event.id)}
@@ -808,7 +808,7 @@ export default function ChroniclesFaith() {
             <motion.div key="ursula" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="space-y-4">
               <GlassCard glow className="p-5">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/30 to-amber-500/30 flex items-center justify-center border border-purple-500/20">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-500/30 to-amber-500/30 flex items-center justify-center border border-sky-500/20">
                     <Sparkles className="w-8 h-8 text-amber-400" />
                   </div>
                   <div>
@@ -877,10 +877,10 @@ export default function ChroniclesFaith() {
                       <div className={`max-w-[85%] rounded-2xl px-4 py-2.5 ${
                         msg.role === "player"
                           ? "bg-cyan-500/20 text-white rounded-br-sm"
-                          : "bg-purple-500/10 text-gray-200 border border-purple-500/20 rounded-bl-sm"
+                          : "bg-sky-500/10 text-gray-200 border border-sky-500/20 rounded-bl-sm"
                       }`}>
                         {msg.role === "ursula" && (
-                          <p className="text-[10px] text-purple-400 font-medium mb-0.5 flex items-center gap-1">
+                          <p className="text-[10px] text-sky-400 font-medium mb-0.5 flex items-center gap-1">
                             <Sparkles className="w-2.5 h-2.5" /> {faithStatus?.ursulaName}
                           </p>
                         )}
@@ -890,11 +890,11 @@ export default function ChroniclesFaith() {
                   ))}
                   {talkToUrsula.isPending && (
                     <div className="flex justify-start">
-                      <div className="bg-purple-500/10 rounded-2xl px-4 py-3 border border-purple-500/20">
+                      <div className="bg-sky-500/10 rounded-2xl px-4 py-3 border border-sky-500/20">
                         <div className="flex gap-1">
-                          <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                          <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                          <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                          <div className="w-2 h-2 bg-sky-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                          <div className="w-2 h-2 bg-sky-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                          <div className="w-2 h-2 bg-sky-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
                         </div>
                       </div>
                     </div>
@@ -906,13 +906,13 @@ export default function ChroniclesFaith() {
                     onChange={(e) => setUrsulaMessage(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSendToUrsula()}
                     placeholder={`Ask ${faithStatus?.ursulaName || "Ursula"} anything...`}
-                    className="flex-1 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-purple-500/30 min-h-[44px]"
+                    className="flex-1 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-sky-500/30 min-h-[44px]"
                     data-testid="ursula-chat-input"
                   />
                   <Button
                     onClick={handleSendToUrsula}
                     disabled={!ursulaMessage.trim() || talkToUrsula.isPending}
-                    className="bg-gradient-to-r from-purple-500 to-amber-500 text-white min-w-[44px] min-h-[44px]"
+                    className="bg-gradient-to-r from-sky-500 to-amber-500 text-white min-w-[44px] min-h-[44px]"
                     data-testid="ursula-send-btn"
                   >
                     <Send className="w-4 h-4" />

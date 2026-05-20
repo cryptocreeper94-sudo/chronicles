@@ -143,13 +143,13 @@ export default function ChroniclesTimePortal() {
       <div className="min-h-screen bg-slate-950 flex items-center justify-center">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl" />
         </div>
         <Card className="relative z-10 bg-slate-900/80 border-slate-700 p-8 max-w-md mx-4 text-center">
           <motion.div
-            animate={{ boxShadow: ["0 0 30px rgba(6,182,212,0.3)", "0 0 60px rgba(168,85,247,0.5)", "0 0 30px rgba(6,182,212,0.3)"] }}
+            animate={{ boxShadow: ["0 0 30px rgba(6,182,212,0.3)", "0 0 60px rgba(14,165,233,0.5)", "0 0 30px rgba(6,182,212,0.3)"] }}
             transition={{ duration: 3, repeat: Infinity }}
-            className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-cyan-500/30 to-purple-500/30 flex items-center justify-center border-2 border-cyan-500/40"
+            className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-cyan-500/30 to-sky-500/30 flex items-center justify-center border-2 border-cyan-500/40"
           >
             <Timer className="w-10 h-10 text-cyan-400" />
           </motion.div>
@@ -158,7 +158,7 @@ export default function ChroniclesTimePortal() {
             Sign in to access the Time Portal and begin your journey through the ages. Complete missions, collect artifacts, and unlock new eras.
           </p>
           <Link href="/chronicles">
-            <Button className="w-full bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500" data-testid="button-signin-chronicles">
+            <Button className="w-full bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500" data-testid="button-signin-chronicles">
               <ArrowRight className="w-4 h-4 mr-2" />
               Go to Chronicles & Sign In
             </Button>
@@ -184,7 +184,7 @@ export default function ChroniclesTimePortal() {
     <div className="min-h-screen bg-slate-950 text-white">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 py-8">
@@ -208,7 +208,7 @@ export default function ChroniclesTimePortal() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-cyan-900/20 to-purple-900/20 rounded-lg p-4 mb-6 border border-cyan-500/20">
+        <div className="bg-gradient-to-r from-cyan-900/20 to-sky-900/20 rounded-lg p-4 mb-6 border border-cyan-500/20">
           <div className="flex items-center gap-2 mb-2">
             <Sparkles className="w-4 h-4 text-amber-400" />
             <span className="text-xs text-amber-400 uppercase tracking-wider font-semibold">Beta Notice</span>
@@ -223,9 +223,9 @@ export default function ChroniclesTimePortal() {
             <Card className="bg-slate-900/80 border-slate-700 p-6">
               <div className="text-center mb-6">
                 <motion.div
-                  animate={{ boxShadow: ["0 0 30px rgba(6,182,212,0.3)", "0 0 60px rgba(168,85,247,0.5)", "0 0 30px rgba(6,182,212,0.3)"] }}
+                  animate={{ boxShadow: ["0 0 30px rgba(6,182,212,0.3)", "0 0 60px rgba(14,165,233,0.5)", "0 0 30px rgba(6,182,212,0.3)"] }}
                   transition={{ duration: 3, repeat: Infinity }}
-                  className="w-24 h-24 mx-auto rounded-full bg-gradient-to-r from-cyan-500/30 to-purple-500/30 flex items-center justify-center border-2 border-cyan-500/40"
+                  className="w-24 h-24 mx-auto rounded-full bg-gradient-to-r from-cyan-500/30 to-sky-500/30 flex items-center justify-center border-2 border-cyan-500/40"
                 >
                   <Timer className="w-12 h-12 text-cyan-400" />
                 </motion.div>
@@ -248,7 +248,7 @@ export default function ChroniclesTimePortal() {
                 <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
                   <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">Artifacts Collected</div>
                   <div className="flex items-center gap-2">
-                    <Gem className="w-5 h-5 text-purple-400" />
+                    <Gem className="w-5 h-5 text-sky-400" />
                     <span className="text-xl font-bold">{portalData?.collectedArtifacts?.length || 0}</span>
                     <span className="text-slate-400">total</span>
                   </div>
@@ -346,7 +346,7 @@ export default function ChroniclesTimePortal() {
 
             <Card className="bg-slate-900/80 border-slate-700 p-6">
               <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                <Timer className="w-5 h-5 text-purple-400" />
+                <Timer className="w-5 h-5 text-sky-400" />
                 Available Eras
               </h3>
               
@@ -362,9 +362,9 @@ export default function ChroniclesTimePortal() {
                       whileHover={{ scale: isUnlocked && !isCurrent ? 1.02 : 1 }}
                       className={`relative p-4 rounded-lg border cursor-pointer transition-all ${
                         isCurrent 
-                          ? "bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border-cyan-500/40" 
+                          ? "bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border-cyan-500/40" 
                           : isUnlocked
-                            ? "bg-slate-800/50 border-slate-700 hover:border-purple-500/30"
+                            ? "bg-slate-800/50 border-slate-700 hover:border-sky-500/30"
                             : "bg-slate-800/30 border-slate-700/50 opacity-60"
                       }`}
                       onClick={() => isUnlocked && !isCurrent && setSelectedEra(era)}
@@ -389,7 +389,7 @@ export default function ChroniclesTimePortal() {
                       {isUnlocked && !isCurrent && (
                         <Button
                           size="sm"
-                          className="w-full mt-3 bg-purple-600 hover:bg-purple-500"
+                          className="w-full mt-3 bg-sky-600 hover:bg-sky-500"
                           onClick={(e) => { e.stopPropagation(); travelToEra.mutate(era.code); }}
                           disabled={travelToEra.isPending}
                           data-testid={`button-travel-${era.code}`}

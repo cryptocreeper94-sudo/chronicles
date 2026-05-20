@@ -21,7 +21,7 @@ const NPC_DATA: Record<string, { emoji: string; color: string; faction: string }
   "Marcus Goldhand": { emoji: "⚖️", color: "from-green-600 to-emerald-700", faction: "Merchant's Guild" },
   "Dr. Elena Voss": { emoji: "🏢", color: "from-cyan-600 to-blue-700", faction: "Nexus Corporation" },
   "Kai 'Ghost' Reeves": { emoji: "📡", color: "from-red-600 to-rose-700", faction: "Signal Underground" },
-  "Mayor Diana Reyes": { emoji: "🤝", color: "from-purple-600 to-violet-700", faction: "Civic Alliance" },
+  "Mayor Diana Reyes": { emoji: "🤝", color: "from-sky-600 to-cyan-700", faction: "Civic Alliance" },
   "Marshal Jake Colton": { emoji: "⭐", color: "from-gray-500 to-zinc-600", faction: "The Iron Star" },
   "Rattlesnake Rosa": { emoji: "🤠", color: "from-stone-600 to-stone-800", faction: "Black Canyon Gang" },
   "Chief Running Bear": { emoji: "🦅", color: "from-red-700 to-orange-800", faction: "First Nations" },
@@ -312,7 +312,7 @@ export default function ChroniclesNpcChat() {
             </Button>
           </Link>
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent" data-testid="page-title">
+            <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent" data-testid="page-title">
               NPC Conversations
             </h1>
             <p className="text-sm text-gray-500 mt-0.5">Talk to the characters who shape your world</p>
@@ -455,7 +455,7 @@ export default function ChroniclesNpcChat() {
                         <Button
                           onClick={handleSend}
                           disabled={!messageInput.trim() || sendMutation.isPending}
-                          className="bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white rounded-xl min-h-[44px] min-w-[44px] px-4"
+                          className="bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white rounded-xl min-h-[44px] min-w-[44px] px-4"
                           data-testid="send-btn"
                         >
                           {sendMutation.isPending ? (
@@ -466,7 +466,7 @@ export default function ChroniclesNpcChat() {
                         </Button>
                       </div>
                       <div className="flex items-center gap-1.5 mt-2">
-                        <Sparkles className="w-3 h-3 text-purple-500/50" />
+                        <Sparkles className="w-3 h-3 text-sky-500/50" />
                         <span className="text-[10px] text-gray-600">AI-powered conversation</span>
                       </div>
                     </div>
@@ -484,7 +484,7 @@ export default function ChroniclesNpcChat() {
                       <div className={`w-24 h-24 rounded-3xl bg-gradient-to-br ${eraConfig.bgGradient} flex items-center justify-center text-5xl mx-auto mb-6 border ${eraConfig.borderColor}`}>
                         <MessageCircle className={`w-10 h-10 ${eraConfig.textColor}`} />
                       </div>
-                      <h2 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-3" data-testid="empty-state-title">
+                      <h2 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent mb-3" data-testid="empty-state-title">
                         Select an NPC to Begin
                       </h2>
                       <p className="text-gray-500 text-sm max-w-md mx-auto leading-relaxed">
@@ -518,7 +518,7 @@ export default function ChroniclesNpcChat() {
                           <p className="text-[10px] text-gray-500">Unlock Secrets</p>
                         </div>
                         <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-                          <Crown className="w-5 h-5 text-purple-400 mx-auto mb-1.5" />
+                          <Crown className="w-5 h-5 text-sky-400 mx-auto mb-1.5" />
                           <p className="text-[10px] text-gray-500">Shape Your Story</p>
                         </div>
                       </div>

@@ -62,7 +62,7 @@ function AmbientBackground() {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-cyan-500/[0.03] rounded-full blur-[100px]" />
-      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-purple-500/[0.04] rounded-full blur-[100px]" />
+      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-sky-500/[0.04] rounded-full blur-[100px]" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-amber-500/[0.02] rounded-full blur-[100px]" />
       {particles.map(p => (
         <motion.div
@@ -130,14 +130,14 @@ function SeasonProgressTab() {
                 <Trophy className="w-6 h-6 text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.4)]" />
               </motion.div>
               <h3 className="text-white font-bold text-lg" data-testid="season-title">Season Zero</h3>
-              <Badge className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-400 border border-cyan-500/20 ml-auto">
+              <Badge className="bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-cyan-400 border border-cyan-500/20 ml-auto">
                 Score: {seasonScore}
               </Badge>
             </div>
             <div className="grid grid-cols-3 gap-3 mb-4">
               {[
                 { value: seasonScore, label: "Season Score", color: "from-cyan-400 to-blue-500", textColor: "text-cyan-400", testId: "stat-score" },
-                { value: totalLegacies, label: "Total Legacies", color: "from-purple-400 to-pink-500", textColor: "text-purple-400", testId: "stat-legacies" },
+                { value: totalLegacies, label: "Total Legacies", color: "from-sky-400 to-pink-500", textColor: "text-sky-400", testId: "stat-legacies" },
                 { value: totalDecisions, label: "Decisions", color: "from-green-400 to-emerald-500", textColor: "text-green-400", testId: "stat-decisions" },
               ].map((stat) => (
                 <motion.div
@@ -353,8 +353,8 @@ function SeasonOneTeaser() {
 
   return (
     <motion.div variants={fadeUp} className="mt-6">
-      <GlassCard glow className="p-5 border border-purple-500/20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-bl-full" />
+      <GlassCard glow className="p-5 border border-sky-500/20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-sky-500/10 to-transparent rounded-bl-full" />
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-500/5 to-transparent rounded-tr-full" />
 
         <div className="relative z-10">
@@ -362,15 +362,15 @@ function SeasonOneTeaser() {
             <motion.div
               animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
               transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
-              className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/30 to-cyan-500/20 flex items-center justify-center border border-purple-500/30"
+              className="w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-500/30 to-cyan-500/20 flex items-center justify-center border border-sky-500/30"
             >
-              <Crown className="w-6 h-6 text-purple-400" />
+              <Crown className="w-6 h-6 text-sky-400" />
             </motion.div>
             <div>
               <h3 className="text-white font-bold text-lg" data-testid="season1-title">Season One Preview</h3>
               <p className="text-xs text-gray-400">Shape what comes next — your vote matters</p>
             </div>
-            <Badge className="ml-auto bg-purple-500/20 text-purple-400 border border-purple-500/20">Coming Soon</Badge>
+            <Badge className="ml-auto bg-sky-500/20 text-sky-400 border border-sky-500/20">Coming Soon</Badge>
           </div>
 
           {submitted ? (
@@ -394,7 +394,7 @@ function SeasonOneTeaser() {
                 {Object.entries(votes).filter(([, v]) => v).map(([id]) => {
                   const era = ERA_OPTIONS.find(e => e.id === id);
                   return era ? (
-                    <Badge key={id} className="bg-purple-500/20 text-purple-300 border border-purple-500/20">
+                    <Badge key={id} className="bg-sky-500/20 text-sky-300 border border-sky-500/20">
                       {era.emoji} {era.name}
                     </Badge>
                   ) : null;
@@ -413,7 +413,7 @@ function SeasonOneTeaser() {
             <div className="space-y-6">
               <div>
                 <h4 className="text-white font-semibold mb-1 flex items-center gap-2">
-                  <Globe className="w-4 h-4 text-purple-400" />
+                  <Globe className="w-4 h-4 text-sky-400" />
                   Which eras should we build next?
                 </h4>
                 <p className="text-[11px] text-gray-500 mb-3">Pick up to 3 eras you want to explore ({eraCount}/3)</p>
@@ -427,7 +427,7 @@ function SeasonOneTeaser() {
                         onClick={() => toggleVote(era.id, true)}
                         className={`text-left p-3 rounded-xl border transition-all min-h-[56px] ${
                           selected
-                            ? "bg-purple-500/15 border-purple-500/40 shadow-lg shadow-purple-500/10"
+                            ? "bg-sky-500/15 border-sky-500/40 shadow-lg shadow-sky-500/10"
                             : "bg-white/5 border-white/10 hover:border-white/20"
                         }`}
                         data-testid={`vote-era-${era.id}`}
@@ -435,12 +435,12 @@ function SeasonOneTeaser() {
                         <div className="flex items-center gap-2">
                           <span className="text-lg">{era.emoji}</span>
                           <div className="min-w-0 flex-1">
-                            <p className={`text-xs font-semibold truncate ${selected ? "text-purple-300" : "text-gray-200"}`}>
+                            <p className={`text-xs font-semibold truncate ${selected ? "text-sky-300" : "text-gray-200"}`}>
                               {era.name}
                             </p>
                             <p className="text-[10px] text-gray-500 truncate">{era.desc}</p>
                           </div>
-                          {selected && <CheckCircle2 className="w-4 h-4 text-purple-400 flex-shrink-0" />}
+                          {selected && <CheckCircle2 className="w-4 h-4 text-sky-400 flex-shrink-0" />}
                         </div>
                       </motion.button>
                     );
@@ -502,7 +502,7 @@ function SeasonOneTeaser() {
               <Button
                 onClick={handleSubmit}
                 disabled={eraCount === 0 && featureCount === 0 && !customSuggestion.trim()}
-                className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 text-white py-3 shadow-lg shadow-purple-500/20 disabled:opacity-40 disabled:shadow-none min-h-[48px]"
+                className="w-full bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 text-white py-3 shadow-lg shadow-sky-500/20 disabled:opacity-40 disabled:shadow-none min-h-[48px]"
                 data-testid="submit-vote-btn"
               >
                 <Crown className="w-4 h-4 mr-2" />
@@ -580,11 +580,11 @@ function LegacyTreeTab() {
         <motion.div variants={fadeUp}>
           <GlassCard className="p-4">
             <h4 className="text-white font-semibold mb-2 flex items-center gap-2 text-sm">
-              <Sparkles className="w-4 h-4 text-purple-400" /> Inheritance Traits
+              <Sparkles className="w-4 h-4 text-sky-400" /> Inheritance Traits
             </h4>
             <div className="flex flex-wrap gap-1.5">
               {inheritanceTraits.map((trait: any, i: number) => (
-                <Badge key={i} className="bg-purple-500/20 text-purple-300" data-testid={`trait-${i}`}>
+                <Badge key={i} className="bg-sky-500/20 text-sky-300" data-testid={`trait-${i}`}>
                   {trait.name || trait}
                 </Badge>
               ))}
@@ -685,13 +685,13 @@ function RelationshipsTab() {
         <motion.div key={rel.id || i} variants={fadeUp}>
           <GlassCard className="p-4" data-testid={`relationship-${i}`}>
             <div className="flex items-start gap-3 mb-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500/30 to-cyan-500/30 flex items-center justify-center border border-white/10">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-500/30 to-cyan-500/30 flex items-center justify-center border border-white/10">
                 <Users className="w-5 h-5 text-cyan-400" />
               </div>
               <div className="flex-1 min-w-0">
                 <h4 className="text-white font-medium text-sm truncate">{rel.name || rel.npcName}</h4>
                 {rel.title && <p className="text-[10px] text-gray-500">{rel.title}</p>}
-                {rel.faction && <p className="text-[10px] text-purple-400">{rel.faction}</p>}
+                {rel.faction && <p className="text-[10px] text-sky-400">{rel.faction}</p>}
               </div>
               <Badge className={typeColors[rel.relationshipType || rel.type || "stranger"] || typeColors.stranger}>
                 {rel.relationshipType || rel.type || "stranger"}
@@ -715,7 +715,7 @@ function RelationshipsTab() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-purple-400 hover:text-purple-300"
+                className="text-sky-400 hover:text-sky-300"
                 onClick={() => setGiftTarget(rel.id || rel.npcId || rel.name)}
                 data-testid={`gift-button-${i}`}
               >
@@ -741,9 +741,9 @@ function RelationshipsTab() {
               exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <GlassCard glow className="p-6 border border-purple-500/30 w-80">
+              <GlassCard glow className="p-6 border border-sky-500/30 w-80">
                 <h4 className="text-white font-bold mb-3 flex items-center gap-2">
-                  <Gift className="w-5 h-5 text-purple-400" /> Send a Gift
+                  <Gift className="w-5 h-5 text-sky-400" /> Send a Gift
                 </h4>
                 <p className="text-sm text-gray-400 mb-4">Choose a gift to send to this character.</p>
                 <div className="grid grid-cols-2 gap-2 mb-4">
@@ -921,9 +921,9 @@ function HomeTab() {
 
       {visitor && (
         <motion.div variants={fadeUp}>
-          <GlassCard className="p-4 border border-purple-500/20">
+          <GlassCard className="p-4 border border-sky-500/20">
             <div className="flex items-center gap-3">
-              <Users className="w-5 h-5 text-purple-400" />
+              <Users className="w-5 h-5 text-sky-400" />
               <div>
                 <h5 className="text-white font-medium text-sm">Current Visitor</h5>
                 <p className="text-xs text-gray-400">{visitor.name || "A mysterious stranger"}</p>
@@ -1003,7 +1003,7 @@ function DecisionChainTab() {
     <motion.div variants={stagger} initial="hidden" animate="visible" className="space-y-4">
       <motion.div variants={fadeUp}>
         <GlassCard glow className="p-5 border border-cyan-500/20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-purple-500/5" />
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-sky-500/5" />
           <div className="relative z-10 flex items-center gap-3">
             <motion.div
               animate={{ rotate: 360 }}
@@ -1067,7 +1067,7 @@ function DecisionChainTab() {
                   </motion.div>
                   {i < blocks.length - 1 && (
                     <div className="w-px flex-1 min-h-[12px] relative">
-                      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/40 to-purple-500/40" />
+                      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/40 to-sky-500/40" />
                       <motion.div
                         className="absolute inset-0 bg-gradient-to-b from-cyan-400/60 to-transparent"
                         animate={{ opacity: [0, 1, 0] }}
@@ -1138,7 +1138,7 @@ function PetsTab() {
     <motion.div variants={stagger} initial="hidden" animate="visible" className="space-y-4">
       <motion.div variants={fadeUp}>
         <GlassCard glow className="p-5 border border-pink-500/20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-purple-500/5" />
+          <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-sky-500/5" />
           <div className="relative z-10 flex items-center gap-3">
             <motion.div
               animate={{ y: [0, -3, 0] }}
@@ -1152,7 +1152,7 @@ function PetsTab() {
               <p className="text-xs text-gray-500">{totalPets} pet{totalPets !== 1 ? "s" : ""} adopted &middot; {data?.legendaryCount || 0} legendary</p>
             </div>
             <Link href="/chronicles/pets">
-              <Button size="sm" className="bg-gradient-to-r from-pink-600 to-purple-600 text-white min-h-[40px] active:scale-95" data-testid="btn-view-pets">
+              <Button size="sm" className="bg-gradient-to-r from-pink-600 to-sky-600 text-white min-h-[40px] active:scale-95" data-testid="btn-view-pets">
                 <PawPrint className="w-3.5 h-3.5 mr-1" /> View All
               </Button>
             </Link>
@@ -1193,7 +1193,7 @@ function PetsTab() {
             <p className="text-gray-400 text-sm font-medium">No companions yet</p>
             <p className="text-gray-600 text-xs mt-1 mb-4">Adopt your first pet and begin your bond!</p>
             <Link href="/chronicles/pets">
-              <Button className="bg-gradient-to-r from-pink-600 to-purple-600 min-h-[44px] active:scale-95" data-testid="btn-adopt-first-hub">
+              <Button className="bg-gradient-to-r from-pink-600 to-sky-600 min-h-[44px] active:scale-95" data-testid="btn-adopt-first-hub">
                 <Plus className="w-4 h-4 mr-1" /> Adopt a Companion
               </Button>
             </Link>
@@ -1356,7 +1356,7 @@ export default function ChroniclesSeasonHub() {
                 <motion.h1
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight"
+                  className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent leading-tight"
                 >
                   Season Zero
                 </motion.h1>
@@ -1374,7 +1374,7 @@ export default function ChroniclesSeasonHub() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                <Badge className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-400 border border-cyan-500/20 px-3 py-1">
+                <Badge className="bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-cyan-400 border border-cyan-500/20 px-3 py-1">
                   <Sparkles className="w-3 h-3 mr-1 animate-pulse" /> S0
                 </Badge>
               </motion.div>
@@ -1398,7 +1398,7 @@ export default function ChroniclesSeasonHub() {
                       onClick={() => setActiveTab(tab.id)}
                       className={`flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap min-h-[44px] relative ${
                         isActive
-                          ? "bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-300 border border-cyan-500/30 shadow-lg shadow-cyan-500/10"
+                          ? "bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-cyan-300 border border-cyan-500/30 shadow-lg shadow-cyan-500/10"
                           : "text-gray-500 hover:text-gray-300 hover:bg-white/5 border border-transparent active:scale-95"
                       }`}
                       data-testid={`tab-${tab.id}`}

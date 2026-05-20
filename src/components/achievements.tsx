@@ -39,14 +39,14 @@ const ACHIEVEMENTS: Achievement[] = [
 const RARITY_COLORS = {
   common: "from-gray-400 to-gray-600",
   rare: "from-blue-400 to-blue-600",
-  epic: "from-purple-400 to-purple-600",
+  epic: "from-sky-400 to-sky-600",
   legendary: "from-amber-400 to-orange-500",
 };
 
 const RARITY_GLOW = {
   common: "shadow-gray-500/20",
   rare: "shadow-blue-500/30",
-  epic: "shadow-purple-500/40",
+  epic: "shadow-sky-500/40",
   legendary: "shadow-amber-500/50",
 };
 

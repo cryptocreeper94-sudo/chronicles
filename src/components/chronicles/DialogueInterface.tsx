@@ -76,7 +76,7 @@ export const DialogueInterface: React.FC<DialogueInterfaceProps> = ({
 
               <div className={`max-w-[75%] ${msg.speaker === 'narrator' ? 'mx-auto text-center' : ''}`}>
                 {msg.speakerName && msg.speaker !== 'narrator' && (
-                  <div className={`text-xs mb-1 ${msg.speaker === 'player' ? 'text-right text-cyan-400' : 'text-purple-400'}`}>
+                  <div className={`text-xs mb-1 ${msg.speaker === 'player' ? 'text-right text-cyan-400' : 'text-sky-400'}`}>
                     {msg.speakerName}
                   </div>
                 )}

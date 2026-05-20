@@ -229,7 +229,7 @@ export const CharacterCreator: React.FC<CharacterCreatorProps> = ({ onComplete, 
           ) : (
             <button
               onClick={handleCreate}
-              className="flex-1 py-3 px-6 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-medium hover:from-cyan-400 hover:to-purple-400 transition-colors"
+              className="flex-1 py-3 px-6 rounded-lg bg-gradient-to-r from-cyan-500 to-sky-500 text-white font-medium hover:from-cyan-400 hover:to-sky-400 transition-colors"
               data-testid="button-create"
             >
               Create Parallel Self

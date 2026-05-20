@@ -150,7 +150,7 @@ export default function ChroniclesDemo() {
       case "easy": return "text-green-400 border-green-500/50";
       case "medium": return "text-yellow-400 border-yellow-500/50";
       case "hard": return "text-orange-400 border-orange-500/50";
-      case "legendary": return "text-purple-400 border-purple-500/50";
+      case "legendary": return "text-sky-400 border-sky-500/50";
       default: return "text-gray-400 border-gray-500/50";
     }
   };
@@ -164,7 +164,7 @@ export default function ChroniclesDemo() {
             <BackButton />
             <HomeButton />
           </div>
-          <Badge variant="outline" className="border-purple-500/50 text-purple-400 text-xs">
+          <Badge variant="outline" className="border-sky-500/50 text-sky-400 text-xs">
             Chronicles Demo
           </Badge>
         </div>
@@ -188,7 +188,7 @@ export default function ChroniclesDemo() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-transparent to-slate-950/80" />
         
         {/* Floating glow orbs */}
-        <GlowOrb color="#8B5CF6" size={400} top="10%" left="10%" delay={0} />
+        <GlowOrb color="#0ea5e9" size={400} top="10%" left="10%" delay={0} />
         <GlowOrb color="#06B6D4" size={350} top="30%" left="70%" delay={2} />
         <GlowOrb color="#EC4899" size={300} top="60%" left="30%" delay={4} />
         
@@ -214,7 +214,7 @@ export default function ChroniclesDemo() {
                   <Flame className="w-4 h-4 mr-2" />
                   BETA v0.1
                 </Badge>
-                <Badge className="px-4 py-2 text-sm bg-gradient-to-r from-purple-500/30 to-cyan-500/30 border-purple-500/50 backdrop-blur-sm" data-testid="badge-season-zero">
+                <Badge className="px-4 py-2 text-sm bg-gradient-to-r from-sky-500/30 to-cyan-500/30 border-sky-500/50 backdrop-blur-sm" data-testid="badge-season-zero">
                   <Sparkles className="w-4 h-4 mr-2" />
                   SEASON ZERO - THE AWAKENING
                 </Badge>
@@ -236,8 +236,8 @@ export default function ChroniclesDemo() {
               </p>
               
               <div className="flex flex-wrap justify-center gap-4">
-                <div className="px-6 py-3 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 border border-purple-500/30 backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-purple-400">{season?.questsAvailable || 4}</div>
+                <div className="px-6 py-3 rounded-xl bg-gradient-to-br from-sky-500/20 to-sky-500/5 border border-sky-500/30 backdrop-blur-sm">
+                  <div className="text-2xl font-bold text-sky-400">{season?.questsAvailable || 4}</div>
                   <div className="text-xs text-gray-400 uppercase tracking-wide">Quests</div>
                 </div>
                 <div className="px-6 py-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border border-cyan-500/30 backdrop-blur-sm">
@@ -265,12 +265,12 @@ export default function ChroniclesDemo() {
 
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 py-12 max-w-7xl">
-        <GlowOrb color="#8B5CF6" size={500} top="20%" left="-10%" delay={1} />
+        <GlowOrb color="#0ea5e9" size={500} top="20%" left="-10%" delay={1} />
         <GlowOrb color="#06B6D4" size={400} top="60%" left="80%" delay={3} />
         
         <Tabs defaultValue="factions" className="space-y-8">
           <TabsList className="grid w-full grid-cols-3 bg-slate-900/80 border border-slate-700/50 backdrop-blur-xl p-1 rounded-2xl">
-            <TabsTrigger value="factions" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500/30 data-[state=active]:to-purple-500/10 rounded-xl py-3" data-testid="tab-factions">
+            <TabsTrigger value="factions" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-sky-500/30 data-[state=active]:to-sky-500/10 rounded-xl py-3" data-testid="tab-factions">
               <Crown className="w-4 h-4 mr-2" />
               Factions
             </TabsTrigger>
@@ -378,12 +378,12 @@ export default function ChroniclesDemo() {
                           placeholder="Enter your character name..."
                           value={characterName}
                           onChange={(e) => setCharacterName(e.target.value)}
-                          className="bg-slate-800/50 border-slate-700 focus:border-purple-500 text-lg py-6"
+                          className="bg-slate-800/50 border-slate-700 focus:border-sky-500 text-lg py-6"
                           data-testid="input-character-name"
                         />
                         <Button
                           size="lg"
-                          className="px-8 bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 text-white font-semibold shadow-lg shadow-purple-500/25"
+                          className="px-8 bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 text-white font-semibold shadow-lg shadow-sky-500/25"
                           disabled={!characterName.trim()}
                           data-testid="button-join-faction"
                         >
@@ -421,9 +421,9 @@ export default function ChroniclesDemo() {
                     <CardHeader className="relative z-10">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className={`p-2 rounded-xl ${quest.category === "main_story" ? "bg-purple-500/20" : quest.category === "faction" ? "bg-cyan-500/20" : "bg-pink-500/20"}`}>
+                          <div className={`p-2 rounded-xl ${quest.category === "main_story" ? "bg-sky-500/20" : quest.category === "faction" ? "bg-cyan-500/20" : "bg-pink-500/20"}`}>
                             {quest.category === "main_story" ? (
-                              <BookOpen className="w-5 h-5 text-purple-400" />
+                              <BookOpen className="w-5 h-5 text-sky-400" />
                             ) : quest.category === "faction" ? (
                               <Shield className="w-5 h-5 text-cyan-400" />
                             ) : (
@@ -487,10 +487,10 @@ export default function ChroniclesDemo() {
                   >
                     <CardContent className="p-8 text-center relative">
                       {/* Glow effect */}
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-pink-500/10 to-purple-500/10" />
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-pink-500/10 to-sky-500/10" />
                       
                       <div className="relative z-10">
-                        <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-pink-500/30 to-purple-500/30 border-2 border-pink-500/50 flex items-center justify-center shadow-lg shadow-pink-500/20">
+                        <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-pink-500/30 to-sky-500/30 border-2 border-pink-500/50 flex items-center justify-center shadow-lg shadow-pink-500/20">
                           <User className="w-10 h-10 text-pink-300" />
                         </div>
                         <h3 className="text-xl font-bold text-white mb-1">{npc.name}</h3>
@@ -558,7 +558,7 @@ export default function ChroniclesDemo() {
                                 <div
                                   className={`max-w-[80%] rounded-2xl p-4 ${
                                     msg.role === "player"
-                                      ? "bg-gradient-to-br from-purple-500/30 to-purple-500/10 border border-purple-500/30"
+                                      ? "bg-gradient-to-br from-sky-500/30 to-sky-500/10 border border-sky-500/30"
                                       : "bg-gradient-to-br from-pink-500/20 to-pink-500/5 border border-pink-500/30"
                                   }`}
                                 >
@@ -599,7 +599,7 @@ export default function ChroniclesDemo() {
                           size="lg"
                           onClick={handleSendMessage}
                           disabled={!npcMessage.trim() || talkMutation.isPending}
-                          className="px-6 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 shadow-lg shadow-pink-500/25"
+                          className="px-6 bg-gradient-to-r from-pink-600 to-sky-600 hover:from-pink-500 hover:to-sky-500 shadow-lg shadow-pink-500/25"
                           data-testid="button-send-message"
                         >
                           <Send className="w-5 h-5" />
@@ -621,7 +621,7 @@ export default function ChroniclesDemo() {
           className="mt-16"
         >
           <div className="text-center mb-10">
-            <Badge className="mb-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-500/50">
+            <Badge className="mb-4 bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border-cyan-500/50">
               <Globe className="w-3 h-3 mr-1" />
               THE NEVERENDING WORLD
             </Badge>
@@ -637,8 +637,8 @@ export default function ChroniclesDemo() {
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             <Card className="bg-gradient-to-br from-slate-900/90 to-slate-800/90 border-slate-700/50 backdrop-blur-xl">
               <CardContent className="p-6 text-center">
-                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 border border-purple-500/30 flex items-center justify-center">
-                  <Layers className="w-7 h-7 text-purple-400" />
+                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-sky-500/20 to-sky-500/5 border border-sky-500/30 flex items-center justify-center">
+                  <Layers className="w-7 h-7 text-sky-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">Parallel Self System</h3>
                 <p className="text-gray-400 text-sm">
@@ -756,14 +756,14 @@ export default function ChroniclesDemo() {
           transition={{ delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <Separator className="my-8 bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
+          <Separator className="my-8 bg-gradient-to-r from-transparent via-sky-500/30 to-transparent" />
           <div className="flex items-center justify-center gap-2 mb-4">
             <Badge variant="outline" className="border-amber-500/50 text-amber-400 animate-pulse">
               BETA v0.1
             </Badge>
           </div>
           <p className="text-gray-500 text-sm">
-            Season Zero runs until <span className="text-purple-400 font-medium">mainnet launch</span>. 
+            Season Zero runs until <span className="text-sky-400 font-medium">mainnet launch</span>. 
             All decisions are recorded on-chain as Chronicle Proofs.
           </p>
           <div className="flex items-center justify-center gap-2 mt-2 text-xs text-gray-600">

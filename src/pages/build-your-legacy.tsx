@@ -198,14 +198,14 @@ export default function BuildYourLegacy() {
             className="space-y-6"
           >
             <Crown className="w-20 h-20 text-amber-400 mx-auto" />
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Build Your Legacy
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto">
               Sign in to create your parallel self - a voice that speaks as you across 70+ historical eras.
             </p>
             <Link href="/">
-              <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700">
+              <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700">
                 Sign In to Begin
               </Button>
             </Link>
@@ -223,7 +223,7 @@ export default function BuildYourLegacy() {
     <div className="min-h-screen bg-slate-950 text-white">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" />
       </div>
 
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800">
@@ -250,11 +250,11 @@ export default function BuildYourLegacy() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center space-y-4"
           >
-            <Badge className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-500/40 text-cyan-300">
+            <Badge className="bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border-cyan-500/40 text-cyan-300">
               <Sparkles className="w-3 h-3 mr-1" />
               Pre-Launch Access
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
               Lume Intelligence Launchpad
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto">
@@ -270,8 +270,8 @@ export default function BuildYourLegacy() {
             >
               <Card className="bg-slate-900/50 border-slate-700/50 backdrop-blur-sm p-6 space-y-6">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30">
-                    <Brain className="w-6 h-6 text-purple-400" />
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 border border-sky-500/30">
+                    <Brain className="w-6 h-6 text-sky-400" />
                   </div>
                   <div>
                     <h2 className="text-xl font-bold text-white">Your Parallel Self</h2>
@@ -319,7 +319,7 @@ export default function BuildYourLegacy() {
                             <Button
                               size="lg"
                               onClick={startRecording}
-                              className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500"
+                              className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500"
                               data-testid="button-start-recording"
                             >
                               <Mic className="w-8 h-8" />
@@ -426,8 +426,8 @@ export default function BuildYourLegacy() {
             >
               <Card className="bg-slate-900/50 border-slate-700/50 backdrop-blur-sm p-6 space-y-6">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30">
-                    <Brain className="w-6 h-6 text-purple-400" />
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 border border-sky-500/30">
+                    <Brain className="w-6 h-6 text-sky-400" />
                   </div>
                   <div>
                     <h2 className="text-xl font-bold text-white">Your Parallel Self</h2>
@@ -438,7 +438,7 @@ export default function BuildYourLegacy() {
                 {personality ? (
                   <div className="space-y-4">
                     <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-800/50 border border-slate-700">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center text-2xl font-bold">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center text-2xl font-bold">
                         {personality.playerName?.charAt(0) || "?"}
                       </div>
                       <div>
@@ -452,7 +452,7 @@ export default function BuildYourLegacy() {
                     </div>
 
                     {choiceSignature && (
-                      <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/30">
+                      <div className="p-4 rounded-xl bg-gradient-to-br from-sky-500/10 to-pink-500/10 border border-sky-500/30">
                         <p className="text-sm text-slate-300 italic" data-testid="text-choice-signature">
                           "{choiceSignature}"
                         </p>
@@ -488,7 +488,7 @@ export default function BuildYourLegacy() {
                     )}
 
                     <Link href="/studio">
-                      <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-600" data-testid="link-ai-demo">
+                      <Button className="w-full bg-gradient-to-r from-sky-500 to-pink-600" data-testid="link-ai-demo">
                         <Sparkles className="w-4 h-4 mr-2" />
                         Enter Lume Studio
                         <ChevronRight className="w-4 h-4 ml-2" />
@@ -501,7 +501,7 @@ export default function BuildYourLegacy() {
                       Your parallel self hasn't emerged yet. Begin your journey to discover who you become across history.
                     </p>
                     <Link href="/studio">
-                      <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-600" data-testid="link-start-journey">
+                      <Button className="w-full bg-gradient-to-r from-sky-500 to-pink-600" data-testid="link-start-journey">
                         <Sparkles className="w-4 h-4 mr-2" />
                         Initialize Your Lume
                         <ChevronRight className="w-4 h-4 ml-2" />
@@ -551,7 +551,7 @@ export default function BuildYourLegacy() {
                   <p className="text-sm text-slate-400">Lifetime Earned</p>
                 </div>
                 <div className="p-4 rounded-xl bg-slate-800/50 border border-slate-700 text-center">
-                  <p className="text-3xl font-bold text-purple-400" data-testid="text-lifetime-spent">
+                  <p className="text-3xl font-bold text-sky-400" data-testid="text-lifetime-spent">
                     {creditsData?.lifetimeSpent?.toLocaleString() || 0}
                   </p>
                   <p className="text-sm text-slate-400">Lifetime Spent</p>
@@ -640,7 +640,7 @@ export default function BuildYourLegacy() {
                             <Button
                               size="lg"
                               onClick={startRecording}
-                              className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500"
+                              className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500"
                             >
                               <Mic className="w-8 h-8" />
                             </Button>

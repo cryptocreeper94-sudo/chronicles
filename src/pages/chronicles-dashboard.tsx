@@ -30,7 +30,7 @@ function getTimeOfDay(hour: number) {
   if (hour >= 8 && hour < 12) return { label: "Morning", icon: Sun, color: "text-yellow-300" };
   if (hour >= 12 && hour < 17) return { label: "Afternoon", icon: CloudSun, color: "text-amber-300" };
   if (hour >= 17 && hour < 20) return { label: "Evening", icon: Sunset, color: "text-orange-400" };
-  if (hour >= 20 && hour < 22) return { label: "Dusk", icon: Moon, color: "text-purple-300" };
+  if (hour >= 20 && hour < 22) return { label: "Dusk", icon: Moon, color: "text-sky-300" };
   return { label: "Night", icon: Moon, color: "text-indigo-300" };
 }
 
@@ -178,7 +178,7 @@ export default function ChroniclesDashboard() {
 
   const quickActions = [
     { label: "Play Now", href: "/chronicles/play", icon: Activity, color: "text-cyan-400", desc: "Face situations & choices" },
-    { label: "Build City", href: "/chronicles/city", icon: Building, color: "text-purple-400", desc: "Build storefronts" },
+    { label: "Build City", href: "/chronicles/city", icon: Building, color: "text-sky-400", desc: "Build storefronts" },
     { label: "Your World", href: "/chronicles/world", icon: Compass, color: "text-green-400", desc: "People & communities" },
     { label: "Time Portal", href: "/chronicles/time-portal", icon: Globe, color: "text-amber-400", desc: "Explore other eras" },
   ];
@@ -194,7 +194,7 @@ export default function ChroniclesDashboard() {
             </Button>
           </Link>
           <div className="flex-1">
-            <h1 className="text-xl sm:text-2xl font-black bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Your Parallel Self</h1>
+            <h1 className="text-xl sm:text-2xl font-black bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Your Parallel Self</h1>
             <p className="text-[10px] text-gray-500">Living in real-time — your timezone, your pace</p>
           </div>
         </div>
@@ -205,9 +205,9 @@ export default function ChroniclesDashboard() {
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
           >
             <GlassCard glow className="p-5 mb-4 border border-cyan-500/40 shadow-[0_0_40px_rgba(6,182,212,0.15)] relative overflow-hidden" data-testid="identity-card">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-sky-500/5 pointer-events-none" />
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500/30 to-purple-500/30 flex items-center justify-center border border-cyan-500/30">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500/30 to-sky-500/30 flex items-center justify-center border border-cyan-500/30">
               <User className="w-8 h-8 text-cyan-400" />
             </div>
             <div className="flex-1">
@@ -238,7 +238,7 @@ export default function ChroniclesDashboard() {
                 <div className="flex items-center gap-2">
                   <h3 className="text-lg font-bold text-white">{identity.title}</h3>
                   {identity.faction && (
-                    <Badge className="bg-purple-500/20 text-purple-400 border border-purple-500/30">
+                    <Badge className="bg-sky-500/20 text-sky-400 border border-sky-500/30">
                       Rank {identity.rank} • {identity.faction.name}
                     </Badge>
                   )}
@@ -272,7 +272,7 @@ export default function ChroniclesDashboard() {
           <StatRing value={stats.wisdom} max={100} label="Wisdom" icon={Brain} color="text-blue-400" />
           <StatRing value={stats.courage} max={100} label="Courage" icon={Shield} color="text-red-400" />
           <StatRing value={stats.compassion} max={100} label="Heart" icon={Heart} color="text-pink-400" />
-          <StatRing value={stats.cunning} max={100} label="Cunning" icon={Eye} color="text-purple-400" />
+          <StatRing value={stats.cunning} max={100} label="Cunning" icon={Eye} color="text-sky-400" />
           <StatRing value={stats.influence} max={100} label="Influence" icon={Crown} color="text-yellow-400" />
         </div>
 
@@ -297,7 +297,7 @@ export default function ChroniclesDashboard() {
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
             >
               <GlassCard glow className="p-4 mb-4 border border-pink-500/40 shadow-[0_0_30px_rgba(236,72,153,0.15)] relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-purple-500/5 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-sky-500/5 pointer-events-none" />
             <h3 className="text-white font-semibold mb-3 flex items-center gap-2">
               <Heart className="w-4 h-4 text-pink-400" /> Shared Estate
             </h3>
@@ -376,7 +376,7 @@ export default function ChroniclesDashboard() {
               <p className="text-[10px] text-gray-500">Active Eras</p>
             </div>
             <div className="p-2 rounded-lg bg-white/5">
-              <p className="text-lg font-bold text-purple-400">15</p>
+              <p className="text-lg font-bold text-sky-400">15</p>
               <p className="text-[10px] text-gray-500">Communities</p>
             </div>
             <div className="p-2 rounded-lg bg-white/5">

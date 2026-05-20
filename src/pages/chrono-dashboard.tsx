@@ -101,7 +101,7 @@ export default function ChronoDashboard() {
             className="mb-8"
           >
             <div className="flex items-center gap-3 mb-2">
-              <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30">
+              <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30">
                 <Activity className="w-3 h-3 mr-1" /> Dashboard Preview
               </Badge>
               <Badge variant="outline" className="border-amber-500/30 text-amber-400 animate-pulse">
@@ -122,13 +122,13 @@ export default function ChronoDashboard() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-transparent border border-purple-500/20">
+              <div className="p-4 rounded-xl bg-gradient-to-br from-sky-500/10 to-transparent border border-sky-500/20">
                 <div className="flex items-center gap-2 mb-2">
-                  <Globe className="w-4 h-4 text-purple-400" />
+                  <Globe className="w-4 h-4 text-sky-400" />
                   <span className="text-xs text-white/50">Current Era</span>
                 </div>
                 <p className="text-lg font-bold text-white">{MOCK_STATS.era}</p>
-                <p className="text-xs text-purple-400">{MOCK_STATS.eraYear}</p>
+                <p className="text-xs text-sky-400">{MOCK_STATS.eraYear}</p>
               </div>
             </motion.div>
             
@@ -213,7 +213,7 @@ export default function ChronoDashboard() {
                           </div>
                           <div className="flex items-center gap-3 text-xs text-white/50">
                             <span>{quest.era}</span>
-                            <span className={`${quest.difficulty === 'Legendary' ? 'text-amber-400' : quest.difficulty === 'Epic' ? 'text-purple-400' : 'text-white/50'}`}>
+                            <span className={`${quest.difficulty === 'Legendary' ? 'text-amber-400' : quest.difficulty === 'Epic' ? 'text-sky-400' : 'text-white/50'}`}>
                               {quest.difficulty}
                             </span>
                           </div>
@@ -268,7 +268,7 @@ export default function ChronoDashboard() {
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Compass className="w-4 h-4 text-purple-400" />
+                      <Compass className="w-4 h-4 text-sky-400" />
                       <span className="text-sm text-white/70">Realms Visited</span>
                     </div>
                     <span className="font-semibold text-white">{MOCK_STATS.realmsVisited}</span>
@@ -317,14 +317,14 @@ export default function ChronoDashboard() {
           >
             <HoloCard image={quantumRealm} glow="purple" className="min-h-[200px]">
               <div className="p-8 h-full flex flex-col items-center justify-center text-center">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4 shadow-xl">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center mb-4 shadow-xl">
                   <Map className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">World View</h3>
                 <p className="text-white/60 mb-4 max-w-md">
                   Interactive map of your current era. See territories, track NPCs, and plan your next move.
                 </p>
-                <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 animate-pulse">
+                <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 animate-pulse">
                   <Sparkles className="w-3 h-3 mr-1" /> Coming Soon
                 </Badge>
               </div>

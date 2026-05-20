@@ -35,7 +35,7 @@ const isPasswordValid = (pwd: string) => {
 
 const ECOSYSTEM_APPS: Record<string, { label: string; color: string }> = {
   garagebot: { label: "GarageBot", color: "from-orange-500 to-amber-500" },
-  darkwavegames: { label: "The Arcade", color: "from-purple-500 to-pink-500" },
+  darkwavegames: { label: "The Arcade", color: "from-sky-500 to-pink-500" },
   darkwavestudios: { label: "DarkWave Studios", color: "from-blue-500 to-cyan-500" },
   yourlegacy: { label: "Your Legacy", color: "from-emerald-500 to-teal-500" },
   trustshield: { label: "TrustShield", color: "from-red-500 to-orange-500" },
@@ -73,7 +73,7 @@ export function SimpleLoginModal({ isOpen, onClose, onSuccess, ssoApp: ssoAppPro
     if (isSso && appParam) {
       const appKey = appParam.toLowerCase().replace(/\s+/g, "");
       const known = ECOSYSTEM_APPS[appKey];
-      return { active: true, appName: known?.label || appParam, color: known?.color || "from-cyan-500 to-purple-500" };
+      return { active: true, appName: known?.label || appParam, color: known?.color || "from-cyan-500 to-sky-500" };
     }
     return { active: false, appName: null, color: "" };
   }, [ssoAppProp]);
@@ -299,7 +299,7 @@ export function SimpleLoginModal({ isOpen, onClose, onSuccess, ssoApp: ssoAppPro
           </div>
 
           {isSsoFlow && (
-            <div className="mb-4 p-3 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20" data-testid="sso-context-banner">
+            <div className="mb-4 p-3 rounded-xl bg-gradient-to-r from-cyan-500/10 to-sky-500/10 border border-cyan-500/20" data-testid="sso-context-banner">
               <div className="flex items-center gap-2 mb-1.5">
                 <Link2 className="w-4 h-4 text-cyan-400 flex-shrink-0" />
                 <span className="text-sm font-semibold text-white">Connecting from {ssoContext.appName}</span>
@@ -350,7 +350,7 @@ export function SimpleLoginModal({ isOpen, onClose, onSuccess, ssoApp: ssoAppPro
               />
               <Button
                 type="submit"
-                className="w-full h-12 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-bold"
+                className="w-full h-12 bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white font-bold"
                 disabled={loading}
                 data-testid="button-reset-password"
               >
@@ -534,7 +534,7 @@ export function SimpleLoginModal({ isOpen, onClose, onSuccess, ssoApp: ssoAppPro
 
               <Button
                 type="submit"
-                className="w-full h-12 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-bold"
+                className="w-full h-12 bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white font-bold"
                 disabled={loading || googleLoading}
                 data-testid="button-submit-login"
               >

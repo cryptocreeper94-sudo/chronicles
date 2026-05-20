@@ -107,7 +107,7 @@ export function MemberBadge({ userId }: { userId?: string }) {
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#22d3ee"/>
-      <stop offset="100%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#38bdf8"/>
     </linearGradient>
   </defs>
   <rect width="400" height="250" rx="16" fill="url(#bg)"/>
@@ -147,7 +147,7 @@ export function MemberBadge({ userId }: { userId?: string }) {
     <div className="relative">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 hover:border-cyan-400/50 transition-all"
+        className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border border-cyan-500/30 hover:border-cyan-400/50 transition-all"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         data-testid="button-member-badge"
@@ -178,7 +178,7 @@ export function MemberBadge({ userId }: { userId?: string }) {
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
-                      <div className="p-2 rounded-xl bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30">
+                      <div className="p-2 rounded-xl bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border border-cyan-500/30">
                         <BadgeCheck className="w-5 h-5 text-cyan-400" />
                       </div>
                       <div>
@@ -275,7 +275,7 @@ export function MemberBadge({ userId }: { userId?: string }) {
                     {userStats && userStats.crowdfundTotalCents > 0 && (
                       <div className="flex items-center justify-between p-2 rounded-lg bg-white/5">
                         <div className="flex items-center gap-2">
-                          <Sparkles className="w-4 h-4 text-purple-400" />
+                          <Sparkles className="w-4 h-4 text-sky-400" />
                           <span className="text-xs text-white/80">Contributed</span>
                         </div>
                         <span className="text-sm font-bold text-white">

@@ -25,8 +25,8 @@ const coreCards = [
     emoji: "🪞",
     title: "You Are You",
     description: "This isn't an RPG. You don't play a character. You ARE the character. Your choices reflect who you really are.",
-    gradient: "from-purple-500/20 to-pink-500/20",
-    border: "border-purple-500/20",
+    gradient: "from-sky-500/20 to-pink-500/20",
+    border: "border-sky-500/20",
   },
   {
     emoji: "⏰",
@@ -97,7 +97,7 @@ const systems = [
     icon: Users,
     title: "NPCs",
     description: "9 NPCs with persistent memories. They remember how you treated them (scores -20 to +20).",
-    gradient: "from-purple-500 to-pink-500",
+    gradient: "from-sky-500 to-pink-500",
   },
   {
     icon: Building,
@@ -115,7 +115,7 @@ const systems = [
     icon: MessageCircle,
     title: "Signal Chat",
     description: "Talk to other players. Train your voice clone to speak as your parallel self.",
-    gradient: "from-indigo-500 to-violet-500",
+    gradient: "from-indigo-500 to-cyan-500",
   },
   {
     icon: Shield,
@@ -138,9 +138,9 @@ const currencies = [
     emoji: "🔮",
     name: "Echoes",
     description: "In-game currency for Chronicles. 10 Echoes = 1 Shell. NOT convertible to real money.",
-    gradient: "from-purple-500/20 to-indigo-500/20",
-    border: "border-purple-500/20",
-    textColor: "text-purple-400",
+    gradient: "from-sky-500/20 to-indigo-500/20",
+    border: "border-sky-500/20",
+    textColor: "text-sky-400",
   },
 ];
 
@@ -151,7 +151,7 @@ export default function ChroniclesTutorial() {
     <div className="min-h-screen bg-slate-950 pt-20 pb-12 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-60 right-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-60 right-1/4 w-80 h-80 bg-sky-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute bottom-40 left-1/3 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
         {Array.from({ length: 30 }).map((_, i) => (
           <motion.div
@@ -196,7 +196,7 @@ export default function ChroniclesTutorial() {
           </motion.div>
           <motion.h1
             variants={fadeUp}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4 leading-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent mb-4 leading-tight"
             data-testid="hero-title"
           >
             Welcome to Chronicles
@@ -211,7 +211,7 @@ export default function ChroniclesTutorial() {
           <motion.div variants={fadeUp}>
             <a href="#how-it-works">
               <Button
-                className="bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white px-8 py-3 min-h-[44px] text-base"
+                className="bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white px-8 py-3 min-h-[44px] text-base"
                 data-testid="begin-btn"
               >
                 <Play className="w-4 h-4 mr-2" /> Begin
@@ -406,7 +406,7 @@ export default function ChroniclesTutorial() {
                   🌍
                 </motion.div>
                 <h2
-                  className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-3"
+                  className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent mb-3"
                   data-testid="cta-title"
                 >
                   Ready to Begin?
@@ -417,7 +417,7 @@ export default function ChroniclesTutorial() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                   <Link href="/chronicles/play">
                     <Button
-                      className="bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white px-8 py-3 min-h-[44px] text-base w-full sm:w-auto"
+                      className="bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white px-8 py-3 min-h-[44px] text-base w-full sm:w-auto"
                       data-testid="enter-world-btn"
                     >
                       <Globe className="w-4 h-4 mr-2" /> Enter the World

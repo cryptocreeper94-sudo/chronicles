@@ -90,12 +90,12 @@ const CATEGORY_ICONS: Record<string, React.ElementType> = {
 const ERA_THEMES: Record<string, { bg: string; accent: string; glow: string }> = {
   stone_age: { bg: "from-amber-950 to-stone-900", accent: "amber", glow: "rgba(217,119,6,0.2)" },
   medieval: { bg: "from-stone-900 to-amber-950", accent: "amber", glow: "rgba(180,83,9,0.2)" },
-  renaissance: { bg: "from-purple-950 to-rose-950", accent: "rose", glow: "rgba(190,24,93,0.2)" },
+  renaissance: { bg: "from-sky-950 to-rose-950", accent: "rose", glow: "rgba(190,24,93,0.2)" },
   victorian: { bg: "from-slate-900 to-emerald-950", accent: "emerald", glow: "rgba(5,150,105,0.2)" },
   present: { bg: "from-slate-950 to-cyan-950", accent: "cyan", glow: "rgba(6,182,212,0.2)" },
-  cyberpunk: { bg: "from-purple-950 to-cyan-950", accent: "cyan", glow: "rgba(0,255,255,0.3)" },
+  cyberpunk: { bg: "from-sky-950 to-cyan-950", accent: "cyan", glow: "rgba(0,255,255,0.3)" },
   spacefaring: { bg: "from-indigo-950 to-slate-950", accent: "indigo", glow: "rgba(99,102,241,0.2)" },
-  post_singularity: { bg: "from-fuchsia-950 to-violet-950", accent: "fuchsia", glow: "rgba(192,38,211,0.3)" },
+  post_singularity: { bg: "from-teal-950 to-cyan-950", accent: "fuchsia", glow: "rgba(192,38,211,0.3)" },
 };
 
 export default function ChroniclesInterior() {
@@ -234,7 +234,7 @@ export default function ChroniclesInterior() {
       {/* Floating Ambient Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-40 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-40 right-20 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
       </div>
 
@@ -266,7 +266,7 @@ export default function ChroniclesInterior() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 Your Home Interior
               </h1>
               <p className="text-slate-400 text-sm capitalize">{interior?.era?.replace("_", " ")} Era • {interior?.style?.replace("_", " ")} Style</p>
@@ -274,7 +274,7 @@ export default function ChroniclesInterior() {
           </div>
 
           <div className="flex items-center gap-3">
-            <Badge className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 text-cyan-300 uppercase tracking-wider px-3 py-1">
+            <Badge className="bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border border-cyan-500/30 text-cyan-300 uppercase tracking-wider px-3 py-1">
               <Home className="w-4 h-4 mr-1" />
               {interior?.totalRooms}/{interior?.maxRooms} Rooms
             </Badge>
@@ -336,7 +336,7 @@ export default function ChroniclesInterior() {
                 <>
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-xl font-bold text-white">{currentRoom.name}</h3>
-                    <Badge className="bg-purple-500/20 border-purple-400/30 text-purple-300">
+                    <Badge className="bg-sky-500/20 border-sky-400/30 text-sky-300">
                       {currentRoom.gridWidth}x{currentRoom.gridHeight} Grid
                     </Badge>
                   </div>
@@ -374,7 +374,7 @@ export default function ChroniclesInterior() {
                           className={`
                             aspect-square rounded-lg border transition-all cursor-pointer flex items-center justify-center text-2xl
                             ${objectHere 
-                              ? "bg-gradient-to-br from-cyan-500/30 to-purple-500/30 border-cyan-400/40 shadow-[0_0_15px_rgba(0,255,255,0.2)]"
+                              ? "bg-gradient-to-br from-cyan-500/30 to-sky-500/30 border-cyan-400/40 shadow-[0_0_15px_rgba(0,255,255,0.2)]"
                               : buildMode && selectedCatalogItem
                                 ? "bg-green-500/10 border-green-400/30 hover:bg-green-500/20"
                                 : "bg-white/5 border-white/5 hover:bg-white/10"
@@ -491,7 +491,7 @@ export default function ChroniclesInterior() {
                       key={verb}
                       onClick={() => interactMutation.mutate({ objectId: interactingObject.id, verb })}
                       disabled={interactMutation.isPending}
-                      className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 capitalize"
+                      className="w-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-600 hover:to-sky-600 capitalize"
                       data-testid={`button-interact-${verb}`}
                     >
                       {interactMutation.isPending ? "..." : verb}
@@ -540,8 +540,8 @@ export default function ChroniclesInterior() {
                         <p className="text-xs text-slate-400">Comfort</p>
                         <p className="text-lg font-bold text-white">+{currentRoom.objects?.reduce((sum, o) => sum + (o.catalog?.statBonuses?.comfort || 0), 0) || 0}</p>
                       </div>
-                      <div className="p-3 rounded-lg bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20">
-                        <Gamepad2 className="w-5 h-5 text-purple-400 mb-1" />
+                      <div className="p-3 rounded-lg bg-gradient-to-br from-sky-500/10 to-sky-500/5 border border-sky-500/20">
+                        <Gamepad2 className="w-5 h-5 text-sky-400 mb-1" />
                         <p className="text-xs text-slate-400">Fun</p>
                         <p className="text-lg font-bold text-white">+{currentRoom.objects?.reduce((sum, o) => sum + (o.catalog?.statBonuses?.entertainment || 0), 0) || 0}</p>
                       </div>

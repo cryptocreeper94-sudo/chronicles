@@ -27,7 +27,7 @@ const TRAIT_ICONS: Record<string, React.ElementType> = {
 const COLOR_HEX: Record<string, { primary: string; secondary: string; glow: string }> = {
   blue: { primary: "#3b82f6", secondary: "#1d4ed8", glow: "rgba(59, 130, 246, 0.4)" },
   green: { primary: "#22c55e", secondary: "#15803d", glow: "rgba(34, 197, 94, 0.4)" },
-  purple: { primary: "#a855f7", secondary: "#7c3aed", glow: "rgba(168, 85, 247, 0.4)" },
+  purple: { primary: "#38bdf8", secondary: "#0369a1", glow: "rgba(14,165,233, 0.4)" },
   gold: { primary: "#eab308", secondary: "#ca8a04", glow: "rgba(234, 179, 8, 0.4)" },
   red: { primary: "#ef4444", secondary: "#dc2626", glow: "rgba(239, 68, 68, 0.4)" },
   silver: { primary: "#94a3b8", secondary: "#64748b", glow: "rgba(148, 163, 184, 0.4)" },

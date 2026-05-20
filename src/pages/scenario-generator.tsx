@@ -144,7 +144,7 @@ function CharacterCard({ character, index }: { character: Character; index: numb
   
   return (
     <div className="h-full">
-      <div className="group relative rounded-2xl overflow-hidden h-full" style={{ background: 'linear-gradient(135deg, #00ffff, #8b5cf6, #ec4899)' }}>
+      <div className="group relative rounded-2xl overflow-hidden h-full" style={{ background: 'linear-gradient(135deg, #00ffff, #0ea5e9, #ec4899)' }}>
         {/* Card content */}
         <div className="relative rounded-xl bg-black m-[2px] overflow-hidden h-[calc(100%-4px)] flex flex-col">
           {/* Portrait section - aspect ratio container for full image */}
@@ -158,13 +158,13 @@ function CharacterCard({ character, index }: { character: Character; index: numb
             
             {/* NPC Badge */}
             <div className="absolute top-2 right-2">
-              <Badge className="bg-gradient-to-r from-purple-600 to-pink-600 text-white border-0 text-[9px] sm:text-[10px] font-bold shadow-lg shadow-purple-500/30 px-2 py-0.5">
+              <Badge className="bg-gradient-to-r from-sky-600 to-pink-600 text-white border-0 text-[9px] sm:text-[10px] font-bold shadow-lg shadow-sky-500/30 px-2 py-0.5">
                 NPC
               </Badge>
             </div>
             
             {/* Holographic shimmer overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-transparent to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-transparent to-sky-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
           
           {/* Info section - fixed height for consistent cards */}
@@ -182,12 +182,12 @@ function CharacterCard({ character, index }: { character: Character; index: numb
               <EmotionBar label="Valence" value={character.emotions.valence} color="text-green-400" icon={Heart} />
               <EmotionBar label="Cohesion" value={character.emotions.socialCohesion} color="text-blue-400" icon={Users} />
               <EmotionBar label="Fear" value={character.emotions.fear} color="text-yellow-400" icon={AlertTriangle} />
-              <EmotionBar label="Ambition" value={character.emotions.ambition} color="text-purple-400" icon={Crown} />
+              <EmotionBar label="Ambition" value={character.emotions.ambition} color="text-sky-400" icon={Crown} />
             </div>
           </div>
           
           {/* Bottom holographic accent */}
-          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500" />
+          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 via-sky-500 to-pink-500" />
         </div>
       </div>
     </div>
@@ -207,10 +207,10 @@ function ChoiceCard({ choice, index }: { choice: Choice; index: number }) {
   return (
     <div onClick={() => setExpanded(!expanded)} className="cursor-pointer">
     <GlassCard 
-      className={`p-4 transition-all ${expanded ? "ring-1 ring-purple-500" : "hover:bg-white/5"}`}
+      className={`p-4 transition-all ${expanded ? "ring-1 ring-sky-500" : "hover:bg-white/5"}`}
     >
       <div className="flex items-start gap-3">
-        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-sm font-bold shrink-0">
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center text-sm font-bold shrink-0">
           {index + 1}
         </div>
         <div className="flex-1">
@@ -318,7 +318,7 @@ export default function ScenarioGenerator() {
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
           
           <div className="relative max-w-4xl mx-auto text-center">
-            <Badge className="mb-4 bg-purple-500/20 text-purple-300 border-purple-500/30">
+            <Badge className="mb-4 bg-sky-500/20 text-sky-300 border-sky-500/30">
               <Sparkles className="w-3 h-3 mr-1" />
               AI-Powered
             </Badge>
@@ -378,7 +378,7 @@ export default function ScenarioGenerator() {
             <Button 
               onClick={generateNewScenario}
               disabled={loading}
-              className="mt-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500"
+              className="mt-6 bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500"
               data-testid="button-generate"
             >
               {loading ? (
@@ -405,7 +405,7 @@ export default function ScenarioGenerator() {
           <motion.section 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="px-4 py-10 bg-gradient-to-b from-black to-purple-950/20"
+            className="px-4 py-10 bg-gradient-to-b from-black to-sky-950/20"
           >
             <div className="max-w-6xl mx-auto">
               {/* Scenario Header */}
@@ -423,7 +423,7 @@ export default function ScenarioGenerator() {
               {/* Characters */}
               <div className="mb-10">
                 <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                  <Users className="w-5 h-5 text-purple-400" />
+                  <Users className="w-5 h-5 text-sky-400" />
                   Characters Involved
                 </h3>
                 <Carousel
@@ -437,8 +437,8 @@ export default function ScenarioGenerator() {
                       </CarouselItem>
                     ))}
                   </CarouselContent>
-                  <CarouselPrevious className="left-0 -translate-x-1/2 bg-black/80 border-purple-500/50 text-white hover:bg-purple-500/20" />
-                  <CarouselNext className="right-0 translate-x-1/2 bg-black/80 border-purple-500/50 text-white hover:bg-purple-500/20" />
+                  <CarouselPrevious className="left-0 -translate-x-1/2 bg-black/80 border-sky-500/50 text-white hover:bg-sky-500/20" />
+                  <CarouselNext className="right-0 translate-x-1/2 bg-black/80 border-sky-500/50 text-white hover:bg-sky-500/20" />
                 </Carousel>
               </div>
               
@@ -464,7 +464,7 @@ export default function ScenarioGenerator() {
                   onClick={generateNewScenario}
                   disabled={loading}
                   variant="outline"
-                  className="border-purple-500/30 text-purple-300 hover:bg-purple-500/10"
+                  className="border-sky-500/30 text-sky-300 hover:bg-sky-500/10"
                   data-testid="button-regenerate"
                 >
                   <RefreshCw className={`w-4 h-4 mr-2 ${loading ? "animate-spin" : ""}`} />
@@ -476,7 +476,7 @@ export default function ScenarioGenerator() {
         )}
 
         {/* Philosophy Section */}
-        <section className="px-4 py-16 bg-gradient-to-b from-purple-950/20 to-black">
+        <section className="px-4 py-16 bg-gradient-to-b from-sky-950/20 to-black">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10">
               <h2 className="text-2xl font-display font-bold mb-4">The Philosophy</h2>
@@ -526,7 +526,7 @@ export default function ScenarioGenerator() {
                 <img src={mirrorPerspectivesImg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
                 <div className="relative p-5 z-10">
-                  <Brain className="w-8 h-8 text-purple-400 mb-3 drop-shadow-lg" />
+                  <Brain className="w-8 h-8 text-sky-400 mb-3 drop-shadow-lg" />
                   <h3 className="font-bold mb-2 text-white drop-shadow-lg">Perspective Matters</h3>
                   <p className="text-sm text-gray-300">
                     Heroes and villains only exist in the eyes of the beholder. Everyone is the protagonist of their own story.

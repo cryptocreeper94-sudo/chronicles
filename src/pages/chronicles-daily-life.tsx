@@ -63,8 +63,8 @@ function TimeOfDayBanner({ hour, context }: { hour: number; context: any }) {
     if (hour >= 8 && hour < 12) return { icon: Sun, label: "Morning", emoji: "☀️", gradient: "from-yellow-500/20 to-amber-500/20" };
     if (hour >= 12 && hour < 14) return { icon: CloudSun, label: "Midday", emoji: "🌤️", gradient: "from-blue-500/20 to-cyan-500/20" };
     if (hour >= 14 && hour < 17) return { icon: Sun, label: "Afternoon", emoji: "🌇", gradient: "from-amber-500/20 to-orange-500/20" };
-    if (hour >= 17 && hour < 20) return { icon: Sunset, label: "Evening", emoji: "🌆", gradient: "from-purple-500/20 to-pink-500/20" };
-    if (hour >= 20 && hour < 23) return { icon: Moon, label: "Night", emoji: "🌙", gradient: "from-indigo-500/20 to-purple-500/20" };
+    if (hour >= 17 && hour < 20) return { icon: Sunset, label: "Evening", emoji: "🌆", gradient: "from-sky-500/20 to-pink-500/20" };
+    if (hour >= 20 && hour < 23) return { icon: Moon, label: "Night", emoji: "🌙", gradient: "from-indigo-500/20 to-sky-500/20" };
     return { icon: Moon, label: "Late Night", emoji: "🌑", gradient: "from-slate-700/20 to-indigo-900/20" };
   };
 
@@ -253,7 +253,7 @@ export default function ChroniclesDailyLife() {
     <div className="min-h-screen bg-slate-950 pb-20 relative" data-testid="daily-life-page">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10">
@@ -326,7 +326,7 @@ export default function ChroniclesDailyLife() {
                       <NeedBar label="Hunger" value={needs?.hunger ?? 80} icon={UtensilsCrossed} color="text-orange-400" emoji="🍽️" />
                       <NeedBar label="Energy" value={needs?.energy ?? 100} icon={Zap} color="text-yellow-400" emoji="⚡" />
                       <NeedBar label="Hygiene" value={needs?.hygiene ?? 90} icon={Droplets} color="text-blue-400" emoji="💧" />
-                      <NeedBar label="Social" value={needs?.social ?? 70} icon={Users} color="text-purple-400" emoji="💬" />
+                      <NeedBar label="Social" value={needs?.social ?? 70} icon={Users} color="text-sky-400" emoji="💬" />
                     </div>
                     <div className="grid grid-cols-4 gap-2 mt-4">
                       <Button
@@ -364,7 +364,7 @@ export default function ChroniclesDailyLife() {
                       <Button
                         size="sm"
                         variant="outline"
-                        className="flex-col gap-0.5 h-auto py-2 text-[10px] border-purple-500/20 text-purple-400 hover:bg-purple-500/10 active:scale-95 min-h-[52px]"
+                        className="flex-col gap-0.5 h-auto py-2 text-[10px] border-sky-500/20 text-sky-400 hover:bg-sky-500/10 active:scale-95 min-h-[52px]"
                         onClick={() => fulfillNeedMutation.mutate({ action: "socialize" })}
                         disabled={fulfillNeedMutation.isPending}
                         data-testid="btn-socialize"
@@ -404,7 +404,7 @@ export default function ChroniclesDailyLife() {
                             <p className="text-[9px] text-gray-600">Days Worked</p>
                           </div>
                           <div className="bg-slate-800/50 rounded-lg p-2 text-center">
-                            <p className="text-purple-400 font-bold text-sm capitalize">{career.rank}</p>
+                            <p className="text-sky-400 font-bold text-sm capitalize">{career.rank}</p>
                             <p className="text-[9px] text-gray-600">Rank</p>
                           </div>
                         </div>

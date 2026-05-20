@@ -13,7 +13,7 @@ const MODERN_PALETTE = {
   ground: "#1a1f2e", sky: "#0a0f1a", fog: "#0c1220",
   accent: "#06b6d4", particle: "#06b6d4",
   doorColor: "#334155", windowFrame: "#0f172a",
-  neon1: "#06b6d4", neon2: "#a855f7", neon3: "#f43f5e",
+  neon1: "#06b6d4", neon2: "#38bdf8", neon3: "#f43f5e",
 };
 
 const MEDIEVAL_PALETTE = {
@@ -765,7 +765,7 @@ export function ModernScene({ location }: { location: LocationType }) {
   return (
     <group>
       <ModernBuilding position={[0, 0, -10]} height={9} width={4} depth={3.5} color={MODERN_PALETTE.building1} hasRoofDetail />
-      <ModernBuilding position={[-7, 0, -8]} height={6} width={3} depth={3} color={MODERN_PALETTE.building2} glassColor="#8b5cf6" />
+      <ModernBuilding position={[-7, 0, -8]} height={6} width={3} depth={3} color={MODERN_PALETTE.building2} glassColor="#0ea5e9" />
       <ModernBuilding position={[7, 0, -9]} height={7} width={3.5} depth={3} color={MODERN_PALETTE.building3} hasAwning />
       <ModernBuilding position={[-11, 0, -5]} height={4.5} width={2.5} depth={2.5} color={MODERN_PALETTE.building2} />
       <ModernBuilding position={[11, 0, -6]} height={5} width={3} depth={2.5} color={MODERN_PALETTE.building1} hasRoofDetail />

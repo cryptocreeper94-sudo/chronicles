@@ -144,7 +144,7 @@ export function ChroniclesNPC({
         >
           <Card className="bg-slate-900/95 border-slate-700 shadow-2xl backdrop-blur-sm overflow-hidden">
             {/* Header */}
-            <div className="bg-gradient-to-r from-cyan-600 to-purple-600 p-3 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-cyan-600 to-sky-600 p-3 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                   <User className="w-5 h-5 text-white" />
@@ -243,7 +243,7 @@ export function NPCChatButton({ onClick }: { onClick: () => void }) {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={onClick}
-      className="fixed bottom-4 right-4 z-40 w-14 h-14 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center shadow-lg shadow-purple-500/30"
+      className="fixed bottom-4 right-4 z-40 w-14 h-14 rounded-full bg-gradient-to-r from-cyan-500 to-sky-500 flex items-center justify-center shadow-lg shadow-sky-500/30"
       data-testid="button-open-npc-chat"
     >
       <MessageCircle className="w-6 h-6 text-white" />

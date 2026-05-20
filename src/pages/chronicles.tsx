@@ -72,7 +72,7 @@ const CORE_FEATURES = [
     longDescription: "What would YOU do in ancient Rome? How would YOUR mind navigate the French Revolution? This isn't role-playing someone else - it's discovering what the real you becomes when placed in extraordinary worlds. Your legend, your way.",
     icon: Eye,
     image: historicalHeroes,
-    color: "from-purple-500 to-pink-600",
+    color: "from-sky-500 to-pink-600",
     size: "large"
   },
   {
@@ -105,7 +105,7 @@ const CORE_FEATURES = [
     longDescription: "NPCs aren't quest dispensers. They're potential allies, rivals, and story drivers. Their beliefs, ambitions, and memories of YOU shape every interaction. Recruit them for missions, trade with them, or earn their enmity.",
     icon: Brain,
     image: ancientLibrary,
-    color: "from-violet-500 to-purple-600",
+    color: "from-cyan-500 to-sky-600",
     size: "medium"
   },
   {
@@ -283,7 +283,7 @@ const EPOCHS = [
     image: cyberpunkCity,
     eras: ["Roaring Twenties", "Civil Rights", "Hippie Era", "Cold War"],
     incentive: "Social change, technology access",
-    color: "from-purple-500 to-violet-700",
+    color: "from-sky-500 to-cyan-700",
     lore: "The century that changed everything. From jazz-filled speakeasies to moon landings, from civil rights marches to the fall of walls. The Modern era moves at breakneck speed through revolution after revolution. Stand at the crossroads of history, where your choices echo through generations and the future is written by those brave enough to dream it.",
     highlights: ["Shape cultural revolutions", "Navigate Cold War intrigue", "Witness space exploration", "Lead social movements"],
     factions: ["Intelligence Agencies", "Cultural Revolutionaries", "Space Programs", "Media Empires"]
@@ -336,7 +336,7 @@ function DefinitionModal({ term, onClose }: { term: string; onClose: () => void 
         exit={{ scale: 0.9, y: 20 }}
         onClick={e => e.stopPropagation()}
         className="relative max-w-md w-full bg-gray-900/95 border border-white/10 rounded-2xl p-6 shadow-2xl"
-        style={{ boxShadow: '0 0 60px rgba(168,85,247,0.2)' }}
+        style={{ boxShadow: '0 0 60px rgba(14,165,233,0.2)' }}
       >
         <button 
           onClick={onClose}
@@ -345,7 +345,7 @@ function DefinitionModal({ term, onClose }: { term: string; onClose: () => void 
         >
           <X className="w-5 h-5" />
         </button>
-        <Badge className="mb-3 bg-purple-500/20 text-purple-400 border-purple-500/30">
+        <Badge className="mb-3 bg-sky-500/20 text-sky-400 border-sky-500/30">
           <BookOpen className="w-3 h-3 mr-1" /> Definition
         </Badge>
         <h3 className="text-xl font-bold text-white mb-2">{def.term}</h3>
@@ -361,12 +361,12 @@ function InfoTooltip({ termKey, children }: { termKey: string; children: React.R
   return (
     <>
       <span 
-        className="inline-flex items-center gap-1 cursor-help border-b border-dashed border-white/30 hover:border-purple-400 transition-colors"
+        className="inline-flex items-center gap-1 cursor-help border-b border-dashed border-white/30 hover:border-sky-400 transition-colors"
         onClick={() => setShowModal(true)}
         data-testid={`tooltip-${termKey}`}
       >
         {children}
-        <Info className="w-3 h-3 text-purple-400" />
+        <Info className="w-3 h-3 text-sky-400" />
       </span>
       <AnimatePresence>
         {showModal && <DefinitionModal term={termKey} onClose={() => setShowModal(false)} />}
@@ -455,7 +455,7 @@ function FeatureCard({ feature, index }: { feature: typeof CORE_FEATURES[0]; ind
               exit={{ scale: 0.9, y: 30 }}
               onClick={e => e.stopPropagation()}
               className="relative max-w-2xl w-full bg-gray-900/95 border border-white/10 rounded-3xl overflow-hidden"
-              style={{ boxShadow: '0 0 80px rgba(168,85,247,0.3)' }}
+              style={{ boxShadow: '0 0 80px rgba(14,165,233,0.3)' }}
             >
               <div className="relative h-48">
                 <img src={feature.image} alt={feature.title} className="w-full h-full object-cover" />
@@ -578,13 +578,13 @@ function EpochCard({ epoch, index, onClick }: { epoch: typeof EPOCHS[0]; index: 
       
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
-          background: `linear-gradient(135deg, transparent, rgba(168,85,247,0.2), transparent)`,
-          boxShadow: 'inset 0 0 40px rgba(168,85,247,0.1)',
+          background: `linear-gradient(135deg, transparent, rgba(14,165,233,0.2), transparent)`,
+          boxShadow: 'inset 0 0 40px rgba(14,165,233,0.1)',
         }}
       />
       
       <div className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity"
-        style={{ background: `linear-gradient(90deg, transparent, rgba(168,85,247,0.8), transparent)` }}
+        style={{ background: `linear-gradient(90deg, transparent, rgba(14,165,233,0.8), transparent)` }}
       />
       
       <div className="relative z-10 p-5 h-full flex flex-col justify-end">
@@ -599,7 +599,7 @@ function EpochCard({ epoch, index, onClick }: { epoch: typeof EPOCHS[0]; index: 
             </span>
           ))}
           {epoch.eras.length > 3 && (
-            <span className="text-[10px] text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded-full">
+            <span className="text-[10px] text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full">
               +{epoch.eras.length - 3} more
             </span>
           )}
@@ -634,7 +634,7 @@ function EpochDetailDrawer({ epoch, isOpen, onClose }: { epoch: typeof EPOCHS[0]
             }}
           >
             <div className="absolute top-0 left-0 right-0 h-[2px]"
-              style={{ background: `linear-gradient(90deg, transparent, rgba(168,85,247,0.6), rgba(6,182,212,0.6), transparent)` }}
+              style={{ background: `linear-gradient(90deg, transparent, rgba(14,165,233,0.6), rgba(6,182,212,0.6), transparent)` }}
             />
             
             <div className="flex justify-center pt-3 pb-2">
@@ -670,8 +670,8 @@ function EpochDetailDrawer({ epoch, isOpen, onClose }: { epoch: typeof EPOCHS[0]
                 <div 
                   className="p-5 rounded-2xl border border-white/10"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(168,85,247,0.05) 0%, rgba(6,182,212,0.05) 100%)',
-                    boxShadow: 'inset 0 0 30px rgba(168,85,247,0.05)',
+                    background: 'linear-gradient(135deg, rgba(14,165,233,0.05) 0%, rgba(6,182,212,0.05) 100%)',
+                    boxShadow: 'inset 0 0 30px rgba(14,165,233,0.05)',
                   }}
                 >
                   <p className="text-white/80 leading-relaxed text-base sm:text-lg">
@@ -681,7 +681,7 @@ function EpochDetailDrawer({ epoch, isOpen, onClose }: { epoch: typeof EPOCHS[0]
                 
                 <div>
                   <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-purple-400" />
+                    <Sparkles className="w-5 h-5 text-sky-400" />
                     What Awaits You
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -693,8 +693,8 @@ function EpochDetailDrawer({ epoch, isOpen, onClose }: { epoch: typeof EPOCHS[0]
                         transition={{ delay: i * 0.1 }}
                         className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center flex-shrink-0">
-                          <ChevronRight className="w-4 h-4 text-purple-400" />
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500/20 to-cyan-500/20 flex items-center justify-center flex-shrink-0">
+                          <ChevronRight className="w-4 h-4 text-sky-400" />
                         </div>
                         <span className="text-white/80 text-sm">{highlight}</span>
                       </motion.div>
@@ -743,7 +743,7 @@ function EpochDetailDrawer({ epoch, isOpen, onClose }: { epoch: typeof EPOCHS[0]
                   <Link href="/chronicles/hub">
                     <Button 
                       size="lg" 
-                      className="w-full h-14 rounded-2xl gap-2 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 hover:from-purple-500 hover:via-pink-500 hover:to-cyan-500 text-white font-bold text-lg shadow-xl"
+                      className="w-full h-14 rounded-2xl gap-2 bg-gradient-to-r from-sky-600 via-pink-600 to-cyan-600 hover:from-sky-500 hover:via-pink-500 hover:to-cyan-500 text-white font-bold text-lg shadow-xl"
                       data-testid="button-explore-epoch"
                     >
                       <Rocket className="w-5 h-5" />
@@ -873,7 +873,7 @@ export default function Chronicles() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-          className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full"
+          className="w-12 h-12 border-4 border-sky-500 border-t-transparent rounded-full"
         />
       </div>
     );
@@ -896,7 +896,7 @@ export default function Chronicles() {
               <ArrowLeft className="w-4 h-4" />
               <span>Portal</span>
             </a>
-            <Badge variant="outline" className="border-purple-500/50 text-purple-400 bg-purple-500/10 text-[10px] sm:text-xs whitespace-nowrap animate-pulse hidden sm:flex">
+            <Badge variant="outline" className="border-sky-500/50 text-sky-400 bg-sky-500/10 text-[10px] sm:text-xs whitespace-nowrap animate-pulse hidden sm:flex">
               <Sparkles className="w-3 h-3 mr-1" /> Community-Driven
             </Badge>
             <BackButton className="hidden sm:flex" />
@@ -934,7 +934,7 @@ export default function Chronicles() {
         
         <div className="absolute inset-0 opacity-40 pointer-events-none"
           style={{
-            backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(168,85,247,0.4) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(6,182,212,0.4) 0%, transparent 50%)',
+            backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(14,165,233,0.4) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(6,182,212,0.4) 0%, transparent 50%)',
           }}
         />
         
@@ -977,14 +977,14 @@ export default function Chronicles() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <Badge className="mb-6 px-3 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-500/30 text-white text-xs sm:text-sm backdrop-blur-sm max-w-full whitespace-normal text-center leading-tight">
+            <Badge className="mb-6 px-3 py-2 bg-gradient-to-r from-sky-500/20 to-pink-500/20 border-sky-500/30 text-white text-xs sm:text-sm backdrop-blur-sm max-w-full whitespace-normal text-center leading-tight">
               <Flame className="w-4 h-4 mr-2 text-orange-400 animate-pulse flex-shrink-0" />
               <span className="hidden sm:inline">The Flagship Product of Trust Layer</span>
               <span className="sm:hidden">Trust Layer Flagship Product</span>
             </Badge>
             
             <h1 className="text-5xl sm:text-6xl md:text-8xl font-display font-black mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent drop-shadow-2xl">
                 Chronicles
               </span>
               <Badge className="ml-3 px-3 py-1 bg-amber-500/30 border-amber-500/50 text-amber-300 text-sm font-bold align-middle animate-pulse">
@@ -1009,7 +1009,7 @@ export default function Chronicles() {
               transition={{ delay: 0.5, duration: 0.8 }}
             >
               <p className="text-2xl md:text-4xl font-bold text-white mb-2">
-                YOU. <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">The Legend.</span>
+                YOU. <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">The Legend.</span>
               </p>
               <p className="text-lg md:text-xl text-white/70 mb-8 max-w-3xl mx-auto leading-relaxed">
                 An epic adventure across 70+ eras where YOU are the hero. Not an avatar. Not a puppet. Your actual self.
@@ -1025,7 +1025,7 @@ export default function Chronicles() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link href={chroniclesAccount ? "/chronicles/hub" : "/chronicles/login"}>
-                <Button size="lg" className="rounded-full gap-2 text-lg px-8 py-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white shadow-xl shadow-purple-500/25 hover:shadow-purple-500/40 transition-all" data-testid="button-enter-chronicles">
+                <Button size="lg" className="rounded-full gap-2 text-lg px-8 py-6 bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500 text-white shadow-xl shadow-sky-500/25 hover:shadow-sky-500/40 transition-all" data-testid="button-enter-chronicles">
                   <Rocket className="w-5 h-5" />
                   {chroniclesAccount ? "Continue Your Journey" : "Enter Chronicles"}
                 </Button>
@@ -1050,7 +1050,7 @@ export default function Chronicles() {
       </section>
 
       <section className="py-24 px-4 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-purple-950/10 to-background pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-sky-950/10 to-background pointer-events-none" />
         <div className="container mx-auto max-w-7xl relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -1076,7 +1076,7 @@ export default function Chronicles() {
 
       {/* Reality Adapts Section */}
       <section className="py-16 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/20 via-purple-950/30 to-pink-950/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/20 via-sky-950/30 to-pink-950/20 pointer-events-none" />
         <div className="container mx-auto max-w-4xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1089,7 +1089,7 @@ export default function Chronicles() {
               <Eye className="w-3 h-3 mr-1" /> Unprecedented
             </Badge>
             <h2 className="text-2xl md:text-4xl font-display font-bold mb-4 text-white">
-              Reality Adapts To <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">You</span>
+              Reality Adapts To <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">You</span>
             </h2>
             <p className="text-white/70 leading-relaxed mb-6 max-w-2xl mx-auto">
               Every legend brings their own <InfoTooltip termKey="lens">lens</InfoTooltip>. Sail to the edge of the world - what you find depends on what you seek. 
@@ -1101,7 +1101,7 @@ export default function Chronicles() {
                 <p className="text-sm text-white/60">Your beliefs shape your experience. Every perspective is valid.</p>
               </div>
               <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                <h4 className="font-semibold text-purple-400 mb-2">Organic Discovery</h4>
+                <h4 className="font-semibold text-sky-400 mb-2">Organic Discovery</h4>
                 <p className="text-sm text-white/60">No A/B choices. The world responds to how you play, what you question.</p>
               </div>
               <div className="p-4 rounded-xl bg-white/5 border border-white/10">
@@ -1113,10 +1113,10 @@ export default function Chronicles() {
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-gradient-to-b from-transparent via-purple-950/20 to-transparent relative overflow-hidden">
+      <section className="py-24 px-4 bg-gradient-to-b from-transparent via-sky-950/20 to-transparent relative overflow-hidden">
         <div className="absolute inset-0 opacity-30 pointer-events-none"
           style={{
-            backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(168,85,247,0.3) 0%, transparent 50%)',
+            backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(14,165,233,0.3) 0%, transparent 50%)',
           }}
         />
         <div className="container mx-auto max-w-7xl relative z-10">
@@ -1126,7 +1126,7 @@ export default function Chronicles() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <Badge className="mb-4 bg-purple-500/20 text-purple-400 border-purple-500/30">
+            <Badge className="mb-4 bg-sky-500/20 text-sky-400 border-sky-500/30">
               <History className="w-3 h-3 mr-1" /> 70+ Historical Eras
             </Badge>
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
@@ -1260,7 +1260,7 @@ export default function Chronicles() {
       <section className="py-24 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="relative overflow-hidden rounded-3xl border border-white/10"
-            style={{ boxShadow: '0 0 60px rgba(168,85,247,0.2)' }}
+            style={{ boxShadow: '0 0 60px rgba(14,165,233,0.2)' }}
           >
             <img 
               src={historicalHeroes} 
@@ -1271,7 +1271,7 @@ export default function Chronicles() {
             
             <div className="relative z-10 p-8 md:p-16">
               <div className="max-w-2xl">
-                <Badge className="mb-4 bg-purple-500/20 text-purple-400 border-purple-500/30">
+                <Badge className="mb-4 bg-sky-500/20 text-sky-400 border-sky-500/30">
                   <Users className="w-3 h-3 mr-1" /> Community-Built
                 </Badge>
                 
@@ -1284,14 +1284,14 @@ export default function Chronicles() {
                   Like actual property. It can be traded, sold, or lost. Real stakes in a virtual world.
                 </p>
                 
-                <p className="text-white/60 mb-8 text-sm border-l-2 border-purple-500/50 pl-4">
+                <p className="text-white/60 mb-8 text-sm border-l-2 border-sky-500/50 pl-4">
                   Right now, it's one developer with a laptop and a vision. With your support, we'll build the 
                   infrastructure, the servers, and the team needed to bring this to life.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link href="/crowdfund">
-                    <Button size="lg" className="rounded-full gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white shadow-lg" data-testid="button-back-project">
+                    <Button size="lg" className="rounded-full gap-2 bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500 text-white shadow-lg" data-testid="button-back-project">
                       <Heart className="w-5 h-5" />
                       Back This Project
                     </Button>
@@ -1330,7 +1330,7 @@ export default function Chronicles() {
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
               <span className="text-white">Your Voice.</span>
               <br />
-              <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-pink-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
                 Your Parallel Self.
               </span>
             </h2>
@@ -1370,7 +1370,7 @@ export default function Chronicles() {
             className="text-center"
           >
             <Link href="/chronicles-demo">
-              <Button size="lg" className="rounded-full gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white shadow-lg" data-testid="button-try-demo">
+              <Button size="lg" className="rounded-full gap-2 bg-gradient-to-r from-pink-500 to-sky-600 hover:from-pink-400 hover:to-sky-500 text-white shadow-lg" data-testid="button-try-demo">
                 <Sparkles className="w-5 h-5" />
                 Try the Demo
               </Button>
@@ -1381,7 +1381,7 @@ export default function Chronicles() {
       </section>
 
       {/* Many Lenses Philosophy - User-facing */}
-      <section className="py-24 px-4 bg-gradient-to-b from-slate-950 via-purple-950/20 to-slate-950">
+      <section className="py-24 px-4 bg-gradient-to-b from-slate-950 via-sky-950/20 to-slate-950">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1389,14 +1389,14 @@ export default function Chronicles() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <Badge className="mb-4 bg-purple-500/20 text-purple-400 border-purple-500/30">
+            <Badge className="mb-4 bg-sky-500/20 text-sky-400 border-sky-500/30">
               <Brain className="w-3 h-3 mr-1" /> Revolutionary Design
             </Badge>
             
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
               <span className="text-white">No Labels.</span>
               <br />
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                 No Boxes. Just You.
               </span>
             </h2>
@@ -1413,11 +1413,11 @@ export default function Chronicles() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="p-6 rounded-2xl bg-slate-900/50 border border-purple-500/20"
-              style={{ boxShadow: "0 0 60px rgba(168, 85, 247, 0.1)" }}
+              className="p-6 rounded-2xl bg-slate-900/50 border border-sky-500/20"
+              style={{ boxShadow: "0 0 60px rgba(14,165,233, 0.1)" }}
             >
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <Eye className="w-7 h-7 text-purple-400" />
+                <Eye className="w-7 h-7 text-sky-400" />
                 <InfoTooltip termKey="lens_markers">Lens Markers</InfoTooltip>
               </h3>
               <div className="space-y-4">
@@ -1475,7 +1475,7 @@ export default function Chronicles() {
             <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
               <span className="text-white">You don't play a character.</span>
               <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 You become one.
               </span>
             </h2>
@@ -1489,7 +1489,7 @@ export default function Chronicles() {
             </p>
             
             <Link href="/crowdfund">
-              <Button size="lg" className="rounded-full gap-2 text-xl px-10 py-7 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 hover:from-cyan-400 hover:via-purple-400 hover:to-pink-400 shadow-2xl shadow-purple-500/30 hover:shadow-purple-500/50 transition-all" data-testid="button-join-journey">
+              <Button size="lg" className="rounded-full gap-2 text-xl px-10 py-7 bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 hover:from-cyan-400 hover:via-sky-400 hover:to-pink-400 shadow-2xl shadow-sky-500/30 hover:shadow-sky-500/50 transition-all" data-testid="button-join-journey">
                 <Sparkles className="w-6 h-6" />
                 Join the Journey
               </Button>

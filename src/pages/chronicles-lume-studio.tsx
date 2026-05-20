@@ -122,7 +122,7 @@ export default function ChroniclesLumeStudio() {
   };
 
   const traitColor = session?.primaryTrait === "leader" ? "from-yellow-500 to-amber-600" 
-                   : session?.primaryTrait === "creator" ? "from-purple-500 to-pink-500"
+                   : session?.primaryTrait === "creator" ? "from-sky-500 to-pink-500"
                    : "from-cyan-500 to-blue-500";
 
   return (
@@ -218,12 +218,12 @@ export default function ChroniclesLumeStudio() {
       <div className="flex-1 relative overflow-hidden bg-gradient-to-br from-slate-900 to-black flex flex-col">
         {/* Abstract Background Elements */}
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-sky-500/10 rounded-full blur-[100px] pointer-events-none" />
         
         {/* Canvas Header */}
         <div className="h-16 border-b border-white/5 flex items-center justify-between px-6 bg-black/20 backdrop-blur-sm z-10">
           <div className="flex items-center gap-2">
-            <Hexagon className="w-5 h-5 text-purple-400" />
+            <Hexagon className="w-5 h-5 text-sky-400" />
             <h3 className="font-bold text-white/90">Synthesis Canvas</h3>
           </div>
           <div className="flex gap-4">
@@ -277,7 +277,7 @@ export default function ChroniclesLumeStudio() {
                   )}
                   {activePreview.type === "lore_codex" && (
                     <div className="prose prose-invert max-w-none">
-                      <p className="text-lg leading-relaxed text-white/80 border-l-2 border-purple-500/50 pl-4 py-2 italic">
+                      <p className="text-lg leading-relaxed text-white/80 border-l-2 border-sky-500/50 pl-4 py-2 italic">
                         "{activePreview.payload.text}"
                       </p>
                     </div>

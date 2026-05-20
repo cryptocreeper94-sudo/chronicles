@@ -125,7 +125,7 @@ const ALL_ERAS: Era[] = [
     year: "1200 CE",
     epoch: "Medieval",
     image: historicalKingdom,
-    color: "from-violet-600 to-purple-700",
+    color: "from-cyan-600 to-sky-700",
     description: "Kingdoms rise and fall. Navigate court intrigue while dark forces gather. Choose your allegiance wisely.",
     features: ["Kingdom building", "Siege warfare", "Jousting tournaments", "Castle intrigue"],
     classes: ["Knight", "Mage", "Assassin", "Cleric"],
@@ -218,7 +218,7 @@ function EraModal({ era, onClose }: { era: Era; onClose: () => void }) {
         exit={{ scale: 0.9, y: 30 }}
         onClick={e => e.stopPropagation()}
         className="relative max-w-2xl w-full bg-gray-900/95 border border-white/10 rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto"
-        style={{ boxShadow: '0 0 80px rgba(168,85,247,0.3)' }}
+        style={{ boxShadow: '0 0 80px rgba(14,165,233,0.3)' }}
       >
         <div className="relative h-56">
           <img src={era.image} alt={era.name} className="w-full h-full object-cover" />
@@ -268,7 +268,7 @@ function EraModal({ era, onClose }: { era: Era; onClose: () => void }) {
             <div>
               <h4 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-3">Governance</h4>
               <div className="flex items-center gap-2 text-white/70">
-                <Crown className="w-4 h-4 text-purple-400" />
+                <Crown className="w-4 h-4 text-sky-400" />
                 {era.governance}
               </div>
             </div>
@@ -276,7 +276,7 @@ function EraModal({ era, onClose }: { era: Era; onClose: () => void }) {
           
           <div className="pt-4 border-t border-white/10">
             <Link href="/community">
-              <Button className="w-full rounded-full gap-2 bg-gradient-to-r from-purple-600 to-pink-600" data-testid={`join-era-${era.id}`}>
+              <Button className="w-full rounded-full gap-2 bg-gradient-to-r from-sky-600 to-pink-600" data-testid={`join-era-${era.id}`}>
                 <Heart className="w-4 h-4" />
                 Join Waitlist for Early Access
               </Button>
@@ -346,7 +346,7 @@ export default function ChronoEras() {
                   variant={selectedEpoch === epoch ? "default" : "outline"}
                   size="sm"
                   onClick={() => setSelectedEpoch(epoch)}
-                  className={`whitespace-nowrap ${selectedEpoch === epoch ? 'bg-purple-600' : 'border-white/20 hover:bg-white/10'}`}
+                  className={`whitespace-nowrap ${selectedEpoch === epoch ? 'bg-sky-600' : 'border-white/20 hover:bg-white/10'}`}
                   data-testid={`filter-${epoch.toLowerCase()}`}
                 >
                   {epoch}

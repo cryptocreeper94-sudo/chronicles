@@ -121,7 +121,7 @@ const BUILDING_COLORS: Record<BuildingType, string> = {
   tree: "bg-green-600",
   garden: "bg-pink-500",
   pond: "bg-blue-500",
-  shop: "bg-purple-500",
+  shop: "bg-sky-500",
   workshop: "bg-orange-500",
   monument: "bg-yellow-500",
   wall: "bg-slate-500",
@@ -140,7 +140,7 @@ const BUILDING_3D_COLORS: Record<BuildingType, string> = {
   tree: "#16a34a",
   garden: "#ec4899",
   pond: "#3b82f6",
-  shop: "#a855f7",
+  shop: "#38bdf8",
   workshop: "#f97316",
   monument: "#eab308",
   wall: "#64748b",
@@ -208,7 +208,7 @@ function Building3D({ type, x, z, era }: { type: BuildingType; x: number; z: num
         {[0, 1, 2, 3, 4].map(i => (
           <mesh key={i} position={[Math.cos(i*1.3)*0.25, 0.15, Math.sin(i*1.3)*0.25]}>
             <sphereGeometry args={[0.1, 6, 4]} />
-            <meshStandardMaterial color={["#ec4899", "#f472b6", "#a855f7", "#f43f5e", "#fb923c"][i]} />
+            <meshStandardMaterial color={["#ec4899", "#f472b6", "#38bdf8", "#f43f5e", "#fb923c"][i]} />
           </mesh>
         ))}
       </group>
@@ -726,7 +726,7 @@ export default function ChroniclesEstate() {
           <User className="w-16 h-16 mx-auto text-cyan-400 mb-4" />
           <h2 className="text-2xl font-bold text-white mb-2">Sign In Required</h2>
           <p className="text-slate-400 mb-6">Create your character first to access your estate</p>
-          <Button onClick={() => setLocation("/chronicles/login")} className="bg-gradient-to-r from-cyan-500 to-purple-500">
+          <Button onClick={() => setLocation("/chronicles/login")} className="bg-gradient-to-r from-cyan-500 to-sky-500">
             Sign In to Chronicles
           </Button>
         </Card>
@@ -741,7 +741,7 @@ export default function ChroniclesEstate() {
           <Sparkles className="w-16 h-16 mx-auto text-cyan-400 mb-4" />
           <h2 className="text-2xl font-bold text-white mb-2">Create Your Character</h2>
           <p className="text-slate-400 mb-6">Complete the character creation process to access your estate</p>
-          <Button onClick={() => setLocation("/chronicles/onboarding")} className="bg-gradient-to-r from-cyan-500 to-purple-500">
+          <Button onClick={() => setLocation("/chronicles/onboarding")} className="bg-gradient-to-r from-cyan-500 to-sky-500">
             Start Character Creation
           </Button>
         </Card>
@@ -785,7 +785,7 @@ export default function ChroniclesEstate() {
 
       {/* Floating Ambient Orbs */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
-      <div className="absolute bottom-40 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: "1s" }} />
+      <div className="absolute bottom-40 right-10 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: "1s" }} />
 
       {/* Chronicle Initiation Welcome Modal */}
       <AnimatePresence>
@@ -803,10 +803,10 @@ export default function ChroniclesEstate() {
               className="max-w-lg w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl border border-cyan-500/30 shadow-[0_0_60px_rgba(0,255,255,0.2)] overflow-hidden"
             >
               <div className="p-6 text-center">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center">
                   <Sparkles className="w-10 h-10 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+                <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent mb-2">
                   Welcome to the Veil
                 </h2>
                 <p className="text-slate-300 mb-6">
@@ -826,8 +826,8 @@ export default function ChroniclesEstate() {
                   </div>
                   
                   <div className="flex gap-3 p-3 bg-slate-800/50 rounded-lg border border-slate-700">
-                    <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0">
-                      <Map className="w-4 h-4 text-purple-400" />
+                    <div className="w-8 h-8 rounded-full bg-sky-500/20 flex items-center justify-center flex-shrink-0">
+                      <Map className="w-4 h-4 text-sky-400" />
                     </div>
                     <div>
                       <p className="text-white font-medium text-sm">Shape the World</p>
@@ -851,7 +851,7 @@ export default function ChroniclesEstate() {
                     localStorage.setItem("chronicles_welcomed", "true");
                     setShowWelcome(false);
                   }}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-semibold py-3"
+                  className="w-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white font-semibold py-3"
                   data-testid="button-begin-chronicle"
                 >
                   Begin My Chronicle
@@ -883,13 +883,13 @@ export default function ChroniclesEstate() {
             >
               <GlassCard glow className="p-6 text-center">
                 <div className="absolute -top-12 left-1/2 -translate-x-1/2">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center animate-pulse shadow-[0_0_40px_rgba(0,255,255,0.4)]">
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center animate-pulse shadow-[0_0_40px_rgba(0,255,255,0.4)]">
                     <Clock className="w-12 h-12 text-white" />
                   </div>
                 </div>
                 
                 <div className="mt-12 mb-6">
-                  <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                     Morning Pulse
                   </h2>
                   <p className="text-slate-400 text-sm mt-2">A new day dawns across all eras</p>
@@ -911,7 +911,7 @@ export default function ChroniclesEstate() {
                 </div>
                 
                 {morningPulseData.activeAnomalies?.length > 0 && (
-                  <div className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-lg p-3 mb-4 border border-cyan-500/30">
+                  <div className="bg-gradient-to-r from-cyan-500/10 to-sky-500/10 rounded-lg p-3 mb-4 border border-cyan-500/30">
                     <div className="flex items-center gap-2">
                       <Zap className="w-4 h-4 text-cyan-400" />
                       <p className="text-cyan-300 text-sm font-medium">
@@ -927,7 +927,7 @@ export default function ChroniclesEstate() {
                 <Button
                   onClick={() => claimMorningPulseMutation.mutate()}
                   disabled={claimMorningPulseMutation.isPending}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-semibold py-3"
+                  className="w-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-white font-semibold py-3"
                   data-testid="button-claim-pulse"
                 >
                   {claimMorningPulseMutation.isPending ? (
@@ -984,7 +984,7 @@ export default function ChroniclesEstate() {
                     <p className="text-slate-400 text-xs uppercase tracking-wider mb-2">Dominant Traits</p>
                     <div className="flex flex-wrap gap-2">
                       {echoPersonaData.persona.dominantTraits.map((trait: string) => (
-                        <Badge key={trait} className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-300 border-cyan-500/30">
+                        <Badge key={trait} className="bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-cyan-300 border-cyan-500/30">
                           {trait}
                         </Badge>
                       ))}
@@ -1039,11 +1039,11 @@ export default function ChroniclesEstate() {
         <motion.div
           initial={{ y: -100 }}
           animate={{ y: 0 }}
-          className="bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 border-b border-cyan-500/30"
+          className="bg-gradient-to-r from-cyan-500/20 via-sky-500/20 to-pink-500/20 border-b border-cyan-500/30"
         >
           <div className="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center animate-pulse">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-sky-500 flex items-center justify-center animate-pulse">
                 <Zap className="w-4 h-4 text-white" />
               </div>
               <div>
@@ -1065,7 +1065,7 @@ export default function ChroniclesEstate() {
         <motion.div
           initial={{ y: -100 }}
           animate={{ y: 0 }}
-          className="bg-gradient-to-r from-amber-500/20 via-pink-500/20 to-purple-500/20 border-b border-amber-500/30"
+          className="bg-gradient-to-r from-amber-500/20 via-pink-500/20 to-sky-500/20 border-b border-amber-500/30"
         >
           <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -1112,7 +1112,7 @@ export default function ChroniclesEstate() {
               ← Back
             </Button>
             <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 {personality.parallelSelfName}'s Estate
               </h1>
               <p className="text-sm text-slate-400">Season Zero - Build Your Legacy</p>
@@ -1158,7 +1158,7 @@ export default function ChroniclesEstate() {
               {[...(questsData.daily || []), ...(questsData.weekly || [])].slice(0, 4).map((quest: any) => (
                 <div key={quest.id} className="flex-shrink-0 bg-slate-800/60 rounded-lg p-3 min-w-[200px] border border-slate-700/50">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className={`text-xs px-1.5 py-0.5 rounded ${quest.questType === 'daily' ? 'bg-cyan-500/20 text-cyan-400' : 'bg-purple-500/20 text-purple-400'}`}>
+                    <span className={`text-xs px-1.5 py-0.5 rounded ${quest.questType === 'daily' ? 'bg-cyan-500/20 text-cyan-400' : 'bg-sky-500/20 text-sky-400'}`}>
                       {quest.questType}
                     </span>
                     <span className="text-amber-400 text-xs">+{quest.shellReward} ⭐</span>
@@ -1176,7 +1176,7 @@ export default function ChroniclesEstate() {
       )}
 
       {/* SIG Conversion Banner */}
-      <div className="bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 border-y border-cyan-500/20 py-2 px-4 relative z-10">
+      <div className="bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-pink-500/10 border-y border-cyan-500/20 py-2 px-4 relative z-10">
         <div className="max-w-6xl mx-auto flex items-center justify-center gap-2 text-sm">
           <Sparkles className="w-4 h-4 text-cyan-400" />
           <span className="text-slate-300">
@@ -1209,7 +1209,7 @@ export default function ChroniclesEstate() {
               className={tab.isLink 
                 ? "bg-gradient-to-r from-pink-500 to-amber-500 text-white shrink-0 shadow-[0_0_15px_rgba(236,72,153,0.3)]"
                 : activeTab === tab.id 
-                  ? "bg-gradient-to-r from-cyan-500 to-purple-500 text-white shrink-0" 
+                  ? "bg-gradient-to-r from-cyan-500 to-sky-500 text-white shrink-0" 
                   : "border-slate-600 text-slate-300 shrink-0"
               }
               data-testid={`tab-${tab.id}`}
@@ -1317,7 +1317,7 @@ export default function ChroniclesEstate() {
                         <p className="text-xs text-slate-400">{zone.description}</p>
                       </div>
                       <Badge className={
-                        zone.zoneType === "commercial" ? "bg-purple-500/20 text-purple-300 border-purple-500/30" :
+                        zone.zoneType === "commercial" ? "bg-sky-500/20 text-sky-300 border-sky-500/30" :
                         zone.zoneType === "residential" ? "bg-green-500/20 text-green-300 border-green-500/30" :
                         zone.zoneType === "civic" ? "bg-blue-500/20 text-blue-300 border-blue-500/30" :
                         "bg-amber-500/20 text-amber-300 border-amber-500/30"
@@ -1396,7 +1396,7 @@ export default function ChroniclesEstate() {
               <p className="text-slate-400 mb-4">
                 Buy and sell plots with other players. Coming soon with peer-to-peer trading!
               </p>
-              <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">
+              <Badge className="bg-sky-500/20 text-sky-300 border-sky-500/30">
                 Phase 2 Feature
               </Badge>
             </GlassCard>
@@ -1454,7 +1454,7 @@ export default function ChroniclesEstate() {
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-slate-400">Longest Streak</span>
-                  <span className="text-purple-400">{dailyRewardData?.longestStreak || 0} days</span>
+                  <span className="text-sky-400">{dailyRewardData?.longestStreak || 0} days</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-slate-400">Total Logins</span>
@@ -1529,7 +1529,7 @@ export default function ChroniclesEstate() {
                       }}
                       className={`text-xs ${
                         isActive 
-                          ? "bg-gradient-to-r from-cyan-500 to-purple-500 text-white" 
+                          ? "bg-gradient-to-r from-cyan-500 to-sky-500 text-white" 
                           : !isUnlocked 
                             ? "border-slate-700 text-slate-600 opacity-50" 
                             : "border-slate-600 text-slate-300"
@@ -1586,7 +1586,7 @@ export default function ChroniclesEstate() {
                 <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Persistent World</p>
                 <p className="text-xs text-slate-300">Other players and smart NPCs continue shaping all eras even while you're away.</p>
               </div>
-              <Badge variant="outline" className="w-full justify-center border-purple-500/50 text-purple-400 py-2">
+              <Badge variant="outline" className="w-full justify-center border-sky-500/50 text-sky-400 py-2">
                 <Sparkles className="w-3 h-3 mr-2" />
                 Season Zero Preview
               </Badge>
@@ -1635,7 +1635,7 @@ export default function ChroniclesEstate() {
                     variant={show3D ? "default" : "outline"}
                     size="sm"
                     onClick={() => setShow3D(!show3D)}
-                    className={show3D ? "bg-gradient-to-r from-purple-500 to-pink-500" : "border-slate-600"}
+                    className={show3D ? "bg-gradient-to-r from-sky-500 to-pink-500" : "border-slate-600"}
                     data-testid="button-toggle-3d"
                   >
                     <BoxIcon className="w-4 h-4 mr-1" />
@@ -1658,7 +1658,7 @@ export default function ChroniclesEstate() {
                 {eraBuildings.length > 0 ? (
                   <div>
                     <div className="flex items-center gap-2 mb-3">
-                      <Badge className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-300 border-cyan-500/30 text-xs">
+                      <Badge className="bg-gradient-to-r from-cyan-500/20 to-sky-500/20 text-cyan-300 border-cyan-500/30 text-xs">
                         {selectedEra === "modern" ? "🏙️ Modern" : selectedEra === "medieval" ? "🏰 Medieval" : "🤠 Wild West"} Buildings
                       </Badge>
                     </div>
@@ -1739,12 +1739,12 @@ export default function ChroniclesEstate() {
 
               {/* 3D View */}
               {show3D ? (
-                <div className="relative rounded-lg overflow-hidden border border-purple-500/30 shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+                <div className="relative rounded-lg overflow-hidden border border-sky-500/30 shadow-[0_0_30px_rgba(14,165,233,0.15)]">
                   <div className="aspect-square max-w-lg mx-auto">
                     <Suspense fallback={
                       <div className="w-full h-full bg-slate-900 flex items-center justify-center">
                         <div className="text-center">
-                          <div className="w-8 h-8 border-2 border-purple-400 border-t-transparent rounded-full animate-spin mx-auto mb-2" />
+                          <div className="w-8 h-8 border-2 border-sky-400 border-t-transparent rounded-full animate-spin mx-auto mb-2" />
                           <p className="text-sm text-slate-400">Loading 3D Estate...</p>
                         </div>
                       </div>
@@ -1758,7 +1758,7 @@ export default function ChroniclesEstate() {
                     </Suspense>
                   </div>
                   <div className="absolute top-2 left-2 flex items-center gap-1">
-                    <Badge className="bg-purple-500/80 text-white border-purple-400/50 text-xs shadow-lg">
+                    <Badge className="bg-sky-500/80 text-white border-sky-400/50 text-xs shadow-lg">
                       <BoxIcon className="w-3 h-3 mr-1" />
                       3D View
                     </Badge>
@@ -1821,7 +1821,7 @@ export default function ChroniclesEstate() {
           {/* Era Progress & Portal Unlock */}
           <Card className="mt-6 bg-slate-900/80 border-slate-700 p-6 lg:col-span-3">
             <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-purple-400" />
+              <Sparkles className="w-5 h-5 text-sky-400" />
               Time Portal Progress
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

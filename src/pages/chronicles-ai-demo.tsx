@@ -107,7 +107,7 @@ function BentoCard({
 }) {
   const glowColors = {
     cyan: "rgba(0,200,255,0.15)",
-    purple: "rgba(168,85,247,0.15)",
+    purple: "rgba(14,165,233,0.15)",
     pink: "rgba(236,72,153,0.15)",
     amber: "rgba(245,158,11,0.15)",
   };
@@ -255,13 +255,13 @@ export default function ChroniclesAIDemo() {
         </nav>
         <div className="flex-1 flex items-center justify-center pt-20 px-4">
           <BentoCard className="max-w-md text-center">
-            <Brain className="w-16 h-16 mx-auto mb-4 text-purple-400" />
+            <Brain className="w-16 h-16 mx-auto mb-4 text-sky-400" />
             <h2 className="text-2xl font-bold mb-2">Sign In Required</h2>
             <p className="text-gray-400 mb-4">
               The Personality AI requires authentication to create your unique parallel self.
             </p>
             <Button 
-              className="bg-gradient-to-r from-purple-600 to-pink-600"
+              className="bg-gradient-to-r from-sky-600 to-pink-600"
               onClick={() => window.location.href = "/?login=true"}
             >
               Sign In to Begin
@@ -274,8 +274,8 @@ export default function ChroniclesAIDemo() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden">
-      <GlowOrb color="linear-gradient(135deg, #8b5cf6, #ec4899)" size={600} top="-10%" left="-10%" />
-      <GlowOrb color="linear-gradient(135deg, #06b6d4, #8b5cf6)" size={500} top="50%" left="70%" delay={2} />
+      <GlowOrb color="linear-gradient(135deg, #0ea5e9, #ec4899)" size={600} top="-10%" left="-10%" />
+      <GlowOrb color="linear-gradient(135deg, #06b6d4, #0ea5e9)" size={500} top="50%" left="70%" delay={2} />
       
 
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800">
@@ -291,7 +291,7 @@ export default function ChroniclesAIDemo() {
           className="text-center mb-8"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-2">
-            <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-sky-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
               Chronicles Personality AI
             </span>
           </h1>
@@ -300,14 +300,14 @@ export default function ChroniclesAIDemo() {
 
         {loadingPersonality ? (
           <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 animate-spin text-purple-400" />
+            <Loader2 className="w-8 h-8 animate-spin text-sky-400" />
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <BentoCard className="lg:col-span-1" glow="purple">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10">
-                  <User className="w-6 h-6 text-purple-400" />
+                <div className="p-3 rounded-xl bg-gradient-to-br from-sky-500/20 to-pink-500/20 border border-white/10">
+                  <User className="w-6 h-6 text-sky-400" />
                 </div>
                 <div>
                   <h2 className="text-xl font-bold">{personality?.parallelSelfName || personality?.playerName || "You"}</h2>
@@ -335,7 +335,7 @@ export default function ChroniclesAIDemo() {
                   <span className="text-xs text-gray-400">Values Emerging Through Choices</span>
                   <div className="flex flex-wrap gap-1 mt-1">
                     {personality.coreValues.map((v: string) => (
-                      <span key={v} className="px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-xs capitalize">
+                      <span key={v} className="px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-300 text-xs capitalize">
                         {v}
                       </span>
                     ))}
@@ -346,7 +346,7 @@ export default function ChroniclesAIDemo() {
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="w-full border-purple-500/30 text-purple-400"
+                className="w-full border-sky-500/30 text-sky-400"
                 onClick={() => setSetupMode(true)}
               >
                 Update Name
@@ -394,7 +394,7 @@ export default function ChroniclesAIDemo() {
                     value={emotionalState.wisdomRecklessness} 
                     leftLabel="Reckless" 
                     rightLabel="Wisdom" 
-                    color="#8b5cf6"
+                    color="#0ea5e9"
                   />
                 </div>
               )}
@@ -501,7 +501,7 @@ export default function ChroniclesAIDemo() {
                   size="icon"
                   onClick={handleSendChat}
                   disabled={chatMutation.isPending || !chatMessage.trim()}
-                  className="bg-gradient-to-r from-pink-600 to-purple-600"
+                  className="bg-gradient-to-r from-pink-600 to-sky-600"
                 >
                   <Send className="w-4 h-4" />
                 </Button>
@@ -576,7 +576,7 @@ export default function ChroniclesAIDemo() {
                     Cancel
                   </Button>
                   <Button 
-                    className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600"
+                    className="flex-1 bg-gradient-to-r from-sky-600 to-pink-600"
                     onClick={() => updatePersonalityMutation.mutate(setupData)}
                     disabled={updatePersonalityMutation.isPending}
                   >

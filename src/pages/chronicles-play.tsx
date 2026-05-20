@@ -52,16 +52,16 @@ function WorldClockBanner({ era }: { era: string }) {
       animate={{ opacity: 1, y: 0 }}
       className="mb-3"
     >
-      <GlassCard hover={false} className={`${isDaytime ? "" : "border-purple-500/20"}`}>
+      <GlassCard hover={false} className={`${isDaytime ? "" : "border-sky-500/20"}`}>
         <div className="flex items-center gap-3 px-4 py-2">
-          <TimeIcon className={`w-4 h-4 ${isDaytime ? "text-yellow-400" : "text-purple-400"}`} />
+          <TimeIcon className={`w-4 h-4 ${isDaytime ? "text-yellow-400" : "text-sky-400"}`} />
           <div className="flex-1">
             <span className="text-xs text-white font-medium">{worldTime.eraLabel}</span>
             <span className="text-[10px] text-gray-500 ml-2">
               {String(worldTime.hour).padStart(2, "0")}:{String(worldTime.minute).padStart(2, "0")} &middot; {worldTime.dayOfWeek}
             </span>
           </div>
-          <Badge className={`text-[9px] ${isDaytime ? "bg-yellow-500/15 text-yellow-400" : "bg-purple-500/15 text-purple-400"}`}>
+          <Badge className={`text-[9px] ${isDaytime ? "bg-yellow-500/15 text-yellow-400" : "bg-sky-500/15 text-sky-400"}`}>
             {isDaytime ? "Day" : "Night"}
           </Badge>
         </div>
@@ -148,7 +148,7 @@ function XPBar({ xp, nextLevelXp, level }: { xp: number; nextLevelXp: number; le
       </div>
       <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
         <motion.div
-          className="h-full bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full"
+          className="h-full bg-gradient-to-r from-cyan-500 to-sky-500 rounded-full"
           initial={{ width: 0 }}
           animate={{ width: `${pct}%` }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -248,7 +248,7 @@ function GameStats({ state }: { state: any }) {
     { key: "wisdom", label: "Wisdom", icon: Brain, color: "text-blue-400", value: state?.wisdom || 10 },
     { key: "courage", label: "Courage", icon: Shield, color: "text-red-400", value: state?.courage || 10 },
     { key: "compassion", label: "Heart", icon: Heart, color: "text-pink-400", value: state?.compassion || 10 },
-    { key: "cunning", label: "Cunning", icon: Eye, color: "text-purple-400", value: state?.cunning || 10 },
+    { key: "cunning", label: "Cunning", icon: Eye, color: "text-sky-400", value: state?.cunning || 10 },
     { key: "influence", label: "Influence", icon: Crown, color: "text-yellow-400", value: state?.influence || 10 },
   ];
 
@@ -396,9 +396,9 @@ function ConsequencesScreen({
       )}
 
       {result.npcRelChanges && Object.keys(result.npcRelChanges).length > 0 && (
-        <GlassCard className="p-4 border border-purple-500/20">
+        <GlassCard className="p-4 border border-sky-500/20">
           <h4 className="text-white text-sm font-semibold mb-2 flex items-center gap-2">
-            <Heart className="w-4 h-4 text-purple-400" /> Relationships Shifted
+            <Heart className="w-4 h-4 text-sky-400" /> Relationships Shifted
           </h4>
           <div className="space-y-1.5">
             {Object.entries(result.npcRelChanges).map(([npc, change]) => {
@@ -432,7 +432,7 @@ function ConsequencesScreen({
 
       <Button
         onClick={onContinue}
-        className="w-full bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white py-3"
+        className="w-full bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white py-3"
         data-testid="continue-btn"
       >
         Continue Your Journey <ArrowRight className="w-4 h-4 ml-2" />
@@ -736,7 +736,7 @@ export default function ChroniclesPlay() {
             </Button>
           </Link>
           <div className="flex-1">
-            <h1 className="text-2xl font-black bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Chronicles</h1>
+            <h1 className="text-2xl font-black bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">Chronicles</h1>
             <p className="text-[10px] text-gray-500">Your parallel life — real choices, real consequences</p>
           </div>
           <Link href="/chronicles/season">
@@ -984,7 +984,7 @@ export default function ChroniclesPlay() {
                 {[
                   { href: "/chronicles/season", icon: Trophy, color: "text-yellow-400", hoverBorder: "hover:border-yellow-500/30", label: "Season Hub", sub: "All systems", glow: true, testId: "nav-season" },
                   { href: "/chronicles/npc-chat", icon: MessageCircle, color: "text-cyan-400", hoverBorder: "hover:border-cyan-500/30", label: "Talk to NPCs", sub: "AI conversations", glow: true, testId: "nav-npc" },
-                  { href: "/chronicles/marketplace", icon: ShoppingBag, color: "text-purple-400", hoverBorder: "hover:border-purple-500/30", label: "Marketplace", sub: "Shop & craft", glow: true, testId: "nav-market" },
+                  { href: "/chronicles/marketplace", icon: ShoppingBag, color: "text-sky-400", hoverBorder: "hover:border-sky-500/30", label: "Marketplace", sub: "Shop & craft", glow: true, testId: "nav-market" },
                   { href: "/chronicles/estate", icon: Building, color: "text-amber-400", hoverBorder: "hover:border-amber-500/30", label: "Your Estate", sub: "Build & expand", glow: true, testId: "nav-estate" },
                   { href: "/chronicles/world", icon: Globe, color: "text-green-400", hoverBorder: "hover:border-green-500/30", label: "Your World", sub: "People & places", glow: true, testId: "nav-world" },
                   { href: "/chronicles/pets", icon: PawPrint, color: "text-pink-400", hoverBorder: "hover:border-pink-500/30", label: "Companions", sub: "Pets & bond", glow: true, testId: "nav-pets" },

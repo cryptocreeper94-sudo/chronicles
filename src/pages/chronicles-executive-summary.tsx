@@ -29,7 +29,7 @@ export default function ChroniclesExecutiveSummary() {
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-16 px-4 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/5 via-purple-500/5 to-cyan-500/5" />
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/5 via-sky-500/5 to-cyan-500/5" />
           <div className="container mx-auto max-w-5xl relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -40,12 +40,12 @@ export default function ChroniclesExecutiveSummary() {
                 <div className="inline-block px-4 py-1 rounded-full bg-amber-500/20 text-amber-400 text-sm font-medium animate-pulse">
                   BETA v0.1 NOW PLAYABLE
                 </div>
-                <div className="inline-block px-4 py-1 rounded-full bg-purple-500/20 text-purple-400 text-sm font-medium">
+                <div className="inline-block px-4 py-1 rounded-full bg-sky-500/20 text-sky-400 text-sm font-medium">
                   Executive Summary
                 </div>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
-                <span className="bg-gradient-to-r from-amber-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
                   Chronicles
                 </span>
               </h1>
@@ -66,14 +66,14 @@ export default function ChroniclesExecutiveSummary() {
               <p className="text-white/80 leading-relaxed mb-4">
                 Chronicles is an <span className="text-amber-400 font-semibold">unprecedented parallel life simulation</span> where 
                 YOU are the character—not an avatar, your actual parallel self. Season Zero launches with three distinct eras: 
-                <span className="text-cyan-400 font-semibold">Modern</span>, <span className="text-purple-400 font-semibold">Medieval</span>, and <span className="text-amber-400 font-semibold">Wild West</span>—each with unique situations, factions, and ways to reveal who you truly are. 
+                <span className="text-cyan-400 font-semibold">Modern</span>, <span className="text-sky-400 font-semibold">Medieval</span>, and <span className="text-amber-400 font-semibold">Wild West</span>—each with unique situations, factions, and ways to reveal who you truly are. 
                 The world evolves dynamically—AI-driven NPCs remember your actions, relationships shift, and alliances form—creating a living 
                 experience that responds authentically to your choices. The vision scales to 70+ eras spanning all of human history.
               </p>
               <p className="text-white/80 leading-relaxed">
                 Built on the <span className="text-cyan-400 font-semibold">Trust Layer (DWSC)</span> blockchain infrastructure, 
                 Chronicles leverages blockchain technology for true digital ownership of in-game assets, community-created content licensing, 
-                and a revolutionary <span className="text-purple-400 font-semibold">Storefront Sponsorship System</span> that bridges 
+                and a revolutionary <span className="text-sky-400 font-semibold">Storefront Sponsorship System</span> that bridges 
                 real-world commerce with immersive historical experiences.
               </p>
             </motion.div>
@@ -145,7 +145,7 @@ export default function ChroniclesExecutiveSummary() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-8 bg-gradient-to-r from-amber-950/30 via-purple-950/30 to-cyan-950/30 border border-white/10 rounded-xl p-6"
+              className="mt-8 bg-gradient-to-r from-amber-950/30 via-sky-950/30 to-cyan-950/30 border border-white/10 rounded-xl p-6"
             >
               <h3 className="text-lg font-semibold text-white mb-3">What Makes This Unprecedented</h3>
               <p className="text-white/70 leading-relaxed mb-3">
@@ -154,7 +154,7 @@ export default function ChroniclesExecutiveSummary() {
                 The world subtly reshapes itself around your perspective.
               </p>
               <p className="text-white/70 leading-relaxed">
-                The result: an experience that <span className="text-purple-400">reveals as much about you</span> as it does about 
+                The result: an experience that <span className="text-sky-400">reveals as much about you</span> as it does about 
                 the historical eras you explore. No two players experience the same Chronicles. No one leaves unchanged.
               </p>
             </motion.div>
@@ -216,9 +216,9 @@ export default function ChroniclesExecutiveSummary() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-r from-purple-950/50 to-slate-900/50 border border-purple-500/20 rounded-xl p-6"
+                className="bg-gradient-to-r from-sky-950/50 to-slate-900/50 border border-sky-500/20 rounded-xl p-6"
               >
-                <h3 className="text-lg font-semibold text-purple-400 mb-4 flex items-center gap-2">
+                <h3 className="text-lg font-semibold text-sky-400 mb-4 flex items-center gap-2">
                   <Brain className="w-5 h-5" />
                   AI Simulation Engine
                 </h3>
@@ -226,9 +226,9 @@ export default function ChroniclesExecutiveSummary() {
                   <div>
                     <h4 className="text-sm font-semibold text-white/80 mb-2">3-Tier Processing Stack</h4>
                     <ul className="space-y-1 text-sm text-white/60">
-                      <li><span className="text-purple-300">Tier 1:</span> Deterministic planners for routine behaviors</li>
-                      <li><span className="text-purple-300">Tier 2:</span> LLM microservices for complex decisions</li>
-                      <li><span className="text-purple-300">Tier 3:</span> Offline batch processing for world events</li>
+                      <li><span className="text-sky-300">Tier 1:</span> Deterministic planners for routine behaviors</li>
+                      <li><span className="text-sky-300">Tier 2:</span> LLM microservices for complex decisions</li>
+                      <li><span className="text-sky-300">Tier 3:</span> Offline batch processing for world events</li>
                     </ul>
                   </div>
                   <div>
@@ -396,7 +396,7 @@ export default function ChroniclesExecutiveSummary() {
 
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-amber-500 to-purple-500 hidden md:block" />
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-amber-500 to-sky-500 hidden md:block" />
 
               <div className="space-y-6">
                 {[
@@ -528,7 +528,7 @@ export default function ChroniclesExecutiveSummary() {
               className="mb-8"
             >
               <h2 className="text-2xl font-display font-bold text-white mb-2 flex items-center gap-3">
-                <BarChart3 className="w-6 h-6 text-purple-400" />
+                <BarChart3 className="w-6 h-6 text-sky-400" />
                 Market Opportunity
               </h2>
             </motion.div>
@@ -550,7 +550,7 @@ export default function ChroniclesExecutiveSummary() {
                 transition={{ delay: 0.1 }}
                 className="bg-slate-800/50 border border-white/10 rounded-xl p-6 text-center"
               >
-                <div className="text-3xl font-bold text-purple-400 mb-2">$65B</div>
+                <div className="text-3xl font-bold text-sky-400 mb-2">$65B</div>
                 <div className="text-sm text-white/60">Adventure/RPG Genre (Est.)</div>
               </motion.div>
               <motion.div
@@ -639,12 +639,12 @@ export default function ChroniclesExecutiveSummary() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-r from-amber-950/30 via-purple-950/30 to-cyan-950/30 border border-white/10 rounded-xl p-8 text-center"
+              className="bg-gradient-to-r from-amber-950/30 via-sky-950/30 to-cyan-950/30 border border-white/10 rounded-xl p-8 text-center"
             >
               <div className="flex flex-wrap justify-center gap-4 mb-6">
                 <a 
                   href="mailto:team@dwsc.io?subject=Chronicles%20Investment%20Inquiry"
-                  className="px-6 py-3 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 rounded-lg text-white font-semibold transition-colors"
+                  className="px-6 py-3 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 rounded-lg text-white font-semibold transition-colors"
                   data-testid="contact-investor"
                 >
                   Contact for Investment
@@ -658,7 +658,7 @@ export default function ChroniclesExecutiveSummary() {
                 </Link>
                 <Link 
                   href="/creators" 
-                  className="px-6 py-3 bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/30 rounded-lg text-purple-400 font-medium transition-colors"
+                  className="px-6 py-3 bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/30 rounded-lg text-sky-400 font-medium transition-colors"
                   data-testid="link-creators"
                 >
                   Creator Program

@@ -97,7 +97,7 @@ function PinGate({ onSuccess }: { onSuccess: () => void }) {
 
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center relative overflow-hidden">
-      <GlowOrb color="linear-gradient(135deg, #f59e0b, #8b5cf6)" size={400} top="10%" left="10%" />
+      <GlowOrb color="linear-gradient(135deg, #f59e0b, #0ea5e9)" size={400} top="10%" left="10%" />
       <GlowOrb color="linear-gradient(135deg, #ec4899, #06b6d4)" size={300} top="60%" left="70%" delay={2} />
       
       <motion.div
@@ -108,13 +108,13 @@ function PinGate({ onSuccess }: { onSuccess: () => void }) {
       >
         <div className="text-center mb-8">
           <motion.div 
-            className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-amber-500/20 to-purple-500/20 border border-amber-500/30 flex items-center justify-center"
-            animate={{ boxShadow: ["0 0 20px rgba(245,158,11,0.3)", "0 0 40px rgba(139,92,246,0.3)", "0 0 20px rgba(245,158,11,0.3)"] }}
+            className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-amber-500/20 to-sky-500/20 border border-amber-500/30 flex items-center justify-center"
+            animate={{ boxShadow: ["0 0 20px rgba(245,158,11,0.3)", "0 0 40px rgba(14,165,233,0.3)", "0 0 20px rgba(245,158,11,0.3)"] }}
             transition={{ duration: 3, repeat: Infinity }}
           >
             <Gamepad2 className="w-10 h-10 text-amber-400" />
           </motion.div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-amber-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-amber-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent mb-2">
             Chronicles Admin
           </h1>
           <p className="text-gray-400 text-sm">Game Owner Developer Portal</p>
@@ -155,7 +155,7 @@ function PinGate({ onSuccess }: { onSuccess: () => void }) {
           <Button
             type="submit"
             disabled={loading || !password}
-            className="w-full h-12 bg-gradient-to-r from-amber-500 to-purple-500 hover:from-amber-400 hover:to-purple-400 text-white font-semibold"
+            className="w-full h-12 bg-gradient-to-r from-amber-500 to-sky-500 hover:from-amber-400 hover:to-sky-400 text-white font-semibold"
             data-testid="button-chronicles-admin-login"
           >
             {loading ? "Authenticating..." : "Access Portal"}
@@ -187,7 +187,7 @@ function BentoCard({
 }) {
   const glowColors = {
     cyan: "rgba(6,182,212,0.15)",
-    purple: "rgba(168,85,247,0.15)",
+    purple: "rgba(14,165,233,0.15)",
     pink: "rgba(236,72,153,0.15)",
     amber: "rgba(245,158,11,0.2)",
     emerald: "rgba(16,185,129,0.15)",
@@ -230,7 +230,7 @@ function AccordionSection({ title, icon: Icon, children, defaultOpen = false, ba
         data-testid={`accordion-${title.toLowerCase().replace(/\s+/g, '-')}`}
       >
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500/20 to-purple-500/20 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500/20 to-sky-500/20 flex items-center justify-center">
             <Icon className="w-5 h-5 text-amber-400" />
           </div>
           <span className="font-semibold text-white">{title}</span>
@@ -306,7 +306,7 @@ function GameDesignDocSection() {
         data-testid="accordion-game-design-document"
       >
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex items-center justify-center">
             <BookOpen className="w-5 h-5 text-cyan-400" />
           </div>
           <span className="font-semibold text-white">Game Design Document</span>
@@ -342,7 +342,7 @@ function GameDesignDocSection() {
                         <span className="text-gray-400">{docMeta.lines} lines</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-purple-400" />
+                        <Clock className="w-4 h-4 text-sky-400" />
                         <span className="text-gray-400">Updated: {formatDate(docMeta.lastModified)}</span>
                       </div>
                     </div>
@@ -528,7 +528,7 @@ function RoadmapProgress() {
                   </div>
                   <div className="h-2 rounded-full bg-slate-700 overflow-hidden">
                     <motion.div
-                      className="h-full bg-gradient-to-r from-amber-500 to-purple-500"
+                      className="h-full bg-gradient-to-r from-amber-500 to-sky-500"
                       initial={{ width: 0 }}
                       animate={{ width: `${item.progress}%` }}
                       transition={{ duration: 1, delay: 0.5 }}
@@ -565,9 +565,9 @@ function AdminDashboard() {
   return (
     <div className="min-h-screen text-white pt-20 pb-12" style={{ background: "linear-gradient(180deg, #070b16, #0c1222, #070b16)" }}>
       <div className="fixed inset-0 pointer-events-none">
-        <GlowOrb color="linear-gradient(135deg, #f59e0b, #8b5cf6)" size={500} top="5%" left="5%" />
+        <GlowOrb color="linear-gradient(135deg, #f59e0b, #0ea5e9)" size={500} top="5%" left="5%" />
         <GlowOrb color="linear-gradient(135deg, #06b6d4, #ec4899)" size={400} top="50%" left="80%" delay={2} />
-        <GlowOrb color="linear-gradient(135deg, #8b5cf6, #06b6d4)" size={350} top="70%" left="20%" delay={4} />
+        <GlowOrb color="linear-gradient(135deg, #0ea5e9, #06b6d4)" size={350} top="70%" left="20%" delay={4} />
       </div>
 
       <main className="px-4 relative z-10">
@@ -579,7 +579,7 @@ function AdminDashboard() {
           >
             <div>
             <h1 className="text-4xl md:text-5xl font-display font-black mb-2">
-              <span className="bg-gradient-to-r from-amber-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
                 Game Command Center
               </span>
             </h1>
@@ -641,7 +641,7 @@ function AdminDashboard() {
                       <p className="text-xs text-gray-400">Total NPCs</p>
                     </div>
                     <div className="p-3 rounded-lg bg-slate-800/50 text-center">
-                      <p className="text-2xl font-bold text-purple-400">12</p>
+                      <p className="text-2xl font-bold text-sky-400">12</p>
                       <p className="text-xs text-gray-400">Key Characters</p>
                     </div>
                     <div className="p-3 rounded-lg bg-slate-800/50 text-center">
@@ -696,10 +696,10 @@ function AdminDashboard() {
                   <div className="grid grid-cols-2 gap-3">
                     <div className="p-3 rounded-lg bg-slate-800/50">
                       <div className="flex items-center gap-2 mb-2">
-                        <Target className="w-4 h-4 text-purple-400" />
+                        <Target className="w-4 h-4 text-sky-400" />
                         <span className="text-sm font-medium text-white">Decision Proofs</span>
                       </div>
-                      <p className="text-2xl font-bold text-purple-400">12</p>
+                      <p className="text-2xl font-bold text-sky-400">12</p>
                     </div>
                     <div className="p-3 rounded-lg bg-slate-800/50">
                       <div className="flex items-center gap-2 mb-2">
@@ -727,7 +727,7 @@ function AdminDashboard() {
 
                 <AccordionSection title="Voice Cloning" icon={Mic}>
                   <div className="flex items-center gap-4 p-4 rounded-lg bg-slate-800/50">
-                    <Volume2 className="w-8 h-8 text-purple-400" />
+                    <Volume2 className="w-8 h-8 text-sky-400" />
                     <div className="flex-1">
                       <p className="font-medium text-white">ElevenLabs Integration</p>
                       <p className="text-sm text-gray-400">Connected • 5 voice profiles active</p>
@@ -739,7 +739,7 @@ function AdminDashboard() {
                 </AccordionSection>
 
                 <AccordionSection title="Season Controls" icon={Calendar}>
-                  <div className="p-4 rounded-lg bg-gradient-to-br from-amber-500/10 to-purple-500/10 border border-amber-500/20">
+                  <div className="p-4 rounded-lg bg-gradient-to-br from-amber-500/10 to-sky-500/10 border border-amber-500/20">
                     <div className="flex items-center justify-between mb-4">
                       <div>
                         <h4 className="font-semibold text-white">Season Zero: Age of Crowns</h4>
@@ -773,7 +773,7 @@ function AdminDashboard() {
             <div className="space-y-6">
               <BentoCard glow="purple">
                 <div className="flex items-center gap-2 mb-4">
-                  <Rocket className="w-5 h-5 text-purple-400" />
+                  <Rocket className="w-5 h-5 text-sky-400" />
                   <h3 className="font-semibold text-white">Roadmap to Completion</h3>
                 </div>
                 <RoadmapProgress />
@@ -818,7 +818,7 @@ function AdminDashboard() {
                     <Users className="w-4 h-4 mr-2 text-cyan-400" /> Add NPC Character
                   </Button>
                   <Button className="w-full justify-start bg-slate-800/50 hover:bg-slate-700/50 text-white border border-white/10" data-testid="button-new-chronicle-proof">
-                    <Award className="w-4 h-4 mr-2 text-purple-400" /> New Chronicle Proof
+                    <Award className="w-4 h-4 mr-2 text-sky-400" /> New Chronicle Proof
                   </Button>
                   <Button className="w-full justify-start bg-slate-800/50 hover:bg-slate-700/50 text-white border border-white/10" data-testid="button-sync-data">
                     <RefreshCw className="w-4 h-4 mr-2 text-emerald-400" /> Sync All Data

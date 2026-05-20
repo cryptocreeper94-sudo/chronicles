@@ -140,7 +140,7 @@ export function LoadingOverlay({ progress, isVisible }: LoadingProgressProps) {
       <div className="text-center">
         <div className="w-48 h-1.5 bg-slate-800 rounded-full overflow-hidden mb-3">
           <div
-            className="h-full bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full transition-all duration-300"
+            className="h-full bg-gradient-to-r from-cyan-500 to-sky-500 rounded-full transition-all duration-300"
             style={{ width: `${Math.round(progress)}%` }}
           />
         </div>

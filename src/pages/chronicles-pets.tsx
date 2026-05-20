@@ -23,7 +23,7 @@ const ERA_CONFIG: Record<string, { name: string; emoji: string; color: string; b
 const STAGE_CONFIG: Record<string, { label: string; color: string; emoji: string }> = {
   young: { label: "Young", color: "bg-green-500/20 text-green-400", emoji: "🌱" },
   adolescent: { label: "Adolescent", color: "bg-blue-500/20 text-blue-400", emoji: "🌿" },
-  adult: { label: "Adult", color: "bg-purple-500/20 text-purple-400", emoji: "🌳" },
+  adult: { label: "Adult", color: "bg-sky-500/20 text-sky-400", emoji: "🌳" },
   legendary: { label: "Legendary", color: "bg-yellow-500/20 text-yellow-400", emoji: "✨" },
 };
 
@@ -223,7 +223,7 @@ function PetCard({ pet, onInteract, onSetCompanion, isInteracting }: {
           <Button
             size="sm"
             variant="ghost"
-            className="flex flex-col items-center gap-0.5 h-auto py-2 text-purple-400 hover:text-purple-300 hover:bg-purple-500/10 min-h-[48px] active:scale-95"
+            className="flex flex-col items-center gap-0.5 h-auto py-2 text-sky-400 hover:text-sky-300 hover:bg-sky-500/10 min-h-[48px] active:scale-95"
             onClick={() => onInteract(pet.id, "rest")}
             disabled={isInteracting}
             data-testid={`btn-rest-${pet.id}`}
@@ -359,7 +359,7 @@ function AdoptionModal({ era, onClose, onAdopt }: { era: string; onClose: () => 
               data-testid="input-pet-name"
             />
             <Button
-              className="w-full bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 min-h-[48px] active:scale-95"
+              className="w-full bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 min-h-[48px] active:scale-95"
               disabled={!petName.trim()}
               onClick={() => {
                 if (petName.trim() && selectedIndex !== null) {
@@ -452,7 +452,7 @@ export default function ChroniclesPetsPage() {
     <div className="min-h-screen bg-slate-950 pb-20" data-testid="pets-page">
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-sky-500/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-6">
@@ -463,14 +463,14 @@ export default function ChroniclesPetsPage() {
             </Button>
           </Link>
           <div className="flex-1">
-            <h1 className="text-xl sm:text-2xl font-black bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <h1 className="text-xl sm:text-2xl font-black bg-gradient-to-r from-pink-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
               Your Companions
             </h1>
             <p className="text-[10px] text-gray-500">Bond with pets, train abilities, and adventure together</p>
           </div>
           <Button
             size="icon"
-            className="bg-gradient-to-r from-cyan-600 to-purple-600 min-h-[44px] min-w-[44px] active:scale-95"
+            className="bg-gradient-to-r from-cyan-600 to-sky-600 min-h-[44px] min-w-[44px] active:scale-95"
             onClick={() => setShowAdopt(true)}
             data-testid="btn-adopt-new"
           >
@@ -549,7 +549,7 @@ export default function ChroniclesPetsPage() {
                 Every great adventurer needs a loyal companion by their side. Adopt your first pet and begin your bond!
               </p>
               <Button
-                className="bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 min-h-[48px] active:scale-95"
+                className="bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 min-h-[48px] active:scale-95"
                 onClick={() => setShowAdopt(true)}
                 data-testid="btn-adopt-first"
               >

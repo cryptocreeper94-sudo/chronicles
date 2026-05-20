@@ -196,8 +196,8 @@ function ActivityCard({ activity, onPerform, disabled, energyLow, moodLow }: {
         }`}
       >
         <div className="flex items-start gap-3">
-          <div className="p-2 rounded-lg bg-purple-500/20">
-            <Icon className="w-6 h-6 text-purple-400" />
+          <div className="p-2 rounded-lg bg-sky-500/20">
+            <Icon className="w-6 h-6 text-sky-400" />
           </div>
           <div className="flex-1">
             <h4 className="font-semibold text-white">{activity.name}</h4>
@@ -224,7 +224,7 @@ function ActivityCard({ activity, onPerform, disabled, energyLow, moodLow }: {
                 </span>
               )}
               {activity.xpReward && (
-                <span className="text-xs px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-400">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-400">
                   +{activity.xpReward} XP
                 </span>
               )}
@@ -410,7 +410,7 @@ export default function ChroniclesLife() {
           <h2 className="text-2xl font-bold text-white mb-2">Start Your Journey</h2>
           <p className="text-gray-400 mb-6">Create your character to begin living your parallel life in Chronicles</p>
           <Link href="/chronicles/onboarding">
-            <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white" data-testid="button-create-character">
+            <Button className="bg-gradient-to-r from-cyan-500 to-sky-500 text-white" data-testid="button-create-character">
               Create Character
             </Button>
           </Link>
@@ -428,7 +428,7 @@ export default function ChroniclesLife() {
           isNight ? "bg-indigo-500/5" : "bg-cyan-500/10"
         }`} />
         <div className={`absolute bottom-40 right-1/4 w-80 h-80 rounded-full blur-3xl animate-pulse ${
-          isNight ? "bg-purple-500/5" : "bg-purple-500/10"
+          isNight ? "bg-sky-500/5" : "bg-sky-500/10"
         }`} style={{ animationDelay: "1s" }} />
       </div>
       
@@ -446,7 +446,7 @@ export default function ChroniclesLife() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                 {character.name}'s Life
               </h1>
               <div className="flex items-center gap-2 text-sm text-gray-400 mt-1">
@@ -506,14 +506,14 @@ export default function ChroniclesLife() {
           
           <div>
             <h2 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-              <Activity className="w-5 h-5 text-purple-400" />
+              <Activity className="w-5 h-5 text-sky-400" />
               Activities at {locations.find(l => l.code === character.currentLocation)?.name || "Home"}
             </h2>
             <div className="space-y-3" data-testid="activities-list">
               <AnimatePresence mode="wait">
                 {loadingActivities ? (
                   <div className="flex justify-center py-8">
-                    <div className="w-6 h-6 border-2 border-purple-400 border-t-transparent rounded-full animate-spin" />
+                    <div className="w-6 h-6 border-2 border-sky-400 border-t-transparent rounded-full animate-spin" />
                   </div>
                 ) : activities.length > 0 ? (
                   activities.map((act) => (

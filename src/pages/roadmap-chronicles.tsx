@@ -111,7 +111,7 @@ const CHRONICLES_PHASES: Phase[] = [
 function PhaseCard({ phase, isExpanded, onToggle }: { phase: Phase; isExpanded: boolean; onToggle: () => void }) {
   const statusColors = {
     completed: "from-green-500 to-emerald-600",
-    in_progress: "from-purple-500 to-pink-500",
+    in_progress: "from-sky-500 to-pink-500",
     upcoming: "from-gray-600 to-gray-700",
   };
   
@@ -135,10 +135,10 @@ function PhaseCard({ phase, isExpanded, onToggle }: { phase: Phase; isExpanded: 
       <div 
         onClick={onToggle}
         data-testid={`card-phase-${phase.id}`}
-        className="cursor-pointer relative overflow-hidden rounded-2xl border border-white/10 hover:border-purple-500/30 transition-all group"
+        className="cursor-pointer relative overflow-hidden rounded-2xl border border-white/10 hover:border-sky-500/30 transition-all group"
         style={{
           boxShadow: phase.status === "in_progress" 
-            ? "0 0 60px rgba(168, 85, 247, 0.2), inset 0 1px 0 rgba(255,255,255,0.1)"
+            ? "0 0 60px rgba(14,165,233, 0.2), inset 0 1px 0 rgba(255,255,255,0.1)"
             : "0 0 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)",
         }}
       >
@@ -199,7 +199,7 @@ function PhaseCard({ phase, isExpanded, onToggle }: { phase: Phase; isExpanded: 
               <span className="text-green-400 font-semibold">{completedCount}</span> completed
               {inProgressCount > 0 && (
                 <span className="ml-2">
-                  <span className="text-purple-400 font-semibold">{inProgressCount}</span> in progress
+                  <span className="text-sky-400 font-semibold">{inProgressCount}</span> in progress
                 </span>
               )}
               <span className="text-gray-500"> / {totalCount} milestones</span>
@@ -237,7 +237,7 @@ function PhaseCard({ phase, isExpanded, onToggle }: { phase: Phase; isExpanded: 
 function MilestoneItem({ milestone, index }: { milestone: Milestone; index: number }) {
   const statusIcons = {
     completed: <Check className="w-4 h-4 text-green-400" />,
-    in_progress: <Clock className="w-4 h-4 text-purple-400 animate-pulse" />,
+    in_progress: <Clock className="w-4 h-4 text-sky-400 animate-pulse" />,
     pending: <Circle className="w-4 h-4 text-gray-600" />,
   };
   
@@ -251,20 +251,20 @@ function MilestoneItem({ milestone, index }: { milestone: Milestone; index: numb
         milestone.status === "completed" 
           ? "bg-green-500/10 border-green-500/30" 
           : milestone.status === "in_progress"
-          ? "bg-purple-500/10 border-purple-500/30"
+          ? "bg-sky-500/10 border-sky-500/30"
           : "bg-gray-900/50 border-white/5"
       }`}
     >
       <div className={`mt-0.5 w-7 h-7 rounded-full flex items-center justify-center ${
         milestone.status === "completed" ? "bg-green-500/20" :
-        milestone.status === "in_progress" ? "bg-purple-500/20" : "bg-gray-800"
+        milestone.status === "in_progress" ? "bg-sky-500/20" : "bg-gray-800"
       }`}>
         {statusIcons[milestone.status]}
       </div>
       <div className="flex-1">
         <h4 className={`font-medium ${
           milestone.status === "completed" ? "text-green-400" : 
-          milestone.status === "in_progress" ? "text-purple-400" : "text-white"
+          milestone.status === "in_progress" ? "text-sky-400" : "text-white"
         }`}>
           {milestone.title}
           {milestone.isRequired && <span className="ml-2 text-xs text-amber-400/80">Required</span>}
@@ -297,14 +297,14 @@ export default function RoadmapChronicles() {
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/10 border border-sky-500/30 mb-6"
             >
-              <Sparkles className="w-4 h-4 text-purple-400" />
-              <span className="text-purple-300 text-sm font-medium">Chronicles</span>
+              <Sparkles className="w-4 h-4 text-sky-400" />
+              <span className="text-sky-300 text-sm font-medium">Chronicles</span>
             </motion.div>
             
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
                 Game Development Roadmap
               </span>
             </h1>
@@ -320,8 +320,8 @@ export default function RoadmapChronicles() {
 
           {/* Overall Progress Card with photorealistic background */}
           <div 
-            className="relative overflow-hidden mb-12 rounded-2xl border border-purple-500/20"
-            style={{ boxShadow: "0 0 60px rgba(168, 85, 247, 0.15)" }}
+            className="relative overflow-hidden mb-12 rounded-2xl border border-sky-500/20"
+            style={{ boxShadow: "0 0 60px rgba(14,165,233, 0.15)" }}
           >
             <div className="absolute inset-0">
               <img src={historicalKingdom} alt="Kingdom" className="w-full h-full object-cover" />
@@ -337,10 +337,10 @@ export default function RoadmapChronicles() {
                   <h2 className="text-xl font-bold text-white">Overall Progress</h2>
                   <p className="text-gray-300 text-sm mt-1">
                     <span className="text-green-400 font-semibold">{completedMilestones}</span> completed, 
-                    <span className="text-purple-400 font-semibold ml-1">{inProgressMilestones}</span> in progress of {totalMilestones} milestones
+                    <span className="text-sky-400 font-semibold ml-1">{inProgressMilestones}</span> in progress of {totalMilestones} milestones
                   </p>
                 </div>
-                <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+                <div className="text-4xl font-bold bg-gradient-to-r from-sky-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
                   {Math.round(overallProgress)}%
                 </div>
               </div>
@@ -349,7 +349,7 @@ export default function RoadmapChronicles() {
                   initial={{ width: 0 }}
                   animate={{ width: `${overallProgress}%` }}
                   transition={{ duration: 1.5, ease: "easeOut" }}
-                  className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500"
+                  className="h-full bg-gradient-to-r from-sky-500 via-pink-500 to-orange-500"
                 />
               </div>
             </div>
@@ -372,7 +372,7 @@ export default function RoadmapChronicles() {
         {/* Sentient Mirror section with photorealistic background */}
         <div 
           className="relative overflow-hidden mt-12 rounded-2xl border border-white/10"
-          style={{ boxShadow: "0 0 40px rgba(168, 85, 247, 0.1)" }}
+          style={{ boxShadow: "0 0 40px rgba(14,165,233, 0.1)" }}
         >
           <div className="absolute inset-0">
             <img src={deepSpace} alt="Deep Space" className="w-full h-full object-cover" />
@@ -390,7 +390,7 @@ export default function RoadmapChronicles() {
             </p>
             <Link 
               href="/crowdfund" 
-              className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-xl bg-gradient-to-r from-sky-600 to-pink-600 text-white font-medium hover:opacity-90 transition-opacity"
               data-testid="link-support-development"
             >
               <Zap className="w-4 h-4" />

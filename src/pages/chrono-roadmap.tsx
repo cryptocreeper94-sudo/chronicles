@@ -74,7 +74,7 @@ const PHASES: Phase[] = [
       { item: "Founder alpha access", done: false },
     ],
     image: historicalKingdom,
-    color: "from-purple-500 to-violet-600"
+    color: "from-sky-500 to-cyan-600"
   },
   {
     id: "expansion",
@@ -170,7 +170,7 @@ function PhaseCard({ phase, index }: { phase: Phase; index: number }) {
       transition={{ delay: index * 0.1 }}
       className="relative"
     >
-      <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-purple-500/30 to-transparent" style={{ left: '1rem' }} />
+      <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-sky-500/30 to-transparent" style={{ left: '1rem' }} />
       
       <div className="flex gap-6">
         <div className="hidden md:flex flex-col items-center">
@@ -244,11 +244,11 @@ export default function ChronoRoadmap() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <Badge className="mb-4 bg-purple-500/20 text-purple-400 border-purple-500/30">
+            <Badge className="mb-4 bg-sky-500/20 text-sky-400 border-sky-500/30">
               <Rocket className="w-3 h-3 mr-1" /> Development Journey
             </Badge>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 text-white">
-              The Road to <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Chronicles</span>
+              The Road to <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Chronicles</span>
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto mb-8">
               A transparent look at where we are, where we're going, and how we'll get there.
@@ -261,7 +261,7 @@ export default function ChronoRoadmap() {
               </div>
               <div className="w-32 h-2 rounded-full bg-white/10 overflow-hidden">
                 <motion.div 
-                  className="h-full bg-gradient-to-r from-cyan-500 to-purple-500"
+                  className="h-full bg-gradient-to-r from-cyan-500 to-sky-500"
                   initial={{ width: 0 }}
                   animate={{ width: `${progressPercent}%` }}
                   transition={{ delay: 0.5, duration: 1 }}
@@ -283,7 +283,7 @@ export default function ChronoRoadmap() {
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-gradient-to-b from-transparent via-purple-950/20 to-transparent">
+      <section className="py-24 px-4 bg-gradient-to-b from-transparent via-sky-950/20 to-transparent">
         <div className="container mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -314,7 +314,7 @@ export default function ChronoRoadmap() {
                   transition={{ delay: i * 0.1 }}
                   className="p-6 rounded-2xl bg-white/5 border border-white/10"
                 >
-                  <Icon className="w-10 h-10 text-purple-400 mb-4" />
+                  <Icon className="w-10 h-10 text-sky-400 mb-4" />
                   <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
                   <p className="text-white/60">{item.description}</p>
                 </motion.div>

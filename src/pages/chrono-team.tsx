@@ -142,11 +142,11 @@ export default function ChronoTeam() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <Badge className="mb-4 bg-purple-500/20 text-purple-400 border-purple-500/30">
+            <Badge className="mb-4 bg-sky-500/20 text-sky-400 border-sky-500/30">
               <Code className="w-3 h-3 mr-1" /> Development
             </Badge>
             <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-white">
-              Building <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Chronicles</span>
+              Building <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Chronicles</span>
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
               A realistic look at what we're building, how we're building it, and when you can expect to live your legacy.
@@ -183,7 +183,7 @@ export default function ChronoTeam() {
               >
                 <div className={`rounded-2xl border p-6 ${
                   phase.status === 'in_progress' 
-                    ? 'bg-gradient-to-r from-purple-500/10 to-transparent border-purple-500/30' 
+                    ? 'bg-gradient-to-r from-sky-500/10 to-transparent border-sky-500/30' 
                     : 'bg-white/5 border-white/10'
                 }`}>
                   <div className="flex flex-col md:flex-row md:items-start gap-6">
@@ -191,7 +191,7 @@ export default function ChronoTeam() {
                       <div className="flex items-center gap-3 mb-2">
                         <Badge className={`${
                           phase.status === 'in_progress' 
-                            ? 'bg-purple-500/20 text-purple-400 border-purple-500/30' 
+                            ? 'bg-sky-500/20 text-sky-400 border-sky-500/30' 
                             : phase.status === 'planned'
                             ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30'
                             : 'bg-white/10 text-white/60 border-white/20'
@@ -274,7 +274,7 @@ export default function ChronoTeam() {
                 >
                   <div className="p-6 rounded-xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 hover:border-pink-500/30 transition-all h-full">
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-sky-500 flex items-center justify-center shrink-0">
                         <Icon className="w-5 h-5 text-white" />
                       </div>
                       <div className="flex-1">
@@ -338,7 +338,7 @@ export default function ChronoTeam() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gradient-to-b from-transparent via-purple-950/10 to-transparent">
+      <section className="py-16 px-4 bg-gradient-to-b from-transparent via-sky-950/10 to-transparent">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -347,7 +347,7 @@ export default function ChronoTeam() {
             className="mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
-              <Users className="w-6 h-6 text-purple-400" />
+              <Users className="w-6 h-6 text-sky-400" />
               <h2 className="text-2xl md:text-3xl font-display font-bold text-white">The Team</h2>
             </div>
             <p className="text-white/60 max-w-2xl">
@@ -358,7 +358,7 @@ export default function ChronoTeam() {
           <div className="grid md:grid-cols-2 gap-6">
             <HoloCard image={deepSpace} glow="purple" className="min-h-[250px]">
               <div className="p-8 h-full flex flex-col justify-end">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center mb-4">
                   <Users className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Founder & Lead Developer</h3>
@@ -366,7 +366,7 @@ export default function ChronoTeam() {
                   Building the Chronicles vision from scratch. One developer, one laptop, infinite determination. 
                   Seeking talented contributors who share the vision.
                 </p>
-                <Badge className="w-fit bg-purple-500/20 text-purple-400 border-purple-500/30">
+                <Badge className="w-fit bg-sky-500/20 text-sky-400 border-sky-500/30">
                   <Heart className="w-3 h-3 mr-1" /> Looking for Contributors
                 </Badge>
               </div>
@@ -405,7 +405,7 @@ export default function ChronoTeam() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
                 <Link href="/crowdfund">
-                  <Button size="lg" className="rounded-full gap-2 bg-gradient-to-r from-pink-600 to-purple-600" data-testid="support-dev-cta">
+                  <Button size="lg" className="rounded-full gap-2 bg-gradient-to-r from-pink-600 to-sky-600" data-testid="support-dev-cta">
                     <Heart className="w-5 h-5" />
                     Fund Development
                   </Button>

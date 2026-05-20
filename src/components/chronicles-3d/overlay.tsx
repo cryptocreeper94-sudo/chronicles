@@ -142,7 +142,7 @@ export function SceneTransition({ isTransitioning, locationName }: SceneTransiti
             className="text-center"
           >
             {locationName && (
-              <p className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <p className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                 {locationName}
               </p>
             )}

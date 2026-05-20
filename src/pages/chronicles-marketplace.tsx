@@ -33,7 +33,7 @@ const RARITY_CONFIG: Record<string, { bg: string; text: string; glow: string; bo
   common: { bg: "bg-gray-500/20", text: "text-gray-400", glow: "", border: "border-gray-500/30" },
   uncommon: { bg: "bg-green-500/20", text: "text-green-400", glow: "shadow-[0_0_10px_rgba(34,197,94,0.2)]", border: "border-green-500/30" },
   rare: { bg: "bg-blue-500/20", text: "text-blue-400", glow: "shadow-[0_0_15px_rgba(59,130,246,0.3)]", border: "border-blue-500/30" },
-  epic: { bg: "bg-purple-500/20", text: "text-purple-400", glow: "shadow-[0_0_20px_rgba(168,85,247,0.3)]", border: "border-purple-500/30" },
+  epic: { bg: "bg-sky-500/20", text: "text-sky-400", glow: "shadow-[0_0_20px_rgba(14,165,233,0.3)]", border: "border-sky-500/30" },
   legendary: { bg: "bg-yellow-500/20", text: "text-yellow-300", glow: "shadow-[0_0_25px_rgba(234,179,8,0.4)]", border: "border-yellow-500/30" },
 };
 
@@ -119,9 +119,9 @@ export default function ChroniclesMarketplace() {
   return (
     <div className="min-h-screen bg-slate-950 pt-20 pb-12">
       <div className="relative overflow-hidden mb-8">
-        <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-purple-500/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-sky-500/5 to-transparent pointer-events-none" />
         <div className="absolute top-4 left-1/4 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-8 right-1/4 w-24 h-24 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-8 right-1/4 w-24 h-24 bg-sky-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
         <div className="absolute bottom-0 left-1/2 w-40 h-20 bg-pink-500/5 rounded-full blur-3xl animate-pulse delay-500" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -132,7 +132,7 @@ export default function ChroniclesMarketplace() {
                   <ArrowLeft className="w-4 h-4 mr-1" /> Play
                 </Button>
               </Link>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
                 Era Marketplace
               </h1>
             </div>
@@ -166,7 +166,7 @@ export default function ChroniclesMarketplace() {
               <button key={t.id} onClick={() => setTab(t.id)} data-testid={`tab-${t.id}`}
                 className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-medium transition-all min-h-[44px] ${
                   tab === t.id
-                    ? "bg-gradient-to-r from-cyan-600/30 to-purple-600/30 text-white border border-white/10 shadow-lg"
+                    ? "bg-gradient-to-r from-cyan-600/30 to-sky-600/30 text-white border border-white/10 shadow-lg"
                     : "text-gray-500 hover:text-white"
                 }`}>
                 <t.icon className="w-4 h-4" /> {t.label}
@@ -234,7 +234,7 @@ export default function ChroniclesMarketplace() {
                     <button key={String(c)} onClick={() => setCatFilter(String(c))} data-testid={`cat-${c}`}
                       className={`px-4 py-2 rounded-xl text-xs font-medium transition-all whitespace-nowrap border min-h-[44px] ${
                         catFilter === c
-                          ? "bg-gradient-to-r from-cyan-600/20 to-purple-600/20 border-cyan-500/30 text-white"
+                          ? "bg-gradient-to-r from-cyan-600/20 to-sky-600/20 border-cyan-500/30 text-white"
                           : "border-white/10 text-gray-500 hover:text-white hover:border-white/20"
                       }`}>
                       {c === "all" ? "All Categories" : String(c)}
@@ -323,7 +323,7 @@ export default function ChroniclesMarketplace() {
                                 disabled={!canAfford || !meetsLevel || buyMut.isPending}
                                 onClick={() => buyMut.mutate(item.code)}
                                 data-testid={`buy-${item.code || idx}`}
-                                className="bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white text-xs px-4 h-9 min-w-[44px]"
+                                className="bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white text-xs px-4 h-9 min-w-[44px]"
                               >
                                 {buyMut.isPending ? <Loader2 className="w-3 h-3 animate-spin" /> : <><ShoppingCart className="w-3 h-3 mr-1" /> Buy</>}
                               </Button>
@@ -350,7 +350,7 @@ export default function ChroniclesMarketplace() {
                     </motion.div>
                     <p className="text-gray-400 font-semibold text-lg mb-1">No items yet</p>
                     <p className="text-gray-600 text-sm mb-4">Visit the shop to start collecting!</p>
-                    <Button onClick={() => setTab("shop")} className="bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white min-h-[44px]" data-testid="go-to-shop">
+                    <Button onClick={() => setTab("shop")} className="bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white min-h-[44px]" data-testid="go-to-shop">
                       <ShoppingBag className="w-4 h-4 mr-2" /> Browse Shop
                     </Button>
                   </div>
@@ -367,7 +367,7 @@ export default function ChroniclesMarketplace() {
                     </GlassCard>
                     <GlassCard glow hover={false}>
                       <div className="p-4 sm:p-6 text-center" data-testid="stat-rarest">
-                        <Gem className="w-6 h-6 text-purple-400 mx-auto mb-2" />
+                        <Gem className="w-6 h-6 text-sky-400 mx-auto mb-2" />
                         <p className={`text-2xl font-bold capitalize ${getRarity(invStats.rarest).text}`}>{invStats.rarest}</p>
                         <p className="text-xs text-gray-500 uppercase tracking-wider mt-1">Rarest Item</p>
                       </div>

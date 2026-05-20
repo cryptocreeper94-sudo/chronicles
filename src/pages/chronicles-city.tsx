@@ -135,7 +135,7 @@ function Building3D({ building, position, era, isPremium }: {
   });
 
   const colors: Record<string, Record<string, string>> = {
-    modern: { shop: "#06b6d4", office: "#8b5cf6", residential: "#3b82f6", entertainment: "#ec4899", monument: "#f59e0b" },
+    modern: { shop: "#06b6d4", office: "#0ea5e9", residential: "#3b82f6", entertainment: "#ec4899", monument: "#f59e0b" },
     medieval: { shop: "#d97706", office: "#8B7355", residential: "#A0855B", monument: "#D4AF37" },
     wildwest: { shop: "#C4A574", office: "#8B6914", residential: "#B8956A", monument: "#D4AF37" },
   };
@@ -372,7 +372,7 @@ function StorefrontPreview({ business, era }: { business: any; era: string }) {
           </Badge>
         )}
         {business.tier === "elite" && (
-          <Badge className="ml-auto bg-purple-500/20 text-purple-400">
+          <Badge className="ml-auto bg-sky-500/20 text-sky-400">
             <Crown className="w-3 h-3 mr-1" /> Elite
           </Badge>
         )}
@@ -477,7 +477,7 @@ function PlotDetailModal({ plot, era, buildings, onClose, onBuild }: {
                     <div className="flex items-center gap-2">
                       <p className="text-sm text-white font-medium">{b.name}</p>
                       {b.tier === "premium" && <Badge className="bg-yellow-500/20 text-yellow-400 text-[9px]">Premium</Badge>}
-                      {b.tier === "elite" && <Badge className="bg-purple-500/20 text-purple-400 text-[9px]">Elite</Badge>}
+                      {b.tier === "elite" && <Badge className="bg-sky-500/20 text-sky-400 text-[9px]">Elite</Badge>}
                     </div>
                     <p className="text-xs text-gray-500 mt-0.5">{b.description}</p>
                   </div>
@@ -723,7 +723,7 @@ export default function ChroniclesCity() {
                     <div
                       key={b.id}
                       className={`p-2.5 rounded-lg text-center border transition-all cursor-pointer hover:bg-white/10 min-h-[72px] flex flex-col items-center justify-center ${
-                        b.tier === "elite" ? "border-purple-500/30 bg-purple-500/5" :
+                        b.tier === "elite" ? "border-sky-500/30 bg-sky-500/5" :
                         b.tier === "premium" ? "border-yellow-500/30 bg-yellow-500/5" :
                         "border-white/10 bg-white/5"
                       }`}

@@ -487,8 +487,8 @@ export default function ChroniclesWorld() {
                               )}
                               {zone.npcsPresent > 0 && (
                                 <div className="flex items-center gap-1">
-                                  <Users className="w-3 h-3 text-purple-400" />
-                                  <span className="text-[10px] text-purple-400">{zone.npcNames?.join(", ")}</span>
+                                  <Users className="w-3 h-3 text-sky-400" />
+                                  <span className="text-[10px] text-sky-400">{zone.npcNames?.join(", ")}</span>
                                 </div>
                               )}
                               {zone.playersHere > 0 && (
@@ -596,15 +596,15 @@ export default function ChroniclesWorld() {
               {zoneDetail?.npcsPresent?.length > 0 && (
                 <div>
                   <h3 className="text-white font-bold text-sm mb-2 flex items-center gap-2">
-                    <Users className="w-4 h-4 text-purple-400" /> People Here
+                    <Users className="w-4 h-4 text-sky-400" /> People Here
                   </h3>
                   <div className="space-y-2">
                     {zoneDetail.npcsPresent.map((npc: any, i: number) => (
                       <motion.div key={npc.name} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }}>
                         <GlassCard className="p-3">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500/30 to-pink-500/30 flex items-center justify-center">
-                              <Users className="w-5 h-5 text-purple-400" />
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sky-500/30 to-pink-500/30 flex items-center justify-center">
+                              <Users className="w-5 h-5 text-sky-400" />
                             </div>
                             <div className="flex-1">
                               <p className="text-white text-sm font-medium">{npc.name}</p>
@@ -638,7 +638,7 @@ export default function ChroniclesWorld() {
                               <div className="flex items-center gap-2 flex-wrap">
                                 <h4 className="text-white font-medium text-sm">{activity.name}</h4>
                                 {activity.minigameType && (
-                                  <Badge className="bg-purple-500/20 text-purple-400 text-[10px]">
+                                  <Badge className="bg-sky-500/20 text-sky-400 text-[10px]">
                                     <Target className="w-2.5 h-2.5 mr-1" /> Mini-Game
                                   </Badge>
                                 )}
@@ -763,7 +763,7 @@ export default function ChroniclesWorld() {
                 ) : (
                   <>
                     {characterEngine.getRelationship(activeCharacterMenu.id).affinity >= 80 && !characterEngine.getSpouse() && (
-                      <Button className="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-400 hover:to-purple-400 text-white shadow-lg animate-pulse border border-pink-400/50" onClick={() => {
+                      <Button className="w-full bg-gradient-to-r from-pink-500 to-sky-500 hover:from-pink-400 hover:to-sky-400 text-white shadow-lg animate-pulse border border-pink-400/50" onClick={() => {
                           characterEngine.proposeMarriage(activeCharacterMenu.id);
                           interactWithCharacter(activeCharacterMenu.id, 50, 50, `${activeCharacterMenu.name} joyfully accepts your proposal! You are now married.`);
                         }}>

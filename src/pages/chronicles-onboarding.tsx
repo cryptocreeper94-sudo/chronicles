@@ -91,7 +91,7 @@ const IDENTITY_ASPECTS = [
   { id: "builder", label: "Creating Things", desc: "You build, fix, and make things better", icon: Target, gradient: "from-emerald-500/20 to-teal-500/20", border: "border-emerald-500/40", glow: "shadow-emerald-500/20" },
   { id: "explorer", label: "Seeking the Unknown", desc: "You're drawn to new places and ideas", icon: Compass, gradient: "from-cyan-500/20 to-blue-500/20", border: "border-cyan-500/40", glow: "shadow-cyan-500/20" },
   { id: "diplomat", label: "Connecting People", desc: "You bring people together and ease tensions", icon: Heart, gradient: "from-pink-500/20 to-rose-500/20", border: "border-pink-500/40", glow: "shadow-pink-500/20" },
-  { id: "scholar", label: "Understanding Deeply", desc: "You dig into things until you truly get them", icon: Brain, gradient: "from-purple-500/20 to-violet-500/20", border: "border-purple-500/40", glow: "shadow-purple-500/20" },
+  { id: "scholar", label: "Understanding Deeply", desc: "You dig into things until you truly get them", icon: Brain, gradient: "from-sky-500/20 to-cyan-500/20", border: "border-sky-500/40", glow: "shadow-sky-500/20" },
   { id: "protector", label: "Standing Guard", desc: "You protect people who can't protect themselves", icon: Shield, gradient: "from-blue-500/20 to-indigo-500/20", border: "border-blue-500/40", glow: "shadow-blue-500/20" },
 ];
 
@@ -109,13 +109,13 @@ const VALUES = [
 const INSTINCT_STYLES = [
   { id: "analytical", label: "Think It Through", desc: "You slow down, weigh every angle, then move with certainty", icon: Brain, color: "text-cyan-400" },
   { id: "intuitive", label: "Trust Your Gut", desc: "Something inside you just knows — and it's usually right", icon: Zap, color: "text-yellow-400" },
-  { id: "balanced", label: "Read the Room", desc: "You blend instinct with logic depending on the situation", icon: Eye, color: "text-purple-400" },
+  { id: "balanced", label: "Read the Room", desc: "You blend instinct with logic depending on the situation", icon: Eye, color: "text-sky-400" },
   { id: "collaborative", label: "Ask Around", desc: "Other perspectives make your decisions sharper", icon: Users, color: "text-emerald-400" },
 ];
 
 const PRESSURE_RESPONSES = [
   { id: "diplomatic", label: "Talk It Out", desc: "You find the words that unlock understanding", icon: MessageCircle, color: "text-cyan-400" },
-  { id: "strategic", label: "Outthink It", desc: "You develop a plan that turns the tables", icon: Brain, color: "text-purple-400" },
+  { id: "strategic", label: "Outthink It", desc: "You develop a plan that turns the tables", icon: Brain, color: "text-sky-400" },
   { id: "direct", label: "Face It Head-On", desc: "You don't flinch — you address it directly", icon: Flame, color: "text-orange-400" },
   { id: "adaptive", label: "Stay Fluid", desc: "You bend without breaking, adjusting as things shift", icon: Compass, color: "text-emerald-400" },
 ];
@@ -144,7 +144,7 @@ const AUDIO_MOODS = [
 const COLORS = [
   { id: "blue", label: "Blue", hex: "#3b82f6", meaning: "Calm & Steady" },
   { id: "green", label: "Green", hex: "#22c55e", meaning: "Growth & Balance" },
-  { id: "purple", label: "Purple", hex: "#a855f7", meaning: "Creative & Unique" },
+  { id: "purple", label: "Purple", hex: "#38bdf8", meaning: "Creative & Unique" },
   { id: "gold", label: "Gold", hex: "#eab308", meaning: "Ambitious & Bold" },
   { id: "red", label: "Red", hex: "#ef4444", meaning: "Passionate & Fierce" },
   { id: "silver", label: "Silver", hex: "#94a3b8", meaning: "Wise & Measured" },
@@ -323,7 +323,7 @@ export default function ChroniclesOnboarding() {
           <Button
             data-testid="button-sign-in"
             onClick={() => setLocation("/chronicles/login")}
-            className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400"
+            className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400"
           >
             Sign In or Create Account
           </Button>
@@ -340,7 +340,7 @@ export default function ChroniclesOnboarding() {
       case "builder": return "#10b981"; // Emerald
       case "explorer": return "#06b6d4"; // Cyan
       case "diplomat": return "#ec4899"; // Pink
-      case "scholar": return "#a855f7"; // Purple
+      case "scholar": return "#38bdf8"; // Purple
       case "protector": return "#3b82f6"; // Blue
       default: return "#06b6d4";
     }
@@ -374,7 +374,7 @@ export default function ChroniclesOnboarding() {
               </div>
               <div className="relative h-1.5 bg-slate-800/80 rounded-full overflow-hidden backdrop-blur-sm">
                 <motion.div
-                  className="absolute inset-y-0 left-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full"
+                  className="absolute inset-y-0 left-0 bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 rounded-full"
                   initial={{ width: 0 }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
@@ -403,8 +403,8 @@ export default function ChroniclesOnboarding() {
                     animate={{ rotate: [0, 5, -5, 0] }}
                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                   >
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 blur-xl opacity-40" />
-                    <div className="relative w-full h-full rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-2xl shadow-cyan-500/20">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500 to-sky-500 blur-xl opacity-40" />
+                    <div className="relative w-full h-full rounded-full bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center shadow-2xl shadow-cyan-500/20">
                       <Brain className="w-14 h-14 text-white" />
                     </div>
                   </motion.div>
@@ -415,7 +415,7 @@ export default function ChroniclesOnboarding() {
                     transition={{ delay: 0.2 }}
                     className="text-4xl md:text-5xl font-bold mb-4"
                   >
-                    <TypewriterText text="Sentience Imminent" className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent" />
+                    <TypewriterText text="Sentience Imminent" className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent" />
                   </motion.h1>
 
                   <motion.div
@@ -560,9 +560,9 @@ export default function ChroniclesOnboarding() {
                       animate={{ opacity: 1, y: 0 }}
                     >
                       <div className="flex items-center gap-2 mb-4">
-                        <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple-500/30" />
-                        <span className="text-xs text-purple-400 font-medium uppercase tracking-wider">Secondary Subroutine</span>
-                        <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple-500/30" />
+                        <div className="h-px flex-1 bg-gradient-to-r from-transparent to-sky-500/30" />
+                        <span className="text-xs text-sky-400 font-medium uppercase tracking-wider">Secondary Subroutine</span>
+                        <div className="h-px flex-1 bg-gradient-to-l from-transparent to-sky-500/30" />
                       </div>
                       <motion.div
                         variants={staggerChildren}
@@ -579,23 +579,23 @@ export default function ChroniclesOnboarding() {
                                 hover
                                 glow={isSelected}
                                 className={`cursor-pointer transition-all duration-300 ${
-                                  isSelected ? "border-purple-500/40" : "border-transparent"
+                                  isSelected ? "border-sky-500/40" : "border-transparent"
                                 }`}
                               >
                                 <div
                                   data-testid={`trait-secondary-${aspect.id}`}
                                   onClick={() => setAnswers(prev => ({ ...prev, secondaryTrait: aspect.id }))}
-                                  className={`p-4 relative ${isSelected ? "bg-gradient-to-br from-purple-500/20 to-pink-500/20" : ""}`}
+                                  className={`p-4 relative ${isSelected ? "bg-gradient-to-br from-sky-500/20 to-pink-500/20" : ""}`}
                                 >
                                   {isSelected && (
                                     <motion.div
                                       layoutId="secondary-check"
                                       className="absolute top-2 right-2"
                                     >
-                                      <Check className="w-4 h-4 text-purple-400" />
+                                      <Check className="w-4 h-4 text-sky-400" />
                                     </motion.div>
                                   )}
-                                  <Icon className={`w-6 h-6 mb-2 ${isSelected ? "text-purple-300" : "text-slate-500"}`} />
+                                  <Icon className={`w-6 h-6 mb-2 ${isSelected ? "text-sky-300" : "text-slate-500"}`} />
                                   <h3 className={`font-semibold text-sm ${isSelected ? "text-white" : "text-slate-300"}`}>{aspect.label}</h3>
                                   <p className="text-xs text-slate-500">{aspect.desc}</p>
                                 </div>
@@ -648,7 +648,7 @@ export default function ChroniclesOnboarding() {
                               data-testid={`value-${value.id}`}
                               onClick={() => toggleValue(value.id)}
                               className={`p-4 text-center relative ${
-                                isSelected ? "bg-gradient-to-br from-cyan-500/15 to-purple-500/15" : ""
+                                isSelected ? "bg-gradient-to-br from-cyan-500/15 to-sky-500/15" : ""
                               }`}
                             >
                               {isSelected && (
@@ -719,7 +719,7 @@ export default function ChroniclesOnboarding() {
                             <div
                               data-testid={`decision-${style.id}`}
                               onClick={() => setAnswers(prev => ({ ...prev, decisionStyle: style.id }))}
-                              className={`p-5 flex items-start gap-4 ${isSelected ? "bg-gradient-to-br from-cyan-500/10 to-purple-500/10" : ""}`}
+                              className={`p-5 flex items-start gap-4 ${isSelected ? "bg-gradient-to-br from-cyan-500/10 to-sky-500/10" : ""}`}
                             >
                               <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${
                                 isSelected ? "bg-cyan-500/20" : "bg-slate-800/80"
@@ -800,9 +800,9 @@ export default function ChroniclesOnboarding() {
 
                   <div>
                     <div className="flex items-center gap-2 mb-4">
-                      <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple-500/30" />
-                      <span className="text-xs text-purple-400 font-medium uppercase tracking-wider">When things fall apart</span>
-                      <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple-500/30" />
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent to-sky-500/30" />
+                      <span className="text-xs text-sky-400 font-medium uppercase tracking-wider">When things fall apart</span>
+                      <div className="h-px flex-1 bg-gradient-to-l from-transparent to-sky-500/30" />
                     </div>
                     <motion.div
                       variants={staggerChildren}
@@ -818,13 +818,13 @@ export default function ChroniclesOnboarding() {
                               hover
                               glow={isSelected}
                               className={`cursor-pointer transition-all duration-300 ${
-                                isSelected ? "border-purple-500/40" : "border-transparent"
+                                isSelected ? "border-sky-500/40" : "border-transparent"
                               }`}
                             >
                               <div
                                 data-testid={`challenge-${response.id}`}
                                 onClick={() => setAnswers(prev => ({ ...prev, challengeResponse: response.id }))}
-                                className={`p-4 ${isSelected ? "bg-gradient-to-br from-purple-500/10 to-pink-500/10" : ""}`}
+                                className={`p-4 ${isSelected ? "bg-gradient-to-br from-sky-500/10 to-pink-500/10" : ""}`}
                               >
                                 <h3 className={`font-semibold text-sm ${isSelected ? "text-white" : "text-slate-300"}`}>{response.label}</h3>
                                 <p className="text-xs text-slate-500 mt-1">{response.desc}</p>
@@ -881,7 +881,7 @@ export default function ChroniclesOnboarding() {
                                   audioPreference: pref.id,
                                   audioMood: pref.id === "silent" ? "" : prev.audioMood 
                                 }))}
-                                className={`p-4 flex items-center gap-4 ${isSelected ? "bg-gradient-to-r from-cyan-500/10 to-purple-500/10" : ""}`}
+                                className={`p-4 flex items-center gap-4 ${isSelected ? "bg-gradient-to-r from-cyan-500/10 to-sky-500/10" : ""}`}
                               >
                                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
                                   isSelected ? "bg-cyan-500/20" : "bg-slate-800/80"
@@ -910,9 +910,9 @@ export default function ChroniclesOnboarding() {
                         transition={{ duration: 0.3 }}
                       >
                         <div className="flex items-center gap-2 mb-4">
-                          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple-500/30" />
-                          <span className="text-xs text-purple-400 font-medium uppercase tracking-wider">Mood</span>
-                          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple-500/30" />
+                          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-sky-500/30" />
+                          <span className="text-xs text-sky-400 font-medium uppercase tracking-wider">Mood</span>
+                          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-sky-500/30" />
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-xl mx-auto">
                           {AUDIO_MOODS.map((mood) => {
@@ -922,12 +922,12 @@ export default function ChroniclesOnboarding() {
                                 key={mood.id}
                                 hover
                                 glow={isSelected}
-                                className={`cursor-pointer transition-all ${isSelected ? "border-purple-500/40" : "border-transparent"}`}
+                                className={`cursor-pointer transition-all ${isSelected ? "border-sky-500/40" : "border-transparent"}`}
                               >
                                 <div
                                   data-testid={`audio-mood-${mood.id}`}
                                   onClick={() => setAnswers(prev => ({ ...prev, audioMood: mood.id }))}
-                                  className={`p-3 ${isSelected ? "bg-gradient-to-br from-purple-500/10 to-pink-500/10" : ""}`}
+                                  className={`p-3 ${isSelected ? "bg-gradient-to-br from-sky-500/10 to-pink-500/10" : ""}`}
                                 >
                                   <h3 className={`font-semibold text-sm ${isSelected ? "text-white" : "text-slate-300"}`}>{mood.label}</h3>
                                   <p className="text-xs text-slate-500 mt-1">{mood.desc}</p>
@@ -1024,7 +1024,7 @@ export default function ChroniclesOnboarding() {
 
                   <GlassCard glow className="max-w-lg mx-auto p-5">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex items-center justify-center">
                         <Compass className="w-5 h-5 text-cyan-400" />
                       </div>
                       <div>
@@ -1073,7 +1073,7 @@ export default function ChroniclesOnboarding() {
                     transition={{ delay: 0.4 }}
                     className="text-4xl md:text-5xl font-bold mb-4"
                   >
-                    <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent">
                       Lume Intelligence Online
                     </span>
                   </motion.h1>
@@ -1109,7 +1109,7 @@ export default function ChroniclesOnboarding() {
                         <div className="h-px bg-slate-800" />
                         <div className="flex justify-between items-center">
                           <span className="text-slate-500 text-sm">Secondary Routine</span>
-                          <span className="text-purple-400 capitalize font-medium">
+                          <span className="text-sky-400 capitalize font-medium">
                             {IDENTITY_ASPECTS.find(a => a.id === answers.secondaryTrait)?.label}
                           </span>
                         </div>
@@ -1127,9 +1127,9 @@ export default function ChroniclesOnboarding() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7 }}
                   >
-                    <GlassCard className="max-w-md mx-auto p-5 mb-8 border-purple-500/20">
+                    <GlassCard className="max-w-md mx-auto p-5 mb-8 border-sky-500/20">
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-500/20 to-cyan-500/20 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-sky-500/20 to-cyan-500/20 flex items-center justify-center">
                           <MessageCircle className="w-5 h-5 text-cyan-400" />
                         </div>
                         <div className="text-left">
@@ -1140,7 +1140,7 @@ export default function ChroniclesOnboarding() {
                       <Button
                         data-testid="button-chronolink"
                         onClick={() => setLocation("/signal-chat")}
-                        className="w-full bg-gradient-to-r from-purple-600/80 to-cyan-600/80 hover:from-purple-500 hover:to-cyan-500 border border-purple-500/20"
+                        className="w-full bg-gradient-to-r from-sky-600/80 to-cyan-600/80 hover:from-sky-500 hover:to-cyan-500 border border-sky-500/20"
                       >
                         <Users className="w-4 h-4 mr-2" />
                         Enter Signal Chat
@@ -1157,7 +1157,7 @@ export default function ChroniclesOnboarding() {
                     <Button
                       data-testid="button-explore-estate"
                       onClick={() => setLocation("/chronicles/hub")}
-                      className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 shadow-lg shadow-cyan-500/20 h-12 px-8 text-base"
+                      className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 shadow-lg shadow-cyan-500/20 h-12 px-8 text-base"
                     >
                       Enter The Ecosystem
                       <ChevronRight className="w-5 h-5 ml-2" />
@@ -1198,7 +1198,7 @@ export default function ChroniclesOnboarding() {
                 data-testid="button-next"
                 onClick={nextStep}
                 disabled={!canProceed() || savePersonalityMutation.isPending}
-                className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 shadow-lg shadow-cyan-500/20 disabled:opacity-40 disabled:shadow-none h-11 px-6"
+                className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 shadow-lg shadow-cyan-500/20 disabled:opacity-40 disabled:shadow-none h-11 px-6"
               >
                 {savePersonalityMutation.isPending ? (
                   <>

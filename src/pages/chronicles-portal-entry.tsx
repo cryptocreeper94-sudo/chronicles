@@ -246,7 +246,7 @@ const SCENE_VISUALS: Record<string, { bg: string; items: Array<{ emoji: string; 
     ],
   },
   home_missions: {
-    bg: "from-purple-950/20 via-slate-950 to-slate-900",
+    bg: "from-sky-950/20 via-slate-950 to-slate-900",
     items: [
       { emoji: "⚔️", x: "50%", y: "30%", size: "text-6xl", glow: true },
       { emoji: "⚖️", x: "35%", y: "50%", size: "text-3xl", label: "Choices" },
@@ -271,7 +271,7 @@ const SCENE_VISUALS: Record<string, { bg: string; items: Array<{ emoji: string; 
     ],
   },
   outside: {
-    bg: "from-cyan-950/30 via-slate-950 to-purple-950/20",
+    bg: "from-cyan-950/30 via-slate-950 to-sky-950/20",
     items: [
       { emoji: "🏙️", x: "50%", y: "25%", size: "text-7xl", glow: true },
       { emoji: "🧑‍🤝‍🧑", x: "35%", y: "50%", size: "text-3xl" },
@@ -447,7 +447,7 @@ function TutorialWalkthrough({ entryData, onComplete, initialStep = 0 }: { entry
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
                   <Button
                     onClick={handleAction}
-                    className="w-full min-h-[48px] bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white font-bold mb-3"
+                    className="w-full min-h-[48px] bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white font-bold mb-3"
                     data-testid={`tutorial-action-${step.id}`}
                   >
                     <PointingHand direction="right" className="text-lg mr-2" />
@@ -489,7 +489,7 @@ function TutorialWalkthrough({ entryData, onComplete, initialStep = 0 }: { entry
                       onClick={handleNext}
                       className={`w-full min-h-[52px] font-bold text-base ${
                         currentStep === TUTORIAL_STEPS.length - 1
-                          ? "bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white shadow-lg shadow-cyan-500/20"
+                          ? "bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 text-white shadow-lg shadow-cyan-500/20"
                           : "bg-white/10 hover:bg-white/15 text-white border border-white/10"
                       }`}
                       data-testid={`tutorial-next-${currentStep}`}
@@ -539,7 +539,7 @@ function PortalVoid({ onReady }: { onReady: () => void }) {
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
         <motion.div initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.5, duration: 1, type: "spring" }}
-          className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500/30 to-purple-500/30 border border-cyan-500/40 flex items-center justify-center backdrop-blur-sm">
+          className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyan-500/30 to-sky-500/30 border border-cyan-500/40 flex items-center justify-center backdrop-blur-sm">
           <Sparkles className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400 animate-pulse" />
         </motion.div>
 
@@ -648,7 +648,7 @@ function CitySelector({ cities, onSelect, isPending }: { cities: any[]; onSelect
               <Button
                 onClick={() => onSelect(selected)}
                 disabled={isPending}
-                className="w-full min-h-[52px] bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white font-bold text-base shadow-2xl shadow-cyan-500/20"
+                className="w-full min-h-[52px] bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white font-bold text-base shadow-2xl shadow-cyan-500/20"
                 data-testid="btn-enter-portal"
               >
                 {isPending ? (
@@ -715,7 +715,7 @@ function WelcomeBack({ summary, events, onAcknowledge, onDismiss, isPending }: {
 
         <div className="flex gap-2">
           <Button onClick={onAcknowledge} disabled={isPending}
-            className="flex-1 min-h-[44px] bg-gradient-to-r from-cyan-600 to-purple-600"
+            className="flex-1 min-h-[44px] bg-gradient-to-r from-cyan-600 to-sky-600"
             data-testid="btn-acknowledge-events">
             {isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : (
               <><DoorOpen className="w-4 h-4 mr-2" /> {events.length > 0 ? "Collect & Step Outside" : "Step Outside"}</>
@@ -871,7 +871,7 @@ export default function ChroniclesPortalEntry() {
           <div className="text-center">
             <motion.div animate={{ scale: [1, 1.5, 0], opacity: [1, 1, 0] }}
               transition={{ duration: 2.5, ease: "easeInOut" }}
-              className="w-32 h-32 sm:w-48 sm:h-48 mx-auto rounded-full bg-gradient-to-br from-cyan-500/30 to-purple-500/30 border border-cyan-500/40 flex items-center justify-center mb-6">
+              className="w-32 h-32 sm:w-48 sm:h-48 mx-auto rounded-full bg-gradient-to-br from-cyan-500/30 to-sky-500/30 border border-cyan-500/40 flex items-center justify-center mb-6">
               <Sparkles className="w-16 h-16 sm:w-24 sm:h-24 text-cyan-400" />
             </motion.div>
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}

@@ -61,7 +61,7 @@ function RecordingVisualizer({ isRecording }: { isRecording: boolean }) {
       {Array.from({ length: bars }).map((_, i) => (
         <motion.div
           key={i}
-          className={`w-1 rounded-full ${isRecording ? "bg-gradient-to-t from-cyan-500 to-purple-500" : "bg-gray-700"}`}
+          className={`w-1 rounded-full ${isRecording ? "bg-gradient-to-t from-cyan-500 to-sky-500" : "bg-gray-700"}`}
           animate={isRecording ? {
             height: [4, Math.random() * 48 + 8, 4],
           } : { height: 4 }}
@@ -219,7 +219,7 @@ export default function ChroniclesVoice() {
             </Button>
           </Link>
           <div className="flex-1">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">
               Voice Training
             </h1>
             <p className="text-xs text-gray-500">Train your parallel self to speak in your voice</p>
@@ -228,7 +228,7 @@ export default function ChroniclesVoice() {
 
         <GlassCard className="p-5 mb-5 border border-cyan-500/20">
           <div className="flex items-start gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-purple-600/20 flex items-center justify-center shrink-0">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-sky-600/20 flex items-center justify-center shrink-0">
               <Mic className="w-7 h-7 text-cyan-400" />
             </div>
             <div className="flex-1">
@@ -264,8 +264,8 @@ export default function ChroniclesVoice() {
           </GlassCard>
 
           <GlassCard className="p-4 text-center">
-            <div className="w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center bg-purple-500/20">
-              <Coins className="w-5 h-5 text-purple-400" />
+            <div className="w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center bg-sky-500/20">
+              <Coins className="w-5 h-5 text-sky-400" />
             </div>
             <p className="text-sm font-semibold text-white">{credits?.balance || 0} Credits</p>
             <p className="text-[10px] text-gray-500 mt-0.5">
@@ -409,7 +409,7 @@ export default function ChroniclesVoice() {
                               <Button
                                 onClick={(e) => { e.stopPropagation(); handleSubmitSample(); }}
                                 disabled={trainMutation.isPending}
-                                className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4"
+                                className="bg-gradient-to-r from-cyan-500 to-sky-600 text-white px-4"
                                 data-testid="submit-sample-btn"
                               >
                                 {trainMutation.isPending ? (

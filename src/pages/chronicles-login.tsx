@@ -177,7 +177,7 @@ export default function ChroniclesLogin() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-          className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full"
+          className="w-12 h-12 border-4 border-sky-500 border-t-transparent rounded-full"
         />
       </div>
     );
@@ -186,7 +186,7 @@ export default function ChroniclesLogin() {
   return (
     <div className="min-h-screen bg-slate-950 relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/5 rounded-full blur-3xl" />
       </div>
@@ -215,11 +215,11 @@ export default function ChroniclesLogin() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring", delay: 0.1 }}
-                className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 mb-4"
+                className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-sky-500 to-pink-500 mb-4"
               >
                 <Gamepad2 className="w-10 h-10 text-white" />
               </motion.div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-sky-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                 Chronicles
               </h1>
               <p className="text-white/60 mt-2">Season Zero Beta</p>
@@ -237,7 +237,7 @@ export default function ChroniclesLogin() {
                   onClick={() => setMode("login")}
                   className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all ${
                     mode === "login"
-                      ? "bg-purple-500 text-white"
+                      ? "bg-sky-500 text-white"
                       : "text-white/60 hover:text-white"
                   }`}
                   data-testid="tab-login"
@@ -248,7 +248,7 @@ export default function ChroniclesLogin() {
                   onClick={() => setMode("signup")}
                   className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all ${
                     mode === "signup"
-                      ? "bg-purple-500 text-white"
+                      ? "bg-sky-500 text-white"
                       : "text-white/60 hover:text-white"
                   }`}
                   data-testid="tab-signup"
@@ -396,7 +396,7 @@ export default function ChroniclesLogin() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-4 rounded-lg flex items-center justify-center gap-2 disabled:opacity-50 active:scale-95 transition-transform min-h-[56px] touch-manipulation"
+                      className="w-full bg-gradient-to-r from-sky-500 to-pink-500 hover:from-sky-600 hover:to-pink-600 text-white font-semibold py-4 rounded-lg flex items-center justify-center gap-2 disabled:opacity-50 active:scale-95 transition-transform min-h-[56px] touch-manipulation"
                       data-testid="button-submit"
                     >
                       {isLoading ? (
@@ -433,9 +433,9 @@ export default function ChroniclesLogin() {
               ))}
             </div>
 
-            <div className="mt-6 p-4 bg-slate-900/50 backdrop-blur rounded-xl border border-purple-500/20">
+            <div className="mt-6 p-4 bg-slate-900/50 backdrop-blur rounded-xl border border-sky-500/20">
               <div className="flex items-start gap-3">
-                <Scroll className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                <Scroll className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="text-sm font-medium text-white mb-1">Community-Driven Evolution</h3>
                   <p className="text-xs text-white/50">

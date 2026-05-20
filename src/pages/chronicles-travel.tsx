@@ -238,7 +238,7 @@ export default function ChroniclesTravel() {
                 <Button variant="ghost" size="icon" className="min-w-[44px] min-h-[44px]" data-testid="btn-back-hub"><ArrowLeft className="w-5 h-5" /></Button>
               </Link>
               <div>
-                <h1 className="text-xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent" data-testid="text-travel-title">
+                <h1 className="text-xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent" data-testid="text-travel-title">
                   World Map
                 </h1>
                 <p className="text-slate-400 text-xs sm:text-sm">Explore the world across eras</p>
@@ -270,7 +270,7 @@ export default function ChroniclesTravel() {
                 <div className="grid grid-cols-2 sm:flex sm:items-center gap-2 sm:gap-6 text-xs sm:text-sm w-full sm:w-auto">
                   <div><span className="text-slate-400">Score: </span><span className="text-cyan-400 font-bold" data-testid="text-legacy-score">{legacyScore.totalScore?.toLocaleString()}</span></div>
                   <div><span className="text-slate-400">Cities: </span><span className="text-green-400 font-bold">{legacyScore.citiesVisited}</span></div>
-                  <div><span className="text-slate-400">Miles: </span><span className="text-purple-400 font-bold">{Math.round(legacyScore.travelMilesLogged || 0).toLocaleString()}</span></div>
+                  <div><span className="text-slate-400">Miles: </span><span className="text-sky-400 font-bold">{Math.round(legacyScore.travelMilesLogged || 0).toLocaleString()}</span></div>
                   <div><span className="text-slate-400">Encounters: </span><span className="text-orange-400 font-bold">{legacyScore.encountersResolved}</span></div>
                 </div>
               </div>
@@ -394,7 +394,7 @@ export default function ChroniclesTravel() {
                           )}
                         </circle>
                         <circle cx={city.x} cy={city.y} r={size}
-                          fill={isEasterEgg ? "#fbbf24" : isSelected ? "#22d3ee" : isDestination ? "#a855f7" : theme.cityGlow}
+                          fill={isEasterEgg ? "#fbbf24" : isSelected ? "#22d3ee" : isDestination ? "#38bdf8" : theme.cityGlow}
                           stroke={isSelected || isDestination ? "#fff" : theme.border}
                           strokeWidth={isSelected || isDestination ? 1.5 : 0.5}
                           opacity={isEasterEgg ? 0.7 : 0.9} />
@@ -462,8 +462,8 @@ export default function ChroniclesTravel() {
                       <span className="truncate">{getCityName(selectedCity, currentEra)}</span>
                     </div>
                     <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-slate-500 flex-shrink-0" />
-                    <div className="flex items-center gap-1 bg-purple-500/10 rounded px-2 py-1 min-w-0">
-                      <MapPin className="w-3 h-3 text-purple-400 flex-shrink-0" />
+                    <div className="flex items-center gap-1 bg-sky-500/10 rounded px-2 py-1 min-w-0">
+                      <MapPin className="w-3 h-3 text-sky-400 flex-shrink-0" />
                       <span className="truncate">{getCityName(destinationCity, currentEra)}</span>
                     </div>
                   </div>
@@ -522,7 +522,7 @@ export default function ChroniclesTravel() {
             </GlassCard>
 
             <GlassCard glow className="p-3 sm:p-4">
-              <h3 className="font-bold text-purple-400 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
+              <h3 className="font-bold text-sky-400 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
                 <Milestone className="w-4 h-4 sm:w-5 sm:h-5" /> Transport Guide
               </h3>
               <div className="space-y-1 text-[10px] sm:text-xs">
@@ -560,7 +560,7 @@ export default function ChroniclesTravel() {
                   </span>
                 </div>
                 <div className="text-center min-w-0">
-                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 mx-auto" />
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-sky-400 mx-auto" />
                   <p className="text-xs sm:text-sm font-medium truncate">{planMutation.data.to?.name}</p>
                 </div>
               </div>
@@ -580,7 +580,7 @@ export default function ChroniclesTravel() {
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="font-bold text-xs sm:text-sm">{option.label}</h4>
                       <Badge className={`text-[10px] sm:text-xs ${option.type === "realtime" ? "bg-green-500/20 text-green-400" :
-                        option.type === "compressed" ? "bg-amber-500/20 text-amber-400" : "bg-purple-500/20 text-purple-400"}`}>
+                        option.type === "compressed" ? "bg-amber-500/20 text-amber-400" : "bg-sky-500/20 text-sky-400"}`}>
                         {option.type === "realtime" ? "Best XP" : option.type === "compressed" ? "Balanced" : "Instant"}
                       </Badge>
                     </div>
@@ -655,7 +655,7 @@ export default function ChroniclesTravel() {
                 <Sparkles className="w-12 h-12 sm:w-16 sm:h-16 text-cyan-400 mx-auto mb-4 sm:mb-6 animate-pulse" />
               </motion.div>
               <motion.h2 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 1 }}
-                className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-3 sm:mb-4">
+                className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent mb-3 sm:mb-4">
                 You Have Arrived
               </motion.h2>
               <motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 1.5 }}

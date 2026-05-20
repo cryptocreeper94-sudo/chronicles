@@ -24,8 +24,8 @@
     --accent: #06b6d4;
     --accent-glow: #22d3ee;
     --accent-dim: #0891b2;
-    --purple: #a855f7;
-    --purple-glow: #c084fc;
+    --purple: #38bdf8;
+    --purple-glow: #7dd3fc;
 
     --radius: 12px;
     --radius-sm: 8px;
@@ -216,7 +216,7 @@ select {
 }
 
 .btn-purple {
-    background: linear-gradient(135deg, var(--purple), #7c3aed);
+    background: linear-gradient(135deg, var(--purple), #0369a1);
     border: none;
     color: white;
     font-weight: 600;
@@ -274,8 +274,8 @@ select {
 }
 
 .stat-badge.purple {
-    background: rgba(168, 85, 247, 0.08);
-    border-color: rgba(168, 85, 247, 0.12);
+    background: rgba(14,165,233, 0.08);
+    border-color: rgba(14,165,233, 0.12);
     color: var(--purple-glow);
 }
 
@@ -369,8 +369,8 @@ select {
 }
 
 .era-medieval {
-    --era-color: #a855f7;
-    --era-bg: rgba(168, 85, 247, 0.08);
+    --era-color: #38bdf8;
+    --era-bg: rgba(14,165,233, 0.08);
 }
 
 .era-wildwest {
@@ -489,7 +489,7 @@ select {
     opacity: 0.4;
     pointer-events: none;
     background-image:
-        radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 20% 50%, rgba(14,165,233, 0.4) 0%, transparent 50%),
         radial-gradient(circle at 80% 50%, rgba(6, 182, 212, 0.4) 0%, transparent 50%);
 }
 

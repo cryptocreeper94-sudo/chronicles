@@ -210,7 +210,7 @@ export default function ChronoCreators() {
                         <Badge className={`text-xs ${
                           type.difficulty === 'Beginner' ? 'bg-green-500/20 text-green-400 border-green-500/30' :
                           type.difficulty === 'Intermediate' ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30' :
-                          'bg-purple-500/20 text-purple-400 border-purple-500/30'
+                          'bg-sky-500/20 text-sky-400 border-sky-500/30'
                         }`}>
                           {type.difficulty}
                         </Badge>
@@ -235,7 +235,7 @@ export default function ChronoCreators() {
             className="mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
-              <Shield className="w-6 h-6 text-purple-400" />
+              <Shield className="w-6 h-6 text-sky-400" />
               <h2 className="text-2xl md:text-3xl font-display font-bold text-white">Ownership & Rights</h2>
             </div>
             <p className="text-white/60 max-w-3xl">
@@ -390,7 +390,7 @@ export default function ChronoCreators() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gradient-to-b from-transparent via-purple-950/10 to-transparent">
+      <section className="py-16 px-4 bg-gradient-to-b from-transparent via-sky-950/10 to-transparent">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -399,7 +399,7 @@ export default function ChronoCreators() {
             className="mb-12"
           >
             <div className="flex items-center gap-3 mb-4">
-              <Zap className="w-6 h-6 text-purple-400" />
+              <Zap className="w-6 h-6 text-sky-400" />
               <h2 className="text-2xl md:text-3xl font-display font-bold text-white">How It Works</h2>
             </div>
           </motion.div>
@@ -421,10 +421,10 @@ export default function ChronoCreators() {
                   transition={{ delay: i * 0.1 }}
                 >
                   <div className="text-center p-6 rounded-xl bg-white/5 border border-white/10 h-full">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mx-auto mb-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sky-500 to-pink-500 flex items-center justify-center mx-auto mb-4">
                       <span className="text-xl font-bold text-white">{item.step}</span>
                     </div>
-                    <Icon className="w-6 h-6 text-purple-400 mx-auto mb-3" />
+                    <Icon className="w-6 h-6 text-sky-400 mx-auto mb-3" />
                     <h3 className="font-semibold text-white mb-2">{item.title}</h3>
                     <p className="text-sm text-white/50">{item.desc}</p>
                   </div>

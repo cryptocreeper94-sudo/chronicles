@@ -38,7 +38,7 @@ const DAILY_LOOP = [
     icon: MessageCircle,
     title: "Navigate Society",
     description: "Attend council meetings. Negotiate deals. Form alliances. Betray enemies. Politics is survival.",
-    color: "from-purple-400 to-pink-500"
+    color: "from-sky-400 to-pink-500"
   },
   {
     time: "Evening",
@@ -52,7 +52,7 @@ const DAILY_LOOP = [
     icon: Moon,
     title: "Rest... or Don't",
     description: "Log off and let time pass. Or stay for the night markets, secret meetings, and midnight raids.",
-    color: "from-indigo-400 to-violet-500"
+    color: "from-indigo-400 to-cyan-500"
   },
 ];
 
@@ -122,11 +122,11 @@ export default function ChronoGameplay() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <Badge className="mb-4 bg-purple-500/20 text-purple-400 border-purple-500/30">
+            <Badge className="mb-4 bg-sky-500/20 text-sky-400 border-sky-500/30">
               <Brain className="w-3 h-3 mr-1" /> How It Works
             </Badge>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 text-white">
-              A Day in <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Chronicles</span>
+              A Day in <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">Chronicles</span>
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
               Not a game you complete. A life you live. Here's what that actually means.
@@ -152,7 +152,7 @@ export default function ChronoGameplay() {
           </motion.div>
           
           <div className="relative">
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-purple-500/30 to-transparent" />
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-sky-500/30 to-transparent" />
             
             <div className="space-y-8">
               {DAILY_LOOP.map((step, i) => {
@@ -170,7 +170,7 @@ export default function ChronoGameplay() {
                   >
                     <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
                       <HoloCard 
-                        className={`p-6 transition-all duration-300 ${isActive ? 'ring-2 ring-purple-500/50' : ''}`}
+                        className={`p-6 transition-all duration-300 ${isActive ? 'ring-2 ring-sky-500/50' : ''}`}
                         glow={isActive ? 'purple' : 'none'}
                         hover={false}
                       >
@@ -189,12 +189,12 @@ export default function ChronoGameplay() {
                       </HoloCard>
                     </div>
                     
-                    <div className="hidden md:flex w-4 h-4 rounded-full bg-purple-500 relative z-10 shrink-0">
+                    <div className="hidden md:flex w-4 h-4 rounded-full bg-sky-500 relative z-10 shrink-0">
                       {isActive && (
                         <motion.div
                           layoutId="activeIndicator"
-                          className="absolute inset-0 rounded-full bg-purple-400"
-                          style={{ boxShadow: '0 0 20px rgba(168,85,247,0.8)' }}
+                          className="absolute inset-0 rounded-full bg-sky-400"
+                          style={{ boxShadow: '0 0 20px rgba(14,165,233,0.8)' }}
                         />
                       )}
                     </div>
@@ -208,7 +208,7 @@ export default function ChronoGameplay() {
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-gradient-to-b from-transparent via-purple-950/20 to-transparent">
+      <section className="py-24 px-4 bg-gradient-to-b from-transparent via-sky-950/20 to-transparent">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -237,15 +237,15 @@ export default function ChronoGameplay() {
                 >
                   <HoloCard image={system.image} className="h-full min-h-[300px]">
                     <div className="p-6 h-full flex flex-col">
-                      <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4">
-                        <Icon className="w-6 h-6 text-purple-400" />
+                      <div className="w-12 h-12 rounded-xl bg-sky-500/20 flex items-center justify-center mb-4">
+                        <Icon className="w-6 h-6 text-sky-400" />
                       </div>
                       <h3 className="text-xl font-bold text-white mb-2">{system.title}</h3>
                       <p className="text-white/60 mb-4">{system.description}</p>
                       <ul className="space-y-2 mt-auto">
                         {system.bullets.map((bullet, j) => (
                           <li key={j} className="flex items-center gap-2 text-white/50 text-sm">
-                            <ChevronRight className="w-3 h-3 text-purple-400" />
+                            <ChevronRight className="w-3 h-3 text-sky-400" />
                             {bullet}
                           </li>
                         ))}

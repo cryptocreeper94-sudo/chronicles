@@ -81,14 +81,14 @@ const TIER_ICONS: Record<number, typeof Compass> = {
 const TIER_COLORS: Record<number, string> = {
   1: "from-blue-400 to-cyan-400",
   2: "from-green-400 to-emerald-400",
-  3: "from-purple-400 to-violet-400",
+  3: "from-sky-400 to-cyan-400",
   4: "from-yellow-400 to-amber-400",
 };
 
 const STATUS_BADGES: Record<string, { color: string; icon: typeof Clock }> = {
   draft: { color: "bg-gray-500/20 text-gray-400", icon: FileText },
   submitted: { color: "bg-blue-500/20 text-blue-400", icon: Clock },
-  under_review: { color: "bg-purple-500/20 text-purple-400", icon: Vote },
+  under_review: { color: "bg-sky-500/20 text-sky-400", icon: Vote },
   approved: { color: "bg-green-500/20 text-green-400", icon: CheckCircle },
   rejected: { color: "bg-red-500/20 text-red-400", icon: XCircle },
   live: { color: "bg-cyan-500/20 text-cyan-400", icon: Sparkles },
@@ -210,7 +210,7 @@ export default function ChroniclesBuilder() {
   return (
     <div className="min-h-screen bg-slate-950 text-white overflow-hidden relative">
       <div className="absolute top-20 left-10 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-40 right-20 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+      <div className="absolute bottom-40 right-20 w-[400px] h-[400px] bg-sky-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
       <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] bg-pink-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
 
       <div className="container mx-auto px-4 py-8 relative z-10">
@@ -227,7 +227,7 @@ export default function ChroniclesBuilder() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent mb-2">
             Community Builder Program
           </h1>
           <p className="text-gray-400 text-lg">
@@ -272,7 +272,7 @@ export default function ChroniclesBuilder() {
                   <div className="text-xs text-gray-400">Approved</div>
                 </div>
                 <div className="text-center p-3 rounded-lg bg-white/5">
-                  <div className="text-2xl font-bold text-purple-400" data-testid="text-reputation">
+                  <div className="text-2xl font-bold text-sky-400" data-testid="text-reputation">
                     {builder.reputationScore}
                   </div>
                   <div className="text-xs text-gray-400">Reputation</div>
@@ -309,28 +309,28 @@ export default function ChroniclesBuilder() {
           <TabsList className="bg-white/5 border border-white/10 p-1 rounded-xl">
             <TabsTrigger 
               value="overview" 
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500/20 data-[state=active]:to-purple-500/20 rounded-lg"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500/20 data-[state=active]:to-sky-500/20 rounded-lg"
               data-testid="tab-overview"
             >
               Overview
             </TabsTrigger>
             <TabsTrigger 
               value="contributions" 
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500/20 data-[state=active]:to-purple-500/20 rounded-lg"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500/20 data-[state=active]:to-sky-500/20 rounded-lg"
               data-testid="tab-contributions"
             >
               My Contributions
             </TabsTrigger>
             <TabsTrigger 
               value="types" 
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500/20 data-[state=active]:to-purple-500/20 rounded-lg"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500/20 data-[state=active]:to-sky-500/20 rounded-lg"
               data-testid="tab-types"
             >
               Content Types
             </TabsTrigger>
             <TabsTrigger 
               value="leaderboard" 
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500/20 data-[state=active]:to-purple-500/20 rounded-lg"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500/20 data-[state=active]:to-sky-500/20 rounded-lg"
               data-testid="tab-leaderboard"
             >
               Leaderboard
@@ -384,7 +384,7 @@ export default function ChroniclesBuilder() {
                               </div>
                             </div>
                             {tier.canReviewContent && (
-                              <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30">
+                              <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30">
                                 Can Review
                               </Badge>
                             )}
@@ -416,7 +416,7 @@ export default function ChroniclesBuilder() {
                         <p className="text-sm text-gray-400 mb-3 line-clamp-2">{type.description}</p>
                         <div className="flex items-center gap-3 text-xs">
                           <span className="text-yellow-400">{type.baseShellReward} Shells</span>
-                          <span className="text-purple-400">{type.xpReward} XP</span>
+                          <span className="text-sky-400">{type.xpReward} XP</span>
                         </div>
                       </motion.div>
                     ))}
@@ -458,7 +458,7 @@ export default function ChroniclesBuilder() {
 
                 <GlassCard glow className="p-6">
                   <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                    <Award className="w-5 h-5 text-purple-400" />
+                    <Award className="w-5 h-5 text-sky-400" />
                     Badges
                   </h3>
                   <div className="grid grid-cols-3 gap-2">
@@ -470,7 +470,7 @@ export default function ChroniclesBuilder() {
                           whileHover={{ scale: 1.1 }}
                           className={`aspect-square rounded-xl flex flex-col items-center justify-center text-center p-2 ${
                             hasBadge
-                              ? "bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/30"
+                              ? "bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/30"
                               : "bg-white/5 border border-white/10 opacity-40"
                           }`}
                           title={badge.name}
@@ -491,7 +491,7 @@ export default function ChroniclesBuilder() {
               <h3 className="text-xl font-bold">My Contributions</h3>
               <Button 
                 onClick={() => setLocation("/studio")}
-                className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 shadow-[0_0_20px_rgba(0,255,255,0.3)]"
+                className="bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 shadow-[0_0_20px_rgba(0,255,255,0.3)]"
                 data-testid="button-new-contribution"
               >
                 <Sparkles className="w-4 h-4 mr-2" />
@@ -506,7 +506,7 @@ export default function ChroniclesBuilder() {
                 <p className="text-gray-400 mb-6">
                   Initialize your Lume Entity to generate content and earn Shells/XP!
                 </p>
-                <Button onClick={() => setLocation("/studio")} className="bg-gradient-to-r from-cyan-500 to-purple-500 shadow-[0_0_20px_rgba(0,255,255,0.3)]">
+                <Button onClick={() => setLocation("/studio")} className="bg-gradient-to-r from-cyan-500 to-sky-500 shadow-[0_0_20px_rgba(0,255,255,0.3)]">
                   <Sparkles className="w-4 h-4 mr-2" />
                   Initialize Lume Studio
                 </Button>
@@ -580,7 +580,7 @@ export default function ChroniclesBuilder() {
                         <div className="text-xs text-gray-500">Base reward</div>
                       </div>
                       <div className="text-right">
-                        <div className="text-purple-400 font-bold">{type.xpReward} XP</div>
+                        <div className="text-sky-400 font-bold">{type.xpReward} XP</div>
                         <div className="text-xs text-gray-500">Experience</div>
                       </div>
                     </div>

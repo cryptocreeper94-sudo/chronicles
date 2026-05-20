@@ -35,7 +35,7 @@ const FOUNDING_TIERS = [
   {
     name: "Founder",
     price: "$49",
-    color: "from-purple-500 to-violet-600",
+    color: "from-sky-500 to-cyan-600",
     icon: Star,
     benefits: [
       "Everything in Pioneer",
@@ -69,7 +69,7 @@ const FOUNDING_TIERS = [
 ];
 
 const COMMUNITY_STATS = [
-  { label: "Discord Members", value: "Join First!", icon: <MessageCircle className="w-4 h-4 text-purple-400" /> },
+  { label: "Discord Members", value: "Join First!", icon: <MessageCircle className="w-4 h-4 text-sky-400" /> },
   { label: "Founding Members", value: "Be #1", icon: <Crown className="w-4 h-4 text-amber-400" /> },
   { label: "Eras Planned", value: "70+", icon: <Globe className="w-4 h-4 text-cyan-400" /> },
   { label: "Target Launch", value: "TBD", icon: <Rocket className="w-4 h-4 text-pink-400" /> },
@@ -127,7 +127,7 @@ export default function ChronoCommunity() {
               <Users className="w-3 h-3 mr-1" /> Join the Movement
             </Badge>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 text-white">
-              Be Part of <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">History</span>
+              Be Part of <span className="bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent">History</span>
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto mb-8">
               Chronicles is being built right now. Join the founding community 
@@ -148,7 +148,7 @@ export default function ChronoCommunity() {
                 <Button 
                   type="submit" 
                   size="lg"
-                  className="h-12 px-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500"
+                  className="h-12 px-6 bg-gradient-to-r from-sky-600 to-pink-600 hover:from-sky-500 hover:to-pink-500"
                   data-testid="button-join-waitlist"
                 >
                   Join Waitlist
@@ -205,12 +205,12 @@ export default function ChronoCommunity() {
                 >
                   {tier.popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                      <Badge className="bg-gradient-to-r from-purple-600 to-pink-600 text-white border-0">
+                      <Badge className="bg-gradient-to-r from-sky-600 to-pink-600 text-white border-0">
                         <Flame className="w-3 h-3 mr-1" /> Most Popular
                       </Badge>
                     </div>
                   )}
-                  <div className={`h-full p-6 rounded-2xl border ${tier.popular ? 'border-purple-500/50 bg-purple-500/5' : 'border-white/10 bg-white/5'}`}>
+                  <div className={`h-full p-6 rounded-2xl border ${tier.popular ? 'border-sky-500/50 bg-sky-500/5' : 'border-white/10 bg-white/5'}`}>
                     <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${tier.color} flex items-center justify-center mb-4`}>
                       <Icon className="w-6 h-6 text-white" />
                     </div>
@@ -228,7 +228,7 @@ export default function ChronoCommunity() {
                     </ul>
                     <Link href="/crowdfund">
                       <Button 
-                        className={`w-full rounded-full ${tier.popular ? 'bg-gradient-to-r from-purple-600 to-pink-600' : 'bg-white/10 hover:bg-white/20'}`}
+                        className={`w-full rounded-full ${tier.popular ? 'bg-gradient-to-r from-sky-600 to-pink-600' : 'bg-white/10 hover:bg-white/20'}`}
                         data-testid={`tier-${tier.name.toLowerCase()}`}
                       >
                         {tier.cta}
@@ -242,7 +242,7 @@ export default function ChronoCommunity() {
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-gradient-to-b from-transparent via-purple-950/20 to-transparent">
+      <section className="py-24 px-4 bg-gradient-to-b from-transparent via-sky-950/20 to-transparent">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -267,7 +267,7 @@ export default function ChronoCommunity() {
                   transition={{ delay: i * 0.1 }}
                 >
                   <HoloCard className="h-full p-6" glow="purple">
-                    <Icon className="w-10 h-10 text-purple-400 mb-4" />
+                    <Icon className="w-10 h-10 text-sky-400 mb-4" />
                     <h3 className="text-lg font-bold text-white mb-2">{benefit.title}</h3>
                     <p className="text-white/60 text-sm">{benefit.description}</p>
                   </HoloCard>

@@ -38,7 +38,7 @@ const ERA_CHANNEL_CONFIG: Record<string, { emoji: string; label: string; color: 
   modern: { emoji: "🏙️", label: "Modern", color: "text-cyan-400", border: "border-cyan-500/30" },
   medieval: { emoji: "🏰", label: "Medieval", color: "text-amber-400", border: "border-amber-500/30" },
   wildwest: { emoji: "🤠", label: "Wild West", color: "text-yellow-400", border: "border-yellow-500/30" },
-  general: { emoji: "🌍", label: "All Eras", color: "text-purple-400", border: "border-purple-500/30" },
+  general: { emoji: "🌍", label: "All Eras", color: "text-sky-400", border: "border-sky-500/30" },
   voice: { emoji: "🎤", label: "Voice", color: "text-pink-400", border: "border-pink-500/30" },
 };
 
@@ -310,7 +310,7 @@ export function ChroniclesChatPanel({ currentEra }: { currentEra: string }) {
         className={`fixed bottom-24 right-4 z-40 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all ${
           isOpen
             ? "bg-slate-800 border border-white/20"
-            : "bg-gradient-to-r from-cyan-500 to-purple-600 shadow-[0_0_20px_rgba(0,255,255,0.3)]"
+            : "bg-gradient-to-r from-cyan-500 to-sky-600 shadow-[0_0_20px_rgba(0,255,255,0.3)]"
         }`}
         data-testid="chronicles-chat-toggle"
       >
@@ -334,7 +334,7 @@ export function ChroniclesChatPanel({ currentEra }: { currentEra: string }) {
             data-testid="chronicles-chat-panel"
           >
             <div className="px-4 py-3 border-b border-white/10 flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500/30 to-purple-600/30 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500/30 to-sky-600/30 flex items-center justify-center">
                 <MessageCircle className="w-4 h-4 text-cyan-400" />
               </div>
               <div className="flex-1 min-w-0">
@@ -505,7 +505,7 @@ export function ChroniclesChatPanel({ currentEra }: { currentEra: string }) {
                 <button
                   onClick={handleSend}
                   disabled={!input.trim() || !chatUser || sendMessage.isPending}
-                  className="px-3 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-600 text-white disabled:opacity-30 hover:from-cyan-400 hover:to-purple-500 transition-all"
+                  className="px-3 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-sky-600 text-white disabled:opacity-30 hover:from-cyan-400 hover:to-sky-500 transition-all"
                   data-testid="chat-send-btn"
                 >
                   {sendMessage.isPending ? (

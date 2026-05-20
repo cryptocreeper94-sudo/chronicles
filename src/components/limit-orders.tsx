@@ -256,7 +256,7 @@ export function LimitOrdersList() {
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${Math.min(100, parseFloat(progress))}%` }}
-                        className="h-full bg-gradient-to-r from-primary to-purple-500 rounded-full"
+                        className="h-full bg-gradient-to-r from-primary to-sky-500 rounded-full"
                       />
                     </div>
                   </div>

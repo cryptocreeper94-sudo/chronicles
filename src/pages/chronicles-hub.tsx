@@ -474,7 +474,7 @@ export default function ChroniclesHub() {
             <BackButton />
             <HomeButton />
           </div>
-          <Badge variant="outline" className="border-purple-500/50 text-purple-400 text-xs">
+          <Badge variant="outline" className="border-sky-500/50 text-sky-400 text-xs">
             Chronicles Hub
           </Badge>
         </div>
@@ -517,7 +517,7 @@ export default function ChroniclesHub() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-4"
+                className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-sky-400 bg-clip-text text-transparent mb-4"
               >
                 Welcome Back, {playerPersonality?.parallelSelfName}
               </motion.h1>
@@ -544,7 +544,7 @@ export default function ChroniclesHub() {
               >
                 <Button
                   onClick={() => setShowWelcome(false)}
-                  className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-lg px-8 py-6"
+                  className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-lg px-8 py-6"
                   data-testid="button-enter-chronicles"
                 >
                   Enter Your World
@@ -558,7 +558,7 @@ export default function ChroniclesHub() {
 
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
@@ -578,7 +578,7 @@ export default function ChroniclesHub() {
                   BETA
                 </Badge>
               </div>
-              <h1 className="text-xl sm:text-2xl font-black bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent" data-testid="text-hub-title">Chronicles</h1>
+              <h1 className="text-xl sm:text-2xl font-black bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-400 bg-clip-text text-transparent" data-testid="text-hub-title">Chronicles</h1>
             </div>
           </div>
           <div className="flex items-center">
@@ -671,7 +671,7 @@ export default function ChroniclesHub() {
                         <div className={`
                           flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg cursor-pointer transition-all active:scale-[0.98] min-h-[56px]
                           ${isCurrent 
-                            ? "bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-500/30 hover:border-cyan-400/50" 
+                            ? "bg-gradient-to-r from-cyan-500/20 to-sky-500/20 border border-cyan-500/30 hover:border-cyan-400/50" 
                             : "bg-slate-800/50 border border-slate-700 hover:border-slate-600"
                           }
                         `}>
@@ -680,7 +680,7 @@ export default function ChroniclesHub() {
                             ${isCompleted 
                               ? "bg-green-500/20" 
                               : isCurrent 
-                                ? "bg-gradient-to-r from-cyan-500/30 to-purple-500/30" 
+                                ? "bg-gradient-to-r from-cyan-500/30 to-sky-500/30" 
                                 : "bg-slate-700/50"
                             }
                           `}>
@@ -725,7 +725,7 @@ export default function ChroniclesHub() {
           className="mb-8"
         >
           <Card className="bg-slate-900/80 border-slate-700 overflow-hidden relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-cyan-500/5" />
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-sky-500/5 to-cyan-500/5" />
             <button
               onClick={() => setPortalExpanded(!portalExpanded)}
               className="w-full p-6 flex items-center justify-between hover:bg-slate-800/50 transition-colors relative z-10"
@@ -734,10 +734,10 @@ export default function ChroniclesHub() {
               <div className="flex items-center gap-4">
                 <motion.div 
                   animate={{ 
-                    boxShadow: ["0 0 20px rgba(6,182,212,0.3)", "0 0 40px rgba(168,85,247,0.5)", "0 0 20px rgba(6,182,212,0.3)"]
+                    boxShadow: ["0 0 20px rgba(6,182,212,0.3)", "0 0 40px rgba(14,165,233,0.5)", "0 0 20px rgba(6,182,212,0.3)"]
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
-                  className="w-14 h-14 rounded-full bg-gradient-to-r from-cyan-500/30 to-purple-500/30 flex items-center justify-center border border-cyan-500/30"
+                  className="w-14 h-14 rounded-full bg-gradient-to-r from-cyan-500/30 to-sky-500/30 flex items-center justify-center border border-cyan-500/30"
                 >
                   <Timer className="w-7 h-7 text-cyan-400" />
                 </motion.div>
@@ -769,7 +769,7 @@ export default function ChroniclesHub() {
                   className="overflow-hidden"
                 >
                   <div className="px-6 pb-6 border-t border-slate-700/50 pt-4 relative z-10">
-                    <div className="bg-gradient-to-r from-cyan-900/20 to-purple-900/20 rounded-lg p-4 mb-4 border border-cyan-500/20">
+                    <div className="bg-gradient-to-r from-cyan-900/20 to-sky-900/20 rounded-lg p-4 mb-4 border border-cyan-500/20">
                       <div className="flex items-center gap-2 mb-2">
                         <Sparkles className="w-4 h-4 text-amber-400" />
                         <span className="text-xs text-amber-400 uppercase tracking-wider font-semibold">Beta Notice</span>
@@ -799,7 +799,7 @@ export default function ChroniclesHub() {
                             whileHover={{ scale: isUnlocked ? 1.02 : 1 }}
                             className={`relative p-4 rounded-lg border transition-all ${
                               isCurrent 
-                                ? "bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border-cyan-500/40" 
+                                ? "bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border-cyan-500/40" 
                                 : isUnlocked
                                   ? "bg-slate-800/50 border-slate-700 hover:border-cyan-500/30"
                                   : "bg-slate-800/30 border-slate-700/50 opacity-60"
@@ -895,7 +895,7 @@ export default function ChroniclesHub() {
 
                     <Link href="/chronicles/time-portal">
                       <Button 
-                        className="w-full bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500"
+                        className="w-full bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500"
                         data-testid="button-open-portal"
                       >
                         <Timer className="w-4 h-4 mr-2" />
@@ -917,7 +917,7 @@ export default function ChroniclesHub() {
           transition={{ delay: 0.5 }}
           className="mb-8"
         >
-          <Card className="relative overflow-hidden bg-gradient-to-r from-purple-900/40 via-cyan-900/30 to-purple-900/40 border-purple-500/30 p-6">
+          <Card className="relative overflow-hidden bg-gradient-to-r from-sky-900/40 via-cyan-900/30 to-sky-900/40 border-sky-500/30 p-6">
             {/* Animated glow effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/5 to-transparent animate-pulse" />
             
@@ -925,10 +925,10 @@ export default function ChroniclesHub() {
               <div className="flex items-center gap-4">
                 <motion.div 
                   animate={{ 
-                    boxShadow: ["0 0 20px rgba(168,85,247,0.3)", "0 0 40px rgba(6,182,212,0.5)", "0 0 20px rgba(168,85,247,0.3)"]
+                    boxShadow: ["0 0 20px rgba(14,165,233,0.3)", "0 0 40px rgba(6,182,212,0.5)", "0 0 20px rgba(14,165,233,0.3)"]
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
-                  className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500/30 to-cyan-500/30 flex items-center justify-center border border-purple-500/30"
+                  className="w-16 h-16 rounded-full bg-gradient-to-r from-sky-500/30 to-cyan-500/30 flex items-center justify-center border border-sky-500/30"
                 >
                   <MessageCircle className="w-8 h-8 text-cyan-400" />
                 </motion.div>
@@ -939,7 +939,7 @@ export default function ChroniclesHub() {
                         ACTIVE
                       </Badge>
                     ) : (
-                      <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 text-xs">
+                      <Badge className="bg-sky-500/20 text-sky-400 border-sky-500/30 text-xs">
                         NEW
                       </Badge>
                     )}
@@ -947,7 +947,7 @@ export default function ChroniclesHub() {
                       Season Zero
                     </Badge>
                   </div>
-                  <h3 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
                     {isChronoLinkActive ? "ChronoLink Active" : "Activate ChronoLink"}
                   </h3>
                   <p className="text-slate-400 text-sm mt-1">
@@ -966,7 +966,7 @@ export default function ChroniclesHub() {
                 </div>
                 <Link href="/signal-chat">
                   <Button 
-                    className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 text-white px-6 py-3 text-lg font-semibold shadow-lg shadow-purple-500/20"
+                    className="bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 text-white px-6 py-3 text-lg font-semibold shadow-lg shadow-sky-500/20"
                     data-testid="button-activate-chronolink"
                   >
                     <MessageCircle className="mr-2 w-5 h-5" />
@@ -981,7 +981,7 @@ export default function ChroniclesHub() {
             <div className="relative z-10 mt-6 pt-4 border-t border-slate-700/50">
               <div className="flex flex-wrap justify-center gap-4 text-xs">
                 <div className="flex items-center gap-2 text-slate-400">
-                  <Users className="w-4 h-4 text-purple-400" />
+                  <Users className="w-4 h-4 text-sky-400" />
                   <span>Join Communities</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-400">
@@ -1185,7 +1185,7 @@ export default function ChroniclesHub() {
                     )}
                     
                     {/* ChronoLink Bonus Info */}
-                    <div className="mt-4 p-3 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-lg border border-cyan-500/20">
+                    <div className="mt-4 p-3 bg-gradient-to-r from-cyan-500/10 to-sky-500/10 rounded-lg border border-cyan-500/20">
                       <div className="flex items-center gap-2 text-sm">
                         <Link2 className="w-4 h-4 text-cyan-400" />
                         <span className="text-cyan-400 font-medium">ChronoLink Bonus:</span>
@@ -1201,7 +1201,7 @@ export default function ChroniclesHub() {
 
         <div className="mb-8">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <Zap className="w-5 h-5 text-purple-400" />
+            <Zap className="w-5 h-5 text-sky-400" />
             Coming Soon
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -1230,10 +1230,10 @@ export default function ChroniclesHub() {
           </div>
         </div>
 
-        <Card className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border-cyan-500/20 p-6">
+        <Card className="bg-gradient-to-r from-cyan-500/10 to-sky-500/10 border-cyan-500/20 p-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500/30 to-purple-500/30 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500/30 to-sky-500/30 flex items-center justify-center">
                 <Gift className="w-6 h-6 text-cyan-400" />
               </div>
               <div>
@@ -1242,7 +1242,7 @@ export default function ChroniclesHub() {
               </div>
             </div>
             <Link href="/rewards">
-              <Button className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500">
+              <Button className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500">
                 View Rewards
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -1268,7 +1268,7 @@ export default function ChroniclesHub() {
                 <Clock className="w-3 h-3" />
                 <span>Regular Updates</span>
               </div>
-              <div className="flex items-center gap-2 bg-purple-500/10 text-purple-400 px-3 py-1.5 rounded-full">
+              <div className="flex items-center gap-2 bg-sky-500/10 text-sky-400 px-3 py-1.5 rounded-full">
                 <Star className="w-3 h-3" />
                 <span>Early Adopter Rewards</span>
               </div>
@@ -1429,7 +1429,7 @@ export default function ChroniclesHub() {
                 <Button
                   onClick={() => joinWithCodeMutation.mutate(joinCode)}
                   disabled={!joinCode.trim() || joinWithCodeMutation.isPending}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400"
+                  className="w-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400"
                   data-testid="button-confirm-join-code"
                 >
                   {joinWithCodeMutation.isPending ? (
@@ -1503,7 +1503,7 @@ export default function ChroniclesHub() {
                   <Button
                     onClick={() => activateChronoLinkMutation.mutate(selectedSyndicate.id)}
                     disabled={activateChronoLinkMutation.isPending}
-                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400"
                     data-testid="button-activate-chronolink"
                   >
                     {activateChronoLinkMutation.isPending ? (
@@ -1557,7 +1557,7 @@ export default function ChroniclesHub() {
                 
                 {/* Coming Soon - Governance Features */}
                 <div className="mt-6 pt-4 border-t border-slate-700">
-                  <h3 className="text-sm font-medium text-purple-400 mb-3 flex items-center gap-2">
+                  <h3 className="text-sm font-medium text-sky-400 mb-3 flex items-center gap-2">
                     <Vote className="w-4 h-4" />
                     Syndicate Governance
                   </h3>
@@ -1565,21 +1565,21 @@ export default function ChroniclesHub() {
                     <div className="p-3 bg-slate-800/50 border border-slate-700/50 rounded-lg opacity-60">
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-slate-300">Syndicate Voting</span>
-                        <span className="text-xs bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded-full">Coming Soon</span>
+                        <span className="text-xs bg-sky-500/20 text-sky-400 px-2 py-0.5 rounded-full">Coming Soon</span>
                       </div>
                       <p className="text-xs text-slate-500 mt-1">Vote on proposals, expel members, elect officers</p>
                     </div>
                     <div className="p-3 bg-slate-800/50 border border-slate-700/50 rounded-lg opacity-60">
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-slate-300">Era Time Warp</span>
-                        <span className="text-xs bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded-full">Coming Soon</span>
+                        <span className="text-xs bg-sky-500/20 text-sky-400 px-2 py-0.5 rounded-full">Coming Soon</span>
                       </div>
                       <p className="text-xs text-slate-500 mt-1">Collectively travel to new eras as a syndicate</p>
                     </div>
                     <div className="p-3 bg-slate-800/50 border border-slate-700/50 rounded-lg opacity-60">
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-slate-300">Syndicate Meetings</span>
-                        <span className="text-xs bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded-full">Coming Soon</span>
+                        <span className="text-xs bg-sky-500/20 text-sky-400 px-2 py-0.5 rounded-full">Coming Soon</span>
                       </div>
                       <p className="text-xs text-slate-500 mt-1">Schedule councils, plan missions, shape your world</p>
                     </div>
@@ -1638,7 +1638,7 @@ export default function ChroniclesHub() {
                   
                   {/* URL Display with glassmorphism */}
                   <div className="relative group">
-                    <div className="absolute -inset-[1px] bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-lg opacity-50 blur-sm group-hover:opacity-75 transition-opacity" />
+                    <div className="absolute -inset-[1px] bg-gradient-to-r from-cyan-500 via-sky-500 to-pink-500 rounded-lg opacity-50 blur-sm group-hover:opacity-75 transition-opacity" />
                     <div className="relative bg-slate-800 rounded-lg p-4 border border-slate-700">
                       <p className="text-cyan-300 text-sm font-mono break-all" data-testid="text-invite-url">
                         {generatedInviteUrl}
@@ -1653,7 +1653,7 @@ export default function ChroniclesHub() {
                       navigator.clipboard.writeText(generatedInviteUrl);
                       toast.success("Invite link copied!");
                     }}
-                    className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400"
                     data-testid="button-copy-invite-link"
                   >
                     <Copy className="w-4 h-4 mr-2" />

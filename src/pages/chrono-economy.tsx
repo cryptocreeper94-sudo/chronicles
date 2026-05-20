@@ -27,7 +27,7 @@ const ECONOMY_PILLARS = [
     icon: Building,
     title: "Property Ownership",
     description: "Own land, buildings, businesses. Blockchain deeds prove ownership. Property can be bought, sold, or lost.",
-    color: "from-purple-500 to-violet-600",
+    color: "from-sky-500 to-cyan-600",
     image: historicalKingdom
   },
   {
@@ -218,7 +218,7 @@ export default function ChronoEconomy() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Badge className="mb-4 bg-purple-500/20 text-purple-400 border-purple-500/30">
+              <Badge className="mb-4 bg-sky-500/20 text-sky-400 border-sky-500/30">
                 <Layers className="w-3 h-3 mr-1" /> Signal Utility
               </Badge>
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-white">
@@ -227,8 +227,8 @@ export default function ChronoEconomy() {
               <div className="space-y-4">
                 {TOKEN_UTILITY.map((item, i) => (
                   <div key={i} className="flex items-center gap-4 p-3 rounded-lg bg-white/5 border border-white/10">
-                    <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
-                      <Zap className="w-4 h-4 text-purple-400" />
+                    <div className="w-8 h-8 rounded-full bg-sky-500/20 flex items-center justify-center">
+                      <Zap className="w-4 h-4 text-sky-400" />
                     </div>
                     <div>
                       <p className="text-white font-medium">{item.use}</p>
