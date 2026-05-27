@@ -1,4 +1,4 @@
-﻿# Chronicles
+# Chronicles
 
 > $([char]0x1F512) **Patent Pending:** The core deterministic governance capabilities (Lume-V) within this repository are protected under U.S. Provisional Patent Application **No. 64/032,339** (Filed April 7, 2026).
 
@@ -6,7 +6,12 @@ Life simulation and legacy planning — milestone tracking, family trees, memory
 
 **Live:** [yourlegacy.io](https://yourlegacy.io)
 
-## Lume-OS Integration
+## Downloads (100% Free & Ad-Free)
+
+| Platform | Link |
+|----------|------|
+| 💻 Windows | [Chronoverse Setup 1.0.0.exe](https://github.com/cryptocreeper94-sudo/chronicles/releases/latest) |
+| 📱 Android | [Download APK](https://github.com/cryptocreeper94-sudo/chronicles/releases/latest) |## Lume-OS Integration
 
 This application is registered with **Lume Cortex** — the deterministic meta-operating system governing the Trust Layer ecosystem.
 
